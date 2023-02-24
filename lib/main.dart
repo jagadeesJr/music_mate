@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_mate/global_access/toast_message/toster.dart';
+import 'package:music_mate/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: "Olimpos_light",
         primarySwatch: Colors.amber,
       ),
-      home: MyWidget()
+      home: const SplashScreen()
     );
   }
 }
