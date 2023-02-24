@@ -12,9 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Music Mate',
+      themeMode:ThemeMode.system,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: "Olimpos_light",
+        primarySwatch: Colors.amber,
       ),
       home: const SplashScreen(),
     );
