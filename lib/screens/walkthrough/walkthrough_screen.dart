@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/interest/interest_screen.dart';
+import 'package:music_mate/screens/profile/profile.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
 
@@ -102,7 +104,7 @@ class GoWidget extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const NoInternet()));
+                          builder: (context) => const InterestScreen()));
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));
@@ -123,9 +125,9 @@ class GoWidget extends StatelessWidget {
                           image:
                               const AssetImage("assets/images/go_image.gif")),
                       Text(
-                        "  Go",
+                        " Go",
                         style: TextStyle(
-                          fontSize: SizeConfig.blockSizeVertical! * 3.5,
+                          fontSize: SizeConfig.blockSizeVertical! * 3,
                           fontFamily: "Olimpos_bold",
                         ),
                       )
