@@ -31,7 +31,6 @@ class _MyAppState extends State<MyApp> {
         'no_internet' :(context) => const NoInternet(),
       },
         initialRoute: 'splash_screen',  
-     
     );
   }
 }
