@@ -33,7 +33,6 @@ class _MyAppState extends State<MyApp> {
         'dashboard' :(context) => const Dashboard(),
       },
         initialRoute: 'splash_screen',  
-     
     );
   }
 }

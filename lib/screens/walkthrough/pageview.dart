@@ -26,7 +26,7 @@ class PageViewerWidget extends StatelessWidget {
             children: [
               Padding(
                   padding:
-                      EdgeInsets.only(top: SizeConfig.blockSizeVertical! * 65),
+                      EdgeInsets.only(top: SizeConfig.blockSizeVertical! * 60),
                   child: Container(
                       color: Colors.black38,
                       child: Column(children: [
@@ -34,8 +34,8 @@ class PageViewerWidget extends StatelessWidget {
                           title,
                           style: TextStyle(
                               color:Colors.white,
-                              fontSize: SizeConfig.blockSizeVertical! * 4,
-                              fontFamily: "Olimpos_bold",
+                              fontSize: SizeConfig.blockSizeVertical! * 3.5,
+                              // fontFamily: "Olimpos_bold",
                               fontWeight: FontWeight.bold),
                         ),
                         Padding(
@@ -49,7 +49,7 @@ class PageViewerWidget extends StatelessWidget {
                             style: TextStyle(
                                 fontFamily: "Olimpos_bold",
                                 color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 2.5),
+                                fontSize: SizeConfig.blockSizeVertical! * 2.2),
                             textAlign: TextAlign.center,
                           ),
                         ),
