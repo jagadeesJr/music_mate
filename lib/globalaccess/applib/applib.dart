@@ -9,3 +9,5 @@ export 'package:music_mate/globalaccess/internet_connection/nointernet.dart';
 export 'package:music_mate/globalaccess/local_storage/local_storage.dart';
 export 'package:dio/dio.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
+export 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+export '../../screens/dash_board/dash_board.dart';
