@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../globalaccess/applib/applib.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,6 +30,7 @@ class _MyAppState extends State<MyApp> {
         'splash_screen' :(context) => const SplashScreen(),
         'walk_through' :(context) => const WalkthroughScreen(),
         'no_internet' :(context) => const NoInternet(),
+        'dashboard' :(context) => const Dashboard(),
       },
         initialRoute: 'splash_screen',  
      
