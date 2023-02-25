@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_mate/global_access/toast_message/toster.dart';
-import 'package:music_mate/screens/splash/splash_screen.dart';
+import '../../globalaccess/applib/applib.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,31 +24,14 @@ class _MyAppState extends State<MyApp> {
         fontFamily: "Olimpos_light",
         primarySwatch: Colors.amber,
       ),
-      home: const SplashScreen()
+       routes: {
+        '/':(context) => const NoInternet(),
+        'splash_screen' :(context) => const SplashScreen(),
+        'walk_through' :(context) => const WalkthroughScreen(),
+        'no_internet' :(context) => const NoInternet(),
+      },
+        initialRoute: 'splash_screen',  
+     
     );
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-          body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(ToastMessge().toasterMessage());
-          },
-          child: const Text('View our music'),
-        ),
-      ));
   }
 }

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:music_mate/global_access/applib/app_lib.dart';
+import 'package:music_mate/globalaccess/applib/applib.dart';
 
 class LocalStorage {
   // set data in locally
@@ -44,3 +44,5 @@ class LocalStorage {
     prefs.clear();
   }
 }
+
+
