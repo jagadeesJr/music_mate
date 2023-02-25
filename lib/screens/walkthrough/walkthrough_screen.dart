@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_mate/screens/interest/interest_screen.dart';
+import 'package:music_mate/screens/login/login_screen.dart';
 import 'package:music_mate/screens/profile/profile.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
