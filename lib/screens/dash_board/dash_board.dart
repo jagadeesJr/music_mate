@@ -25,12 +25,12 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
- return LayoutBuilder(
+    return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
         drawer: Drawer(),
         appBar: AppBar(
-          toolbarHeight: SizeConfig.blockSizeHorizontal! * 25,
+          toolbarHeight: SizeConfig.blockSizeVertical! * 12,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
           centerTitle: true,
@@ -39,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
             'Music Mate',
             style: TextStyle(
               fontFamily: 'Olimpos_light',
-              fontSize: SizeConfig.blockSizeVertical! * 3,
+              fontSize: SizeConfig.blockSizeVertical! * 3.5,
               color: Colors.white,
             ),
           ),
@@ -49,12 +49,11 @@ class _DashboardState extends State<Dashboard> {
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-
           child: FlashyTabBar(
-            animationDuration: const Duration(microseconds: 300),
+            animationDuration: const Duration(milliseconds: 300),
             animationCurve: Curves.linear,
             selectedIndex: selectedIndex,
-            iconSize: 30,
+            iconSize: SizeConfig.blockSizeVertical! * 3,
             showElevation: false,
             onItemSelected: (value) {
               setState(() {

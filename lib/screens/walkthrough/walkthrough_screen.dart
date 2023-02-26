@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:music_mate/screens/interest/interest_screen.dart';
 import 'package:music_mate/screens/login/login_screen.dart';
 import 'package:music_mate/screens/profile/profile.dart';
+import 'package:music_mate/screens/profilepicture/profile_update.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
 
@@ -105,7 +106,7 @@ class GoWidget extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const InterestScreen()));
+                          builder: (context) => const Dashboard()));
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));
