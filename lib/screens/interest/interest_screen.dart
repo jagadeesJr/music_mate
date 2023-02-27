@@ -62,6 +62,9 @@ class _InterestScreenState extends State<InterestScreen> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: TextFormField(
+                         style: TextStyle(
+                            fontFamily: "Olimpos_light",
+                            fontSize: SizeConfig.blockSizeVertical! * 2.5),
                         decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.search),
                             suffixIcon: InkWell(

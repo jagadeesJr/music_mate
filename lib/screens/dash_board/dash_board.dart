@@ -3,7 +3,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/profile/profile.dart';
 import '../../globalaccess/applib/applib.dart';
+import '../profilepicture/profile_update.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -18,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   List<Widget> tabItems = [
     const Center(child: Text("Home")),
     const Center(child: Text("Music")),
-    const Center(child: Text("Chat")),
+    const ProfileUpdate()
   ];
 
   @override
@@ -32,6 +34,7 @@ class _DashboardState extends State<Dashboard> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
+        extendBody: true,
         drawer: Drawer(
           child: Container(
             decoration: BoxDecoration(
@@ -41,18 +44,15 @@ class _DashboardState extends State<Dashboard> {
             child: Container(
                 color: Colors.black38,
                 height: double.infinity,
-                
                 child: Padding(
-                
-                        padding: EdgeInsets.fromLTRB(
-                            SizeConfig.blockSizeHorizontal! * 5,
-                            SizeConfig.blockSizeVertical! * 0,
-                            SizeConfig.blockSizeHorizontal! * 0,
-                            SizeConfig.blockSizeVertical! * 0),
+                  padding: EdgeInsets.fromLTRB(
+                      SizeConfig.blockSizeHorizontal! * 5,
+                      SizeConfig.blockSizeVertical! * 0,
+                      SizeConfig.blockSizeHorizontal! * 0,
+                      SizeConfig.blockSizeVertical! * 0),
                   child: Column(
-                    
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [ 
+                    children: [
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 15,
                       ),
@@ -140,64 +140,66 @@ class _DashboardState extends State<Dashboard> {
           child: tabItems[selectedIndex],
         ),
         bottomNavigationBar: Container(
-          margin: EdgeInsets.symmetric(
-            vertical: SizeConfig.blockSizeVertical! * 3,
-            horizontal: SizeConfig.blockSizeHorizontal! * 3,
-          ),
-          padding: EdgeInsets.symmetric(
-            vertical: SizeConfig.blockSizeVertical! * 0.38,
-            horizontal: SizeConfig.blockSizeHorizontal! * 2,
-          ),
-          height: SizeConfig.blockSizeVertical! * 8,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            border: Border.all(
-              color: const Color(0xFF18122B),
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              vertical: SizeConfig.blockSizeVertical! * 1,
+              horizontal: SizeConfig.blockSizeHorizontal! * 1,
             ),
-          ),
-          child: FlashyTabBar(
-            animationDuration: const Duration(milliseconds: 200),
-            animationCurve: Curves.linear,
-            // backgroundColor: Colors.transparent,
-            selectedIndex: selectedIndex,
-            iconSize: SizeConfig.blockSizeVertical! * 3,
-            showElevation: false,
-            onItemSelected: (value) {
-              setState(() {
-                selectedIndex = value;
-              });
-            },
-            items: [
-              FlashyTabBarItem(
-                  icon: const Icon(Icons.home, color: Color(0xFF18122B)),
-                  title: Text(
-                    'Create',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: SizeConfig.blockSizeVertical! * 2,
-                    ),
-                  )),
-              FlashyTabBarItem(
-                  icon: const Icon(Icons.music_note_rounded,
-                      color: Color(0xFF18122B)),
-                  title: Text(
-                    'Listen',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: SizeConfig.blockSizeVertical! * 2,
-                    ),
-                  )),
-              FlashyTabBarItem(
-                  icon: const Icon(Icons.chat, color: Color(0xFF18122B)),
-                  title: Text(
-                    'profile',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: SizeConfig.blockSizeVertical! * 2,
-                    ),
-                  ))
-            ],
+            padding: EdgeInsets.symmetric(
+              vertical: SizeConfig.blockSizeVertical! * 0.3,
+              horizontal: SizeConfig.blockSizeHorizontal! * 2.7,
+            ),
+            height: SizeConfig.blockSizeVertical! * 9,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              border: Border.all(
+                color: const Color(0xFF18122B),
+              ),
+            ),
+            child: FlashyTabBar(
+              animationDuration: const Duration(milliseconds: 300),
+              animationCurve: Curves.linear,
+              // backgroundColor: Colors.transparent,
+              selectedIndex: selectedIndex,
+              iconSize: SizeConfig.blockSizeVertical! * 3,
+              showElevation: false,
+              onItemSelected: (value) {
+                setState(() {
+                  selectedIndex = value;
+                });
+              },
+              items: [
+                FlashyTabBarItem(
+                    icon: const Icon(Icons.home, color: Color(0xFF18122B)),
+                    title: Text(
+                      'Create',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                      ),
+                    )),
+                FlashyTabBarItem(
+                    icon: const Icon(Icons.music_note_rounded,
+                        color: Color(0xFF18122B)),
+                    title: Text(
+                      'Listen',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                      ),
+                    )),
+                FlashyTabBarItem(
+                    icon: const Icon(Icons.person_sharp, color: Color(0xFF18122B)),
+                    title: Text(
+                      'Profile',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                      ),
+                    ))
+              ],
+            ),
           ),
         ),
       );
