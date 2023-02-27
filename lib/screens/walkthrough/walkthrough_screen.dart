@@ -106,7 +106,7 @@ class GoWidget extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Dashboard()));
+                          builder: (context) => const InterestScreen()));
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));
@@ -118,7 +118,7 @@ class GoWidget extends StatelessWidget {
                   width: SizeConfig.blockSizeHorizontal! * 20,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.pinkAccent),
+                      color:const Color(0xFF635985)),
                   child: Row(
                     children: [
                       Image(

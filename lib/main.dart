@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       themeMode:ThemeMode.system,
       theme: ThemeData(
         fontFamily: "Olimpos_light",
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.indigo,
       ),
        routes: {
         '/':(context) => const NoInternet(),
