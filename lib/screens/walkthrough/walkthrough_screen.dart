@@ -118,7 +118,7 @@ class GoWidget extends StatelessWidget {
                   width: SizeConfig.blockSizeHorizontal! * 20,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color:const Color(0xFF635985)),
+                      color: Colors.white),
                   child: Row(
                     children: [
                       Image(
@@ -129,6 +129,7 @@ class GoWidget extends StatelessWidget {
                       Text(
                         " Go",
                         style: TextStyle(
+                          color: const Color(0xFF18122B).withOpacity(0.9),
                           fontSize: SizeConfig.blockSizeVertical! * 3,
                           fontFamily: "Olimpos_bold",
                         ),

@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return WillPopScope(
         onWillPop: onBackButtonPressed,
         child: Scaffold(
-          resizeToAvoidBottomInset:true,
+          resizeToAvoidBottomInset: true,
           body: Form(
             key: _form,
             child: Container(
@@ -114,10 +114,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             hintText: 'Username',
                             hintStyle: const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
-                           filled: true,
-                           errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                            filled: true,
+                            errorStyle: TextStyle(
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
@@ -160,12 +160,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         validator: (value) {
                           String pattern = r'(^[6789][0-9]{9}$)';
                           RegExp regExp = RegExp(pattern);
-                          if(value!.isEmpty) {
+                          if (value!.isEmpty) {
                             return "* Required";
-                          }
-                          else if (!regExp.hasMatch(value)) {
+                          } else if (!regExp.hasMatch(value)) {
                             return "Need a valid Mobile Number";
-                          }  else {
+                          } else {
                             return null;
                           }
                         },
@@ -175,8 +174,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fillColor: Colors.transparent,
                             filled: true,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
@@ -227,11 +226,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
+                            hintStyle: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1)),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
@@ -298,8 +298,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             hintStyle: TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
@@ -369,11 +369,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           )),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginScreenWidget()));
+                            Navigator.pushNamed(context, "login_screen");
                           },
                           child: Text(
                             'Sign In',
@@ -382,11 +378,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               fontSize: SizeConfig.blockSizeVertical! * 2.5,
                             ),
                           )),
-                      // TextButton(onPressed: (){},
-                      // child: const Text('Forget Password?', style: TextStyle(
-                      //   color: Colors.white,
-                      //   fontSize: 18,
-                      // ),)),
                     ],
                   ),
                 ],
@@ -396,8 +387,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 }
-
-//     ScaffoldMessenger.of(context)
-                  // ..hideCurrentSnackBar()
-                  // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));
-               

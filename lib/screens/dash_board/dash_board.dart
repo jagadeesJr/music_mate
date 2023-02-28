@@ -189,7 +189,8 @@ class _DashboardState extends State<Dashboard> {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
           centerTitle: true,
-          backgroundColor: const Color(0xFF635985),
+          backgroundColor: const Color(0xFF18122B).withOpacity(0.9),
+          // const Color(0xFF635985),
           title: Text(
             'Music Mate',
             style: TextStyle(

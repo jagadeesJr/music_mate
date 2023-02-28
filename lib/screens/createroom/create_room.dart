@@ -41,7 +41,7 @@ class _CreateRoomState extends State<CreateRoom> {
                   TextFormField(
                     style: TextStyle(
                         fontFamily: "Olimpos_light",
-                        fontSize: SizeConfig.blockSizeVertical! * 2.5),
+                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
                     decoration: const InputDecoration(
                         hintText: 'Team Velox',
                         border: OutlineInputBorder(
@@ -67,7 +67,7 @@ class _CreateRoomState extends State<CreateRoom> {
                           checkVal = val!;
                         });
                       }),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,8 +82,9 @@ class _CreateRoomState extends State<CreateRoom> {
                           Container(
                             height: SizeConfig.blockSizeVertical! * 5,
                             width: SizeConfig.blockSizeHorizontal! * 10,
-                            decoration: const BoxDecoration(
-                                color: Colors.indigo, shape: BoxShape.circle),
+                            decoration:  BoxDecoration(
+                                color: const Color(0xFF18122B).withOpacity(0.9),
+                                 shape: BoxShape.circle),
                             child: Center(
                               child: Text(
                                 membersCount.toString(),
@@ -112,26 +113,28 @@ class _CreateRoomState extends State<CreateRoom> {
                             }
                           });
                         },
-                        onTapDown: (TapDownDetails details) { 
-                          _timer = Timer.periodic(const Duration(milliseconds: 100), (t) {
-                        setState(() {
-                          if (membersCount >= 1) {
-                              membersCount = membersCount - 1;
-                            }
-                        });
-                      });
-                    },
-                      onTapUp: (TapUpDetails details) {
-                      _timer.cancel();
-                    },
-                    onTapCancel: () {
-                      _timer.cancel();
-                    },
+                        onTapDown: (TapDownDetails details) {
+                          _timer = Timer.periodic(
+                              const Duration(milliseconds: 100), (t) {
+                            setState(() {
+                              if (membersCount >= 1) {
+                                membersCount = membersCount - 1;
+                              }
+                            });
+                          });
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          _timer.cancel();
+                        },
+                        onTapCancel: () {
+                          _timer.cancel();
+                        },
                         child: Container(
                           height: SizeConfig.blockSizeVertical! * 5,
                           width: SizeConfig.blockSizeHorizontal! * 10,
-                          decoration: const BoxDecoration(
-                              color: Colors.indigo, shape: BoxShape.circle),
+                          decoration:  BoxDecoration(
+                              color: const Color(0xFF18122B).withOpacity(0.9),
+                               shape: BoxShape.circle),
                           child: const Center(
                               child: Icon(
                             Icons.remove,
@@ -148,24 +151,26 @@ class _CreateRoomState extends State<CreateRoom> {
                             }
                           });
                         },
-                         onTapDown: (TapDownDetails details) { 
-                          _timer = Timer.periodic(const Duration(milliseconds: 100), (t) {
-                        setState(() {
-                          membersCount++;
-                        });
-                      });
-                    },
-                      onTapUp: (TapUpDetails details) {
-                      _timer.cancel();
-                    },
-                    onTapCancel: () {
-                      _timer.cancel();
-                    },
+                        onTapDown: (TapDownDetails details) {
+                          _timer = Timer.periodic(
+                              const Duration(milliseconds: 100), (t) {
+                            setState(() {
+                              if (membersCount <= 99) membersCount++;
+                            });
+                          });
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          _timer.cancel();
+                        },
+                        onTapCancel: () {
+                          _timer.cancel();
+                        },
                         child: Container(
                           height: SizeConfig.blockSizeVertical! * 5,
                           width: SizeConfig.blockSizeHorizontal! * 10,
-                          decoration: const BoxDecoration(
-                              color: Colors.indigo, shape: BoxShape.circle),
+                          decoration: BoxDecoration(
+                              color: const Color(0xFF18122B).withOpacity(0.9),
+                               shape: BoxShape.circle),
                           child: const Center(
                               child: Icon(
                             Icons.add,
@@ -175,27 +180,52 @@ class _CreateRoomState extends State<CreateRoom> {
                       ),
                     ],
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 3),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Column(crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                         Text(
-                        "Select Song:",
-                        style: TextStyle(
-                            fontFamily: "Olimpos_bold",
-                            fontSize: SizeConfig.blockSizeVertical! * 2.6),
-                      ), Text(
-                        "Why this kolaveri di!",
-                        style: TextStyle(
-                            fontFamily: "Olimpos_bold",
-                            fontSize: SizeConfig.blockSizeVertical! * 2),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Select Song:",
+                            style: TextStyle(
+                                fontFamily: "Olimpos_bold",
+                                fontSize: SizeConfig.blockSizeVertical! * 2.6),
+                          ),
+                          Text(
+                            "Why this kolaveri di!",
+                            style: TextStyle(
+                                fontFamily: "Olimpos_bold",
+                                fontSize: SizeConfig.blockSizeVertical! * 2),
+                          ),
+                        ],
                       ),
-                      ],
+                     Icon(Icons.file_copy,
+                      color: const Color(0xFF18122B).withOpacity(0.9),)
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 5),
+                  Align(
+                    alignment: Alignment.center,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {});
+                      },
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(const Color(0xFF18122B).withOpacity(0.9),)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockSizeHorizontal! * 25,
+                            vertical: SizeConfig.blockSizeVertical! * 1.2),
+                        child: Text('Activate',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.8)),
+                      ),
                     ),
-                    const Icon(Icons.file_copy)
-                  ],)
+                  ),
                 ],
               ),
             ),

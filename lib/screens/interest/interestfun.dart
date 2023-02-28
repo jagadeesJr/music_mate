@@ -7,6 +7,6 @@ String validateSelection(searchBar, selectSinger, context) {
     ..hideCurrentSnackBar()
     ..showSnackBar(toasterMessage(
         "Select any three favorite's.", "assets/icons/warning.png"));
-  Navigator.pushNamed(context, "dashboard");
+  Navigator.pushNamed(context, "login_screen");
   return "true";
 }
