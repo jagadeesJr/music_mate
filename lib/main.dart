@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         'profile_screen' :(context) => const ProfileUpdate(),
         'profile_image_screen' :(context) => const ProfileImageUpdate(),
       },
-      initialRoute: 'dashboard',  
+      initialRoute: 'splash_screen',  
     );
   }
 }
