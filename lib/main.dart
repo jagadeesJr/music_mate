@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/profile/profile.dart';
 import '../../globalaccess/applib/applib.dart';
+import 'screens/profilepicture/profile_update.dart';
 
 
 void main() {
@@ -33,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         'dashboard' :(context) => const Dashboard(),
         
       },
-        initialRoute: 'splash_screen',  
+      initialRoute: 'dashboard',  
     );
   }
 }
