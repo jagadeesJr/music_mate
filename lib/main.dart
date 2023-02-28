@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
         'walk_through' :(context) => const WalkthroughScreen(),
         'no_internet' :(context) => const NoInternet(),
         'dashboard' :(context) => const Dashboard(),
+        
       },
         initialRoute: 'splash_screen',  
     );
