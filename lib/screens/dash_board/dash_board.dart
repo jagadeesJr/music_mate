@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/about_us/about_us.dart';
 import '../../globalaccess/applib/applib.dart';
 
 
@@ -123,11 +124,21 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 1,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+
+                      
+                      InkWell(
+                        onTap: (() {
+                          Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const aboutus()));
+                        }),
+                        child: Row(
+                          children: [
+                          
+                            Container(
+                        height: SizeConfig.blockSizeHorizontal!* 11,
+                        width: SizeConfig.blockSizeVertical!*5,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/about_us.png').image,
@@ -135,13 +146,14 @@ class _DashboardState extends State<Dashboard> {
                     
                      ),
                      SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                          Text(
-                            'About Us',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 3),
-                          ),
-                        ],
+                            Text(
+                              'About Us',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.blockSizeVertical! * 3),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 1,

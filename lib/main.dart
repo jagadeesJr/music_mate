@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/about_us/about_us.dart';
 import 'package:music_mate/screens/profile/profile.dart';
 import '../../globalaccess/applib/applib.dart';
 import 'screens/profilepicture/profile_update.dart';
@@ -33,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         'walk_through' :(context) => const WalkthroughScreen(),
         'no_internet' :(context) => const NoInternet(),
         'dashboard' :(context) => const Dashboard(),
-        
+        'aboutus':(context)=> const aboutus(),
       },
       initialRoute: 'dashboard',  
     );
