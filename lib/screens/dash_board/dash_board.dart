@@ -130,7 +130,7 @@ class _DashboardState extends State<Dashboard> {
                           Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const aboutus()));
+                          builder: (context) => const Aboutus()));
                         }),
                         child: Row(
                           children: [

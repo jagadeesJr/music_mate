@@ -1,14 +1,11 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-
 import '../../globalaccess/applib/sizer.dart';
 
-class aboutus extends StatefulWidget {
-  const aboutus({super.key});
+class Aboutus extends StatefulWidget {
+  const Aboutus({super.key});
 
   @override
-  State<aboutus> createState() => _aboutusState();
+  State<Aboutus> createState() => _AboutusState();
 }
 
 // List member = [
@@ -49,7 +46,7 @@ class aboutus extends StatefulWidget {
 //   },
 // ];
 
-class _aboutusState extends State<aboutus> {
+class _AboutusState extends State<Aboutus> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

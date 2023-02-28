@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/applib/applib.dart';
-
-import '../../globalaccess/applib/sizer.dart';
 import '../login/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -170,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Mobile Number',
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
                             filled: true,
                             errorStyle: TextStyle(
@@ -179,17 +177,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                    const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color:const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                 const BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(
@@ -226,7 +224,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                                 color: Color.fromRGBO(255, 255, 255, 1)),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
@@ -248,17 +246,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                   const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color: const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                 const BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(
@@ -295,7 +293,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Confirm Password',
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle:const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
                               fontSize: SizeConfig.blockSizeVertical! * 2,
@@ -316,17 +314,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                   const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color:const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                const  BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(

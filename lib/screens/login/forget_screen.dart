@@ -28,7 +28,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
         child: Container(
             height: double.infinity,
             width: double.infinity,
-            color: Color.fromARGB(255, 40, 30, 74),
+            color: const Color.fromARGB(255, 40, 30, 74),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -92,7 +92,7 @@ class _CheckMobileNumberState extends State<CheckMobileNumber> {
   TextEditingController number = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Column(
         children: [
           Padding(
@@ -127,7 +127,7 @@ class _CheckMobileNumberState extends State<CheckMobileNumber> {
                 },
                 decoration: InputDecoration(
                     hintText: 'Mobile number',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle:const TextStyle(color: Colors.white),
                     fillColor: Colors.transparent,
                     filled: true,
                     errorStyle: TextStyle(
@@ -136,15 +136,15 @@ class _CheckMobileNumberState extends State<CheckMobileNumber> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: SizeConfig.blockSizeVertical! * 0.05,
-                            color: Color(0xFFF3F4F8),
+                            color: const Color(0xFFF3F4F8),
                             style: BorderStyle.solid),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
+                        borderRadius: const BorderRadius.all(Radius.circular(6))),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: SizeConfig.blockSizeVertical! * 0.05,
-                          color: Color.fromARGB(255, 130, 167, 243),
+                          color: const Color.fromARGB(255, 130, 167, 243),
                           style: BorderStyle.solid),
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderRadius: const BorderRadius.all(Radius.circular(6)),
                     )),
               )),
           SizedBox(
@@ -210,7 +210,7 @@ class _ForgetState extends State<Forget> {
           SizedBox(
             height: SizeConfig.blockSizeVertical! * 2,
           ),
-          Container(
+          SizedBox(
             child: Text(
               'User Name',
               style: TextStyle(
@@ -252,7 +252,7 @@ class _ForgetState extends State<Forget> {
                 decoration: InputDecoration(
                     hintText: 'New Password',
                     hintStyle:
-                        TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
+                        const TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
                     fillColor: Colors.transparent,
                     errorStyle: TextStyle(
                       fontSize: SizeConfig.blockSizeVertical! * 2,
@@ -271,15 +271,15 @@ class _ForgetState extends State<Forget> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: SizeConfig.blockSizeVertical! * 0.05,
-                            color: Color(0xFFF3F4F8),
+                            color:const Color(0xFFF3F4F8),
                             style: BorderStyle.solid),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
+                        borderRadius:const BorderRadius.all(Radius.circular(6))),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: SizeConfig.blockSizeVertical! * 0.05,
-                          color: Color.fromARGB(255, 130, 167, 243),
+                          color:const Color.fromARGB(255, 130, 167, 243),
                           style: BorderStyle.solid),
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderRadius:const BorderRadius.all(Radius.circular(6)),
                     )),
               )),
           SizedBox(
@@ -315,7 +315,7 @@ class _ForgetState extends State<Forget> {
                 },
                 decoration: InputDecoration(
                     hintText: 'Confirm New Password',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     fillColor: Colors.transparent,
                     errorStyle: TextStyle(
                       fontSize: SizeConfig.blockSizeVertical! * 2,
@@ -336,15 +336,15 @@ class _ForgetState extends State<Forget> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: SizeConfig.blockSizeVertical! * 0.05,
-                            color: Color(0xFFF3F4F8),
+                            color:const Color(0xFFF3F4F8),
                             style: BorderStyle.solid),
-                        borderRadius: BorderRadius.all(Radius.circular(6))),
+                        borderRadius:const BorderRadius.all(Radius.circular(6))),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: SizeConfig.blockSizeVertical! * 0.05,
-                          color: Color.fromARGB(255, 130, 167, 243),
+                          color:const Color.fromARGB(255, 130, 167, 243),
                           style: BorderStyle.solid),
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      borderRadius:const BorderRadius.all(Radius.circular(6)),
                     )),
               )),
           SizedBox(
