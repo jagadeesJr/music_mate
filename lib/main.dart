@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         'dashboard' :(context) => const Dashboard(),
         'aboutus':(context)=> const aboutus(),
       },
-      initialRoute: 'dashboard',  
+      initialRoute: 'splash_screen',  
     );
   }
 }

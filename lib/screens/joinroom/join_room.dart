@@ -33,7 +33,7 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                     SizedBox(
-                      height: SizeConfig.blockSizeVertical! * 2,
+                      height: SizeConfig.blockSizeVertical! * 5,
                     ),
                     Padding(
                       padding:
@@ -46,10 +46,10 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                         ),
                       ),
                     ),
-                   CarouselSlider(
+                    CarouselSlider(
                       options: CarouselOptions(
                           initialPage: 0,
-                          aspectRatio: 10 / 4.3,
+                          aspectRatio: 10 / 5.5,
                           enableInfiniteScroll: false,
                           pageSnapping: true,
                           enlargeCenterPage: true,
@@ -73,6 +73,7 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                       ),
                     ),
                     ListView.builder(
+                        physics: const ScrollPhysics(),
                         itemCount: 3,
                         shrinkWrap: true,
                         itemBuilder: (buildContext, index) {
@@ -83,17 +84,15 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                       height: SizeConfig.blockSizeVertical! * 10,
                     ),
                   ]))),
-                  floatingActionButton:  Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical:SizeConfig.blockSizeVertical! * 2),
-                      child:FloatingActionButton(
-          backgroundColor:Colors.blue.withOpacity(0.6),
-          onPressed: () {
-          },
-          child: const Icon(Icons.search_outlined),
-        )),
-        floatingActionButtonLocation:FloatingActionButtonLocation.endTop
-        );
+          floatingActionButton: Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockSizeVertical! * 2),
+              child: FloatingActionButton(
+                backgroundColor: Colors.blue.withOpacity(0.6),
+                onPressed: () {},
+                child: const Icon(Icons.search_outlined),
+              )),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endTop);
     });
   }
 }
