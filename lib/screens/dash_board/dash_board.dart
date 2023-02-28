@@ -51,56 +51,124 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 15,
                       ),
+                      
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                     Container(
+                      height: SizeConfig.blockSizeHorizontal!* 11,
+                      width: SizeConfig.blockSizeVertical!*5,
+                     decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: Image.asset('assets/icons/dj.png').image,
+                    fit: BoxFit.cover)),
+                     ),
+                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
                       Text(
                         'Create',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: SizeConfig.blockSizeVertical! * 3),
+                      ),]),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical! * 2.5,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                          Container(
+                      height: SizeConfig.blockSizeHorizontal!* 11,
+                      width: SizeConfig.blockSizeVertical!*5,
+                     decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: Image.asset('assets/icons/smartphone.png').image,
+                    fit: BoxFit.cover)),
+                     ),
+                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
+                          Text(
+                            'Listen',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 3),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
+                        height: SizeConfig.blockSizeVertical! * 2.5,
                       ),
-                      Text(
-                        'Listen',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: SizeConfig.blockSizeVertical! * 3),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
-                      ),
-                      Text(
-                        'profile',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: SizeConfig.blockSizeVertical! * 3),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
-                      ),
-                      Text(
-                        'About Us',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: SizeConfig.blockSizeVertical! * 3),
+                      Row(
+                        children: [
+                          SizedBox(width: SizeConfig.blockSizeVertical!*1,),
+                          Container(
+                            
+                      height: SizeConfig.blockSizeHorizontal!* 9,
+                      width: SizeConfig.blockSizeVertical!*4,
+                     decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: Image.asset('assets/icons/user_2.png').image,
+                    fit: BoxFit.cover),
+                    ),
+                     ),
+                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
+                          Text(
+                            'Profile',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 3),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
+                        height: SizeConfig.blockSizeVertical! * 1,
                       ),
-                      Text(
-                        'Sign Out',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: SizeConfig.blockSizeVertical! * 3),
+                      Row(
+                        children: [
+                          Container(
+                      height: SizeConfig.blockSizeHorizontal!* 11,
+                      width: SizeConfig.blockSizeVertical!*5,
+                     decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: Image.asset('assets/icons/about_us.png').image,
+                    fit: BoxFit.cover)),
+                    
+                     ),
+                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
+                          Text(
+                            'About Us',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 3),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
+                        height: SizeConfig.blockSizeVertical! * 1,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                      height: SizeConfig.blockSizeHorizontal!* 11,
+                      width: SizeConfig.blockSizeVertical!*5,
+                     decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: Image.asset('assets/icons/log_out.png').image,
+                    fit: BoxFit.cover)),
+                     ),
+                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
+                          Text(
+                            'Sign Out',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 3),
+                          ),
+                        ],
                       ),
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Text(
-                            'Nothing Presents',
+                            'From Nothing Presents',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: SizeConfig.blockSizeVertical! * 3,

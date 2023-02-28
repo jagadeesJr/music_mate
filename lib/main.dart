@@ -33,8 +33,7 @@ class _MyAppState extends State<MyApp> {
         'walk_through' :(context) => const WalkthroughScreen(),
         'no_internet' :(context) => const NoInternet(),
         'dashboard' :(context) => const Dashboard(),
-        'profile_screen' :(context) => const ProfileUpdate(),
-        'profile_image_screen' :(context) => const ProfileImageUpdate(),
+        
       },
       initialRoute: 'splash_screen',  
     );
