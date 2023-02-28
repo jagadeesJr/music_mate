@@ -31,16 +31,23 @@ class _DashboardState extends State<Dashboard> {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
         extendBody: true,
-        drawer: Drawer(
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/images/design_1.jpg').image,
-                    fit: BoxFit.cover)),
-            child: Container(
-                color: Colors.black38,
-                height: double.infinity,
-                child: Padding(
+        drawer:Theme(
+      data: Theme.of(context).copyWith(
+       canvasColor: Colors.transparent.withOpacity(0.5), 
+           ),
+      child: Drawer(
+        width:MediaQuery.of(context).size.width*0.6,
+          child: 
+          // SizedBox(
+            // decoration: BoxDecoration(
+                // image: DecorationImage(
+                //     image: Image.asset('assets/images/design_1.jpg').image,
+                //     fit: BoxFit.cover)),
+            // child: SizedBox(
+                // color: Colors.black38,
+                // height: double.infinity,
+                // child:
+                 Padding(
                   padding: EdgeInsets.fromLTRB(
                       SizeConfig.blockSizeHorizontal! * 5,
                       SizeConfig.blockSizeVertical! * 0,
@@ -56,10 +63,11 @@ class _DashboardState extends State<Dashboard> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
                      Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                      padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/dj.png').image,
@@ -77,10 +85,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
                           Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
+                      padding:const EdgeInsets.all(15),
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/smartphone.png').image,
@@ -100,11 +109,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*1,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*1,),
                           Container(
-                            
-                      height: SizeConfig.blockSizeHorizontal!* 9,
-                      width: SizeConfig.blockSizeVertical!*4,
+                            padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 9,
+                      // width: SizeConfig.blockSizeVertical!*4,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/user_2.png').image,
@@ -136,8 +145,9 @@ class _DashboardState extends State<Dashboard> {
                           children: [
                           
                             Container(
-                        height: SizeConfig.blockSizeHorizontal!* 11,
-                        width: SizeConfig.blockSizeVertical!*5,
+                        // height: SizeConfig.blockSizeHorizontal!* 11,
+                        // width: SizeConfig.blockSizeVertical!*5,
+                        padding:const EdgeInsets.all(15),
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/about_us.png').image,
@@ -160,8 +170,9 @@ class _DashboardState extends State<Dashboard> {
                       Row(
                         children: [
                           Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                            padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/log_out.png').image,
@@ -195,7 +206,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 )),
           ),
-        ),
+        
         appBar: AppBar(
           toolbarHeight: SizeConfig.blockSizeVertical! * 12,
           shape: const RoundedRectangleBorder(
