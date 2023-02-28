@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:music_mate/screens/about_us/about_us.dart';
-=======
-import 'package:music_mate/screens/createroom/create_room.dart';
->>>>>>> e698ce4a06cfa9e3c0d164f509dacb83ba93882f
 import '../../globalaccess/applib/applib.dart';
+import '../createroom/create_room.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
