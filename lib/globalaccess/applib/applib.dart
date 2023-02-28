@@ -11,3 +11,8 @@ export 'package:dio/dio.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 export 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 export '../../screens/dash_board/dash_board.dart';
+export '../../screens/profilepicture/profile_update.dart';
+export '../../screens/joinroom/join_room.dart';
+export '../../screens/profile/profile.dart';
+export 'package:carousel_slider/carousel_slider.dart';
+export 'package:music_mate/screens/interest/interest_screen.dart';

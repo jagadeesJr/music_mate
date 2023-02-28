@@ -1,11 +1,7 @@
-// import 'dart:ffi';
-
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:music_mate/screens/profile/profile.dart';
 import '../../globalaccess/applib/applib.dart';
-import '../profilepicture/profile_update.dart';
+
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -19,7 +15,7 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> tabItems = [
     const Center(child: Text("Home")),
-    const Center(child: Text("Music")),
+    const JoinRoomWidget(),
     const ProfileUpdate()
   ];
 
@@ -121,7 +117,7 @@ class _DashboardState extends State<Dashboard> {
                 )),
           ),
         ),
-        appBar: AppBar(
+        appBar: AppBar( 
           toolbarHeight: SizeConfig.blockSizeVertical! * 12,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
@@ -139,8 +135,7 @@ class _DashboardState extends State<Dashboard> {
         body: Center(
           child: tabItems[selectedIndex],
         ),
-        bottomNavigationBar: Container(
-          child: Container(
+        bottomNavigationBar:Container(
             margin: EdgeInsets.symmetric(
               vertical: SizeConfig.blockSizeVertical! * 1,
               horizontal: SizeConfig.blockSizeHorizontal! * 1,
@@ -171,7 +166,9 @@ class _DashboardState extends State<Dashboard> {
               },
               items: [
                 FlashyTabBarItem(
-                    icon: const Icon(Icons.home, color: Color(0xFF18122B)),
+                    icon: Icon(Icons.multitrack_audio_sharp, 
+                    color:const Color(0xFF18122B),
+                    size: SizeConfig.blockSizeVertical! * 3.5,),
                     title: Text(
                       'Create',
                       style: TextStyle(
@@ -180,8 +177,9 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     )),
                 FlashyTabBarItem(
-                    icon: const Icon(Icons.music_note_rounded,
-                        color: Color(0xFF18122B)),
+                    icon: Icon(Icons.music_note_rounded,
+                        color:const Color(0xFF18122B),
+                         size: SizeConfig.blockSizeVertical! * 3.5),
                     title: Text(
                       'Listen',
                       style: TextStyle(
@@ -190,7 +188,9 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     )),
                 FlashyTabBarItem(
-                    icon: const Icon(Icons.person_sharp, color: Color(0xFF18122B)),
+                    icon: Icon(Icons.person_rounded, 
+                    color:const Color(0xFF18122B),
+                     size: SizeConfig.blockSizeVertical! * 3.5,),
                     title: Text(
                       'Profile',
                       style: TextStyle(
@@ -200,7 +200,7 @@ class _DashboardState extends State<Dashboard> {
                     ))
               ],
             ),
-          ),
+          
         ),
       );
     });

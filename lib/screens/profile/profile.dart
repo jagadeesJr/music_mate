@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_mate/screens/interest/interest_screen.dart';
+
 import '../../globalaccess/applib/applib.dart';
 
 class ProfileUpdate extends StatefulWidget {
@@ -16,7 +16,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
-        body: Container(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
