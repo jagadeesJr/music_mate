@@ -62,7 +62,7 @@ class _InterestScreenState extends State<InterestScreen> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: TextFormField(
-                         style: TextStyle(
+                        style: TextStyle(
                             fontFamily: "Olimpos_light",
                             fontSize: SizeConfig.blockSizeVertical! * 2.5),
                         decoration: InputDecoration(
@@ -99,11 +99,14 @@ class _InterestScreenState extends State<InterestScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.white,
           onPressed: () {
-            validateSelection(searchBar,selectSinger,context);
+            validateSelection(searchBar, selectSinger, context);
           },
-          child: const Icon(Icons.double_arrow_rounded),
+          child: Icon(
+            Icons.double_arrow_rounded,
+            color: const Color(0xFF18122B).withOpacity(0.9),
+          ),
         ),
       );
     });

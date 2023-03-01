@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:music_mate/screens/about_us/about_us.dart';
 import '../../globalaccess/applib/applib.dart';
-
+import '../createroom/create_room.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -14,7 +14,7 @@ class _DashboardState extends State<Dashboard> {
   int selectedIndex = 0;
 
   List<Widget> tabItems = [
-    const Center(child: Text("Home")),
+    const CreateRoom(),
     const JoinRoomWidget(),
     const ProfileUpdate()
   ];
@@ -31,16 +31,23 @@ class _DashboardState extends State<Dashboard> {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
         extendBody: true,
-        drawer: Drawer(
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/images/design_1.jpg').image,
-                    fit: BoxFit.cover)),
-            child: Container(
-                color: Colors.black38,
-                height: double.infinity,
-                child: Padding(
+        drawer:Theme(
+      data: Theme.of(context).copyWith(
+       canvasColor: Colors.transparent.withOpacity(0.5), 
+           ),
+      child: Drawer(
+        width:MediaQuery.of(context).size.width*0.6,
+          child: 
+          // SizedBox(
+            // decoration: BoxDecoration(
+                // image: DecorationImage(
+                //     image: Image.asset('assets/images/design_1.jpg').image,
+                //     fit: BoxFit.cover)),
+            // child: SizedBox(
+                // color: Colors.black38,
+                // height: double.infinity,
+                // child:
+                 Padding(
                   padding: EdgeInsets.fromLTRB(
                       SizeConfig.blockSizeHorizontal! * 5,
                       SizeConfig.blockSizeVertical! * 0,
@@ -56,10 +63,11 @@ class _DashboardState extends State<Dashboard> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
                      Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                      padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/dj.png').image,
@@ -77,10 +85,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
                           Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
+                      padding:const EdgeInsets.all(15),
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/smartphone.png').image,
@@ -100,11 +109,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: SizeConfig.blockSizeVertical!*1,),
+                          // SizedBox(width: SizeConfig.blockSizeVertical!*1,),
                           Container(
-                            
-                      height: SizeConfig.blockSizeHorizontal!* 9,
-                      width: SizeConfig.blockSizeVertical!*4,
+                            padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 9,
+                      // width: SizeConfig.blockSizeVertical!*4,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/user_2.png').image,
@@ -123,11 +132,22 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 1,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+
+                      
+                      InkWell(
+                        onTap: (() {
+                          Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Aboutus()));
+                        }),
+                        child: Row(
+                          children: [
+                          
+                            Container(
+                        // height: SizeConfig.blockSizeHorizontal!* 11,
+                        // width: SizeConfig.blockSizeVertical!*5,
+                        padding:const EdgeInsets.all(15),
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/about_us.png').image,
@@ -135,13 +155,14 @@ class _DashboardState extends State<Dashboard> {
                     
                      ),
                      SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                          Text(
-                            'About Us',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 3),
-                          ),
-                        ],
+                            Text(
+                              'About Us',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.blockSizeVertical! * 3),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 1,
@@ -149,8 +170,9 @@ class _DashboardState extends State<Dashboard> {
                       Row(
                         children: [
                           Container(
-                      height: SizeConfig.blockSizeHorizontal!* 11,
-                      width: SizeConfig.blockSizeVertical!*5,
+                            padding:const EdgeInsets.all(15),
+                      // height: SizeConfig.blockSizeHorizontal!* 11,
+                      // width: SizeConfig.blockSizeVertical!*5,
                      decoration: BoxDecoration(
                 image: DecorationImage(
                     image: Image.asset('assets/icons/log_out.png').image,
@@ -184,13 +206,14 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 )),
           ),
-        ),
-        appBar: AppBar( 
+        
+        appBar: AppBar(
           toolbarHeight: SizeConfig.blockSizeVertical! * 12,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
           centerTitle: true,
-          backgroundColor: const Color(0xFF635985),
+          backgroundColor: const Color(0xFF18122B).withOpacity(0.9),
+          // const Color(0xFF635985),
           title: Text(
             'Music Mate',
             style: TextStyle(
@@ -203,72 +226,74 @@ class _DashboardState extends State<Dashboard> {
         body: Center(
           child: tabItems[selectedIndex],
         ),
-        bottomNavigationBar:Container(
-            margin: EdgeInsets.symmetric(
-              vertical: SizeConfig.blockSizeVertical! * 1,
-              horizontal: SizeConfig.blockSizeHorizontal! * 1,
+        bottomNavigationBar: Container(
+          margin: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockSizeVertical! * 1.5,
+            horizontal: SizeConfig.blockSizeHorizontal! * 5,
+          ),
+          padding: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockSizeVertical! * 0.3,
+            horizontal: SizeConfig.blockSizeHorizontal! * 2.7,
+          ),
+          height: SizeConfig.blockSizeVertical! * 9,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            border: Border.all(
+              color: const Color(0xFF18122B),
             ),
-            padding: EdgeInsets.symmetric(
-              vertical: SizeConfig.blockSizeVertical! * 0.3,
-              horizontal: SizeConfig.blockSizeHorizontal! * 2.7,
-            ),
-            height: SizeConfig.blockSizeVertical! * 9,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
-              border: Border.all(
-                color: const Color(0xFF18122B),
-              ),
-            ),
-            child: FlashyTabBar(
-              animationDuration: const Duration(milliseconds: 300),
-              animationCurve: Curves.linear,
-              // backgroundColor: Colors.transparent,
-              selectedIndex: selectedIndex,
-              iconSize: SizeConfig.blockSizeVertical! * 3,
-              showElevation: false,
-              onItemSelected: (value) {
-                setState(() {
-                  selectedIndex = value;
-                });
-              },
-              items: [
-                FlashyTabBarItem(
-                    icon: Icon(Icons.multitrack_audio_sharp, 
-                    color:const Color(0xFF18122B),
-                    size: SizeConfig.blockSizeVertical! * 3.5,),
-                    title: Text(
-                      'Create',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                      ),
-                    )),
-                FlashyTabBarItem(
-                    icon: Icon(Icons.music_note_rounded,
-                        color:const Color(0xFF18122B),
-                         size: SizeConfig.blockSizeVertical! * 3.5),
-                    title: Text(
-                      'Listen',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                      ),
-                    )),
-                FlashyTabBarItem(
-                    icon: Icon(Icons.person_rounded, 
-                    color:const Color(0xFF18122B),
-                     size: SizeConfig.blockSizeVertical! * 3.5,),
-                    title: Text(
-                      'Profile',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                      ),
-                    ))
-              ],
-            ),
-          
+          ),
+          child: FlashyTabBar(
+            animationDuration: const Duration(milliseconds: 300),
+            animationCurve: Curves.linear,
+            selectedIndex: selectedIndex,
+            iconSize: SizeConfig.blockSizeVertical! * 3,
+            showElevation: false,
+            onItemSelected: (value) {
+              setState(() {
+                selectedIndex = value;
+              });
+            },
+            items: [
+              FlashyTabBarItem(
+                  icon: Icon(
+                    Icons.multitrack_audio_sharp,
+                    color: const Color(0xFF18122B),
+                    size: SizeConfig.blockSizeVertical! * 3.5,
+                  ),
+                  title: Text(
+                    'Create',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                    ),
+                  )),
+              FlashyTabBarItem(
+                  icon: Icon(Icons.music_note_rounded,
+                      color: const Color(0xFF18122B),
+                      size: SizeConfig.blockSizeVertical! * 3.5),
+                  title: Text(
+                    'Listen',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                    ),
+                  )),
+              FlashyTabBarItem(
+                  icon: Icon(
+                    Icons.person_rounded,
+                    color: const Color(0xFF18122B),
+                    size: SizeConfig.blockSizeVertical! * 3.5,
+                  ),
+                  title: Text(
+                    'Profile',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                    ),
+                  ))
+            ],
+          ),
         ),
       );
     });

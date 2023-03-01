@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/applib/applib.dart';
-
-import '../../globalaccess/applib/sizer.dart';
 import '../login/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -32,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return WillPopScope(
         onWillPop: onBackButtonPressed,
         child: Scaffold(
-          resizeToAvoidBottomInset:true,
+          resizeToAvoidBottomInset: true,
           body: Form(
             key: _form,
             child: Container(
@@ -114,10 +112,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             hintText: 'Username',
                             hintStyle: const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
-                           filled: true,
-                           errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                            filled: true,
+                            errorStyle: TextStyle(
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
@@ -160,37 +158,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         validator: (value) {
                           String pattern = r'(^[6789][0-9]{9}$)';
                           RegExp regExp = RegExp(pattern);
-                          if(value!.isEmpty) {
+                          if (value!.isEmpty) {
                             return "* Required";
-                          }
-                          else if (!regExp.hasMatch(value)) {
+                          } else if (!regExp.hasMatch(value)) {
                             return "Need a valid Mobile Number";
-                          }  else {
+                          } else {
                             return null;
                           }
                         },
                         decoration: InputDecoration(
                             hintText: 'Mobile Number',
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
                             filled: true,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                    const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color:const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                 const BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(
@@ -227,11 +224,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
+                            hintStyle: const TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1)),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
@@ -248,17 +246,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                   const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color: const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                 const BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(
@@ -295,11 +293,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         decoration: InputDecoration(
                             hintText: 'Confirm Password',
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle:const TextStyle(color: Colors.white),
                             fillColor: Colors.transparent,
                             errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
-                          ),
+                              fontSize: SizeConfig.blockSizeVertical! * 2,
+                            ),
                             suffixIcon: InkWell(
                                 onTap: () {
                                   setState(() {
@@ -316,17 +314,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     width: SizeConfig.blockSizeVertical! * 0.05,
-                                    color: Color(0xFFF3F4F8),
+                                    color:const Color(0xFFF3F4F8),
                                     style: BorderStyle.solid),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(6))),
+                                   const BorderRadius.all(Radius.circular(6))),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: Color.fromARGB(255, 130, 167, 243),
+                                  color:const Color.fromARGB(255, 130, 167, 243),
                                   style: BorderStyle.solid),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(6)),
+                                const  BorderRadius.all(Radius.circular(6)),
                             )),
                       )),
                   SizedBox(
@@ -369,11 +367,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           )),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginScreenWidget()));
+                            Navigator.pushNamed(context, "login_screen");
                           },
                           child: Text(
                             'Sign In',
@@ -382,11 +376,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               fontSize: SizeConfig.blockSizeVertical! * 2.5,
                             ),
                           )),
-                      // TextButton(onPressed: (){},
-                      // child: const Text('Forget Password?', style: TextStyle(
-                      //   color: Colors.white,
-                      //   fontSize: 18,
-                      // ),)),
                     ],
                   ),
                 ],
@@ -396,8 +385,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 }
-
-//     ScaffoldMessenger.of(context)
-                  // ..hideCurrentSnackBar()
-                  // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));
-               

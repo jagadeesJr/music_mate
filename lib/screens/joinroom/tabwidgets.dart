@@ -46,21 +46,25 @@ class _CarouselWidgetState extends State<CarouselWidget> {
         ),
         body: Container(
             decoration: BoxDecoration(
-              color: Colors.black38.withOpacity(0.4),
+              color: Colors.indigo.withOpacity(0.1),
+              image: DecorationImage(
+                  opacity: 0.4,
+                  image: Image.asset('assets/images/loading.gif').image,
+                  fit: BoxFit.contain),
               borderRadius: BorderRadius.circular(2),
             ),
             child: Container(
                 margin: EdgeInsets.symmetric(
-                    vertical: SizeConfig.blockSizeVertical! * 1,
+                    vertical: SizeConfig.blockSizeVertical! * 0,
                     horizontal: SizeConfig.blockSizeHorizontal! * 3),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        opacity: 0.4,
-                        image: Image.asset('assets/images/loading.gif').image,
-                        fit: BoxFit.contain)),
+                decoration: const BoxDecoration(),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: SizeConfig.blockSizeVertical! * 0.7,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -68,19 +72,18 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                             onTap: () {
                               scaffoldKeyOne.currentState!.openEndDrawer();
                             },
-                            child: const Icon(Icons.view_stream_outlined,
-                                color: Colors.white))
+                            child: const Icon(
+                              Icons.more_horiz,
+                            ))
                       ],
                     ),
                     Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: Colors.white,
                             fontSize: SizeConfig.blockSizeVertical! * 3)),
                     Text("Room ID : Captain001",
                         style: TextStyle(
-                            color: Colors.white,
                             fontSize: SizeConfig.blockSizeVertical! * 2.3)),
                     SizedBox(
                       height: SizeConfig.blockSizeVertical! * 1,
@@ -107,19 +110,21 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                             SizedBox(
                               width: SizeConfig.blockSizeHorizontal! * 2,
                             ),
-                            Text("VickyBharathi",
+                            Text("Vicky",
                                 style: TextStyle(
-                                    color: Colors.white,
                                     fontSize:
                                         SizeConfig.blockSizeVertical! * 2.2)),
                           ],
                         ),
                         Text("Sun,14 1998",
                             style: TextStyle(
-                                color: Colors.white,
                                 fontSize: SizeConfig.blockSizeVertical! * 2)),
                       ],
-                    )
+                    ),
+                    Text("2 Seats are available",
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontSize: SizeConfig.blockSizeVertical! * 2.3)),
                   ],
                 ))),
       );
@@ -143,10 +148,17 @@ class ContainerVerticalWidgets extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: SizeConfig.blockSizeVertical! * 1.2,
               horizontal: SizeConfig.blockSizeHorizontal! * 5),
-          height: SizeConfig.blockSizeVertical! * 18,
+          height: SizeConfig.blockSizeVertical! * 22,
           decoration: BoxDecoration(
-              color: Colors.black38,
+              color: Colors.indigo.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
+              // color: Color.fromARGB(255, 27, 28, 30),
+              // boxShadow: [
+              //   BoxShadow(
+              //       color: Colors.indigo.withOpacity(0.05),
+              //       blurRadius: 5,
+              //       spreadRadius: 5)
+              // ],
               image: DecorationImage(
                   opacity: 1.4,
                   image: Image.asset('assets/images/loading.gif').image,
@@ -159,20 +171,19 @@ class ContainerVerticalWidgets extends StatelessWidget {
                 children: [
                   InkWell(
                       onTap: () {},
-                      child: const Icon(Icons.my_library_music_rounded,
-                          color: Colors.white))
+                      child: const Icon(
+                        Icons.my_library_music_rounded,
+                      ))
                 ],
               ),
               Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: SizeConfig.blockSizeVertical! * 3)),
+                  style:
+                      TextStyle(fontSize: SizeConfig.blockSizeVertical! * 3)),
               Text("Room ID : Captain002",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+                  style:
+                      TextStyle(fontSize: SizeConfig.blockSizeVertical! * 2.3)),
               SizedBox(
                 height: SizeConfig.blockSizeVertical! * 1,
               ),
@@ -197,18 +208,20 @@ class ContainerVerticalWidgets extends StatelessWidget {
                       SizedBox(
                         width: SizeConfig.blockSizeHorizontal! * 2,
                       ),
-                      Text("VickyBharathi",
+                      Text("Vicky",
                           style: TextStyle(
-                              color: Colors.white,
                               fontSize: SizeConfig.blockSizeVertical! * 2)),
                     ],
                   ),
                   Text("Sun,14 1999",
                       style: TextStyle(
-                          color: Colors.white,
                           fontSize: SizeConfig.blockSizeVertical! * 2)),
                 ],
-              )
+              ),
+              Text("No seats are available",
+                  style: TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: SizeConfig.blockSizeVertical! * 2.3)),
             ],
           ));
     });
