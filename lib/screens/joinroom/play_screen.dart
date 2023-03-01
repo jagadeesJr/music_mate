@@ -53,7 +53,7 @@ class _PlayScreenState extends State<PlayScreen> {
                           ],
                         ),
                         child: IconButton(onPressed: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const JoinRoomWidget()));
+                          Navigator.pushNamed(context, "dashboard");
                         }, icon: Icon(Icons.keyboard_return, size: SizeConfig.blockSizeVertical! * 3,))
                         ),
                     Text(

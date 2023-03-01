@@ -37,31 +37,18 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   ),
                   InkWell(
                       onTap: () async {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: true,
-                            builder: (BuildContext context) {
-                              return const Center(
-                                child: Popup(),
-                              );
-                            });
+                        Navigator.pushNamed(context, "play_screen");
                       },
-                      child: Icon(Icons.visibility, color: Colors.white)),
+                      child: const Icon(Icons.visibility, color: Colors.white)),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
                   InkWell(
                       onTap: () async {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: true,
-                            builder: (BuildContext context) {
-                              return const Center(
-                                child: CreateRoom(),
-                              );
-                            });
+                       Navigator.pushNamed(context, "dashboard");
+                        
                       },
-                      child: Icon(Icons.edit, color: Colors.white)),
+                      child:const Icon(Icons.edit, color: Colors.white)),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
@@ -76,7 +63,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                               );
                             });
                       },
-                      child: Icon(Icons.delete, color: Colors.white))
+                      child: const Icon(Icons.delete, color: Colors.white))
                 ],
               )),
         ),
@@ -84,7 +71,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
             decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.1),
               image: DecorationImage(
-                  opacity: 0.4,
+                  opacity: 0.1,
                   image: Image.asset('assets/images/loading.gif').image,
                   fit: BoxFit.contain),
               borderRadius: BorderRadius.circular(2),
@@ -196,7 +183,7 @@ class ContainerVerticalWidgets extends StatelessWidget {
               //       spreadRadius: 5)
               // ],
               image: DecorationImage(
-                  opacity: 1.4,
+                  opacity: 0.4,
                   image: Image.asset('assets/images/loading.gif').image,
                   fit: BoxFit.contain)),
           child: Column(

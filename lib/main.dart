@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:music_mate/screens/createroom/create_room.dart';
-import 'package:music_mate/screens/login/forget_screen.dart';
+
 import 'package:music_mate/screens/login/login_screen.dart';
 import 'package:music_mate/screens/registration/registration_screen.dart';
+
 import '../../globalaccess/applib/applib.dart';
 
 void main() {
@@ -36,13 +36,14 @@ class _MyAppState extends State<MyApp> {
         'register': (context) => const RegisterScreen(),
         'interest_screen': (context) => const InterestScreen(),
         'no_internet': (context) => const NoInternet(),
-        'dashboard': (context) => const JoinRoomWidget(),
+        'dashboard': (context) => const Dashboard(),
         'profile_screen': (context) => const ProfileUpdate(),
         'profile_image_screen': (context) => const ProfileImageUpdate(),
         'join_room': (context) => const JoinRoomWidget(),
         'create_room': (context) => const CreateRoom(),
         'about_us': (context) => const CreateRoom(),
         'forgot_password': (context) => const ForgetScreen(),
+        'play_screen': (context) => const PlayScreen(),
       },
       initialRoute: 'splash_screen',
     );

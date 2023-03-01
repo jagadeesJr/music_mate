@@ -36,7 +36,7 @@ class _PopupState extends State<Popup> {
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: SizeConfig.blockSizeVertical!*2.5,
-                        fontFamily: 'Olimpos Bold'
+                        fontFamily: 'Olimpos_bold'
                         ),
                         
                   ),
@@ -51,7 +51,7 @@ class _PopupState extends State<Popup> {
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: SizeConfig.blockSizeVertical!*1.7,
-                    fontFamily: 'Olimpos Light'),
+                    fontFamily: 'Olimpos_light'),
               ),
           ],
         ),
@@ -72,7 +72,7 @@ class _PopupState extends State<Popup> {
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'Olimpos Bold'),
+                    fontFamily: 'Olimpos_bold'),
               ),
             ),
           ),
@@ -92,7 +92,7 @@ class _PopupState extends State<Popup> {
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'Olimpos Bold'),
+                    fontFamily: 'Olimpos_bold'),
               ),
             ),
           ),
