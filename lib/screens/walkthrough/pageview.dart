@@ -35,7 +35,6 @@ class PageViewerWidget extends StatelessWidget {
                           style: TextStyle(
                               color:Colors.white,
                               fontSize: SizeConfig.blockSizeVertical! * 3.5,
-                              // fontFamily: "Olimpos_bold",
                               fontWeight: FontWeight.bold),
                         ),
                         Padding(

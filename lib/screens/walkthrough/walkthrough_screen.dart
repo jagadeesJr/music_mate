@@ -1,9 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:music_mate/screens/interest/interest_screen.dart';
-import 'package:music_mate/screens/login/login_screen.dart';
-import 'package:music_mate/screens/profile/profile.dart';
-import 'package:music_mate/screens/registration/registration_screen.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
 
@@ -16,7 +12,7 @@ class WalkthroughScreen extends StatefulWidget {
 
 class _WalkthroughScreenState extends State<WalkthroughScreen> {
   dynamic currentIndexPage = 0.0;
-  dynamic pageLength = 3;
+  dynamic pageLength = 4;
   PageController pageController = PageController();
 
 
@@ -59,6 +55,12 @@ Future<bool> onBackButtonPressed() async {
                         imageUrl: "assets/images/harrish_wp1.jpg",
                         content:
                             "is the way the musical sounds and silences are put together in a sequence."),
+                    PageViewerWidget(
+                        title: "Music",
+                        imageUrl: "assets/images/shreyaGoshal_01.jpg",
+                        content:
+                            "acts like a magic key, to which the most tightly closed heart opens."),
+                    
                   ],
                 ),
                 Padding(
@@ -69,7 +71,7 @@ Future<bool> onBackButtonPressed() async {
                       children: [
                         Center(
                           child: DotsIndicator(
-                            dotsCount: 3,
+                            dotsCount: 4,
                             position: currentIndexPage,
                             decorator: const DotsDecorator(
                                 color: Color(0xFF06283D),
@@ -78,7 +80,7 @@ Future<bool> onBackButtonPressed() async {
                         ),
                       ]),
                 ),
-                if (currentIndexPage == 2.0) const GoWidget()
+                if (currentIndexPage == 3.0) const GoWidget()
               ],
             ),
           ));
@@ -118,7 +120,7 @@ class GoWidget extends StatelessWidget {
                   width: SizeConfig.blockSizeHorizontal! * 20,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.pinkAccent),
+                      color: Colors.white),
                   child: Row(
                     children: [
                       Image(
@@ -129,6 +131,7 @@ class GoWidget extends StatelessWidget {
                       Text(
                         " Go",
                         style: TextStyle(
+                          color: const Color(0xFF18122B).withOpacity(0.9),
                           fontSize: SizeConfig.blockSizeVertical! * 3,
                           fontFamily: "Olimpos_bold",
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../globalaccess/applib/applib.dart';
 
 
   toasterMessage(msg,imgUrl) {
@@ -9,15 +10,16 @@ import 'package:flutter/material.dart';
         content: SizedBox(
           child: Row(children: [
              SizedBox(
-              height: 30,
+              height: SizeConfig.blockSizeVertical! * 3.5,
               child: Image(image: AssetImage(imgUrl)) ),
-            const SizedBox(
-              width: 10,
+             SizedBox(
+              width: SizeConfig.blockSizeHorizontal! * 5,
             ),
             Text(
               msg,
-              style:const TextStyle(
-              fontSize:16,
+              style: TextStyle(
+                fontFamily: "Olimpos_light",
+              fontSize:SizeConfig.blockSizeVertical! * 1.6,
               ),
             ),
           ]),
