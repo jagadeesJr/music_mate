@@ -41,6 +41,7 @@ dependencies:
   dio: ^5.0.1
   flashy_tab_bar2: ^0.0.6
   carousel_slider:
+  audio_video_progress_bar: ^1.0.0
 
 dev_dependencies:
 
