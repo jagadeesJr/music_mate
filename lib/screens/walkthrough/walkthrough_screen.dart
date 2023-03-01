@@ -105,10 +105,7 @@ class GoWidget extends StatelessWidget {
             ),
             child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NoInternet()));
+                Navigator.pushNamed(context,"dashboard");
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));

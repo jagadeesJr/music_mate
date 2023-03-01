@@ -1,5 +1,8 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:music_mate/globalaccess/popup_message/popup.dart';
+import 'package:music_mate/screens/createroom/create_room.dart';
 import '../../globalaccess/applib/applib.dart';
 
 class CarouselWidget extends StatefulWidget {
@@ -32,12 +35,33 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
-                  const InkWell(
+                  InkWell(
+                      onTap: () async {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: Popup(),
+                              );
+                            });
+                      },
                       child: Icon(Icons.visibility, color: Colors.white)),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
-                  const InkWell(child: Icon(Icons.edit, color: Colors.white)),
+                  InkWell(
+                      onTap: () async {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: CreateRoom(),
+                              );
+                            });
+                      },
+                      child: Icon(Icons.edit, color: Colors.white)),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
@@ -52,8 +76,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                               );
                             });
                       },
-                      child: Icon(Icons.delete, color: Colors.white
-                      ))
+                      child: Icon(Icons.delete, color: Colors.white))
                 ],
               )),
         ),
@@ -161,7 +184,7 @@ class ContainerVerticalWidgets extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: SizeConfig.blockSizeVertical! * 1.2,
               horizontal: SizeConfig.blockSizeHorizontal! * 5),
-          height: SizeConfig.blockSizeVertical! * 22,
+          height: SizeConfig.blockSizeVertical! * 25,
           decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
@@ -231,10 +254,55 @@ class ContainerVerticalWidgets extends StatelessWidget {
                           fontSize: SizeConfig.blockSizeVertical! * 2)),
                 ],
               ),
-              Text("No seats are available",
-                  style: TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    SizeConfig.blockSizeHorizontal! * 0,
+                    SizeConfig.blockSizeVertical! * 2,
+                    0,
+                    0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("No seats are available",
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 6,
+                          backgroundColor: Color(0xFFd4e7cd),
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(4)))),
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                SizeConfig.blockSizeHorizontal! * 0,0,8,0),
+                            child: Container(
+                                child: Icon(
+                              Icons.music_note_outlined,
+                              color: Colors.green.withOpacity(0.8),
+                              size: SizeConfig.blockSizeVertical! * 2.3,
+                            )),
+                          ),
+                          Text(
+                            'Join now',
+                            style: TextStyle(
+                              color: Colors.green.withOpacity(0.8),
+                              fontFamily: 'Olimpos Bold',
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ));
     });
