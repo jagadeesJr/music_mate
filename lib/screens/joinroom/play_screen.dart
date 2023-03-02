@@ -32,189 +32,190 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                   fit: BoxFit.fill,
                   image: AssetImage('assets/images/background.png')),
             ),
-            child: Column(
-              children: [
-                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                        height: SizeConfig.blockSizeVertical! * 8,
-                        width: SizeConfig.blockSizeHorizontal! * 9.5,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 252, 251, 251),
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 16,
-                              color: Color.fromARGB(199, 200, 200, 200),
-                              offset: Offset(0, 3),
-                            )
-                          ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 3),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                          height: SizeConfig.blockSizeVertical! * 8,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 252, 251, 251),
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 16,
+                                color: Color.fromARGB(199, 200, 200, 200),
+                                offset: Offset(0, 3),
+                              )
+                            ],
+                          ),
+                          child: IconButton(
+                              onPressed: () {
+                                LocalStorage()
+                                    .storeData("string", "dashboard_index", "1");
+                                Navigator.pushNamed(
+                                  context,
+                                  "dashboard",
+                                );
+                              },
+                              icon: Icon(
+                                Icons.keyboard_return,
+                                size: SizeConfig.blockSizeVertical! * 3,
+                              ))),
+                      Text(
+                        'Room ID',
+                        style: TextStyle(
+                          fontFamily: "Olimpos_bold",
+                          fontSize: SizeConfig.blockSizeVertical! * 4,
                         ),
-                        child: IconButton(
-                            onPressed: () {
-                              LocalStorage()
-                                  .storeData("string", "dashboard_index", "1");
-                              Navigator.pushNamed(
-                                context,
-                                "dashboard",
-                              );
-                            },
-                            icon: Icon(
-                              Icons.keyboard_return,
-                              size: SizeConfig.blockSizeVertical! * 3,
-                            ))),
-                    Text(
-                      'Room ID',
-                      style: TextStyle(
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 4,
                       ),
-                    ),
-                    Container(
-                        height: SizeConfig.blockSizeVertical! * 8,
-                        width: SizeConfig.blockSizeHorizontal! * 9.5,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 252, 251, 251),
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 16,
-                              color: Color.fromARGB(199, 200, 200, 200),
-                              offset: Offset(1, 3),
-                            )
-                          ],
-                        ),
-                        child: PopupMenuButton(
-                          itemBuilder: (context) => const [
-                            PopupMenuItem(
-                              value: 1,
-                              child: Text('Deactivate Room'),
-                            ),
-                            PopupMenuItem(
-                              value: 2,
-                              child: Text('Leave Room'),
-                            )
-                          ],
-                          onSelected: (value) {
-                            if (value == 1) {
-                              LocalStorage()
-                                  .storeData("string", "dashboard_index", "1");
-                              Navigator.pushNamed(
-                                context,
-                                "dashboard",
-                              );
-                            } else if (value == 2) {
-                              LocalStorage()
-                                  .storeData("string", "dashboard_index", "1");
-                              Navigator.pushNamed(
-                                context,
-                                "dashboard",
-                              );
-                            }
-                          },
-                        ))
-                  ],
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 7),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 3),
-                  child: ProgressBar(
-                    barCapShape: BarCapShape.square,
-                    progress: const Duration(milliseconds: 1000),
-                    total: const Duration(milliseconds: 50000),
-                    progressBarColor: Colors.indigo,
-                    baseBarColor: Colors.grey.withOpacity(0.20),
-                    bufferedBarColor: Colors.red.withOpacity(0.20),
-                    thumbColor: Colors.deepPurple[300],
-                    barHeight: 10.0,
-                    thumbRadius: 4.0,
+                      Container(
+                          height: SizeConfig.blockSizeVertical! * 8,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 252, 251, 251),
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 16,
+                                color: Color.fromARGB(199, 200, 200, 200),
+                                offset: Offset(1, 3),
+                              )
+                            ],
+                          ),
+                          child: PopupMenuButton(
+                            itemBuilder: (context) => const [
+                              PopupMenuItem(
+                                value: 1,
+                                child: Text('Deactivate Room'),
+                              ),
+                              PopupMenuItem(
+                                value: 2,
+                                child: Text('Leave Room'),
+                              )
+                            ],
+                            onSelected: (value) {
+                              if (value == 1) {
+                                LocalStorage()
+                                    .storeData("string", "dashboard_index", "1");
+                                Navigator.pushNamed(
+                                  context,
+                                  "dashboard",
+                                );
+                              } else if (value == 2) {
+                                LocalStorage()
+                                    .storeData("string", "dashboard_index", "1");
+                                Navigator.pushNamed(
+                                  context,
+                                  "dashboard",
+                                );
+                              }
+                            },
+                          ))
+                    ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Tooltip(
-                      message: 'Play Song',
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.play_circle_outlined,
-                            size: SizeConfig.blockSizeVertical! * 4,
-                            color: Colors.deepPurple[300],
-                          )),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 7),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeHorizontal! * 3),
+                    child: ProgressBar(
+                      barCapShape: BarCapShape.square,
+                      progress: const Duration(milliseconds: 1000),
+                      total: const Duration(milliseconds: 50000),
+                      progressBarColor: Colors.indigo,
+                      baseBarColor: Colors.grey.withOpacity(0.20),
+                      bufferedBarColor: Colors.red.withOpacity(0.20),
+                      thumbColor: Colors.deepPurple[300],
+                      barHeight: 10.0,
+                      thumbRadius: 4.0,
                     ),
-                    SizedBox(width: SizeConfig.blockSizeVertical! * 2),
-                    Tooltip(
-                        message: 'Change Song',
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Tooltip(
+                        message: 'Play Song',
                         child: IconButton(
                             onPressed: () {},
                             icon: Icon(
-                              Icons.change_circle_outlined,
+                              Icons.play_circle_outlined,
                               size: SizeConfig.blockSizeVertical! * 4,
                               color: Colors.deepPurple[300],
-                            ))),
-                  ],
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 1),
-                Text(
-                  'Yuvan Shankar Raja Hit',
-                  textAlign: TextAlign.center,
-                  style:
-                      TextStyle(fontSize: SizeConfig.blockSizeVertical! * 3.5),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Vignesh',
-                      style: TextStyle(
-                          fontSize: SizeConfig.blockSizeVertical! * 3),
-                    ),
-                    Text(
-                      'Sun, 5, 1999',
-                      style: TextStyle(
-                          fontSize: SizeConfig.blockSizeVertical! * 2),
-                    ),
-                  ],
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 1),
-                TabBar(
-                  controller: tabController,
-                  onTap: (index) {
-                    setState(() {
-                      _selectedTabbar = index;
-                    });
-                  },
-                  labelColor: const Color(0xFF18122B),
-                  unselectedLabelColor: Colors.black,
-                  labelStyle: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: SizeConfig.blockSizeVertical! * 2),
-                  indicatorColor: Colors.deepPurple[200],
-                  indicatorWeight: SizeConfig.blockSizeHorizontal! * 0.5,
-                  tabs: const [
-                    Tab(
-                      text: 'Chat',
-                    ),
-                    Tab(
-                      text: 'Users',
-                    ),
-                  ],
-                ),
-                Builder(builder: (_) {
-                  if (_selectedTabbar == 0) {
-                    return tabBarOne(); // 1st tabView
-                  } else {
-                    return tabBarTwo(); // 2nd tabView
-                  }
-                }),
-              ],
-            ),
-          ),
-          bottomNavigationBar: Container(
+                            )),
+                      ),
+                      SizedBox(width: SizeConfig.blockSizeVertical! * 2),
+                      Tooltip(
+                          message: 'Change Song',
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.change_circle_outlined,
+                                size: SizeConfig.blockSizeVertical! * 4,
+                                color: Colors.deepPurple[300],
+                              ))),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                  Text(
+                    'Yuvan Shankar Raja Hit',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: SizeConfig.blockSizeVertical! * 3.5),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        'Vignesh',
+                        style: TextStyle(
+                            fontSize: SizeConfig.blockSizeVertical! * 3),
+                      ),
+                      Text(
+                        'Sun, 5, 1999',
+                        style: TextStyle(
+                            fontSize: SizeConfig.blockSizeVertical! * 2),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                  TabBar(
+                    controller: tabController,
+                    onTap: (index) {
+                      setState(() {
+                        _selectedTabbar = index;
+                      });
+                    },
+                    labelColor: const Color(0xFF18122B),
+                    unselectedLabelColor: Colors.black,
+                    labelStyle: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: SizeConfig.blockSizeVertical! * 2),
+                    indicatorColor: Colors.deepPurple[200],
+                    indicatorWeight: SizeConfig.blockSizeHorizontal! * 0.5,
+                    tabs: const [
+                      Tab(
+                        text: 'Chat',
+                      ),
+                      Tab(
+                        text: 'Users',
+                      ),
+                    ],
+                  ),
+                  Builder(builder: (_) {
+                    if (_selectedTabbar == 0) {
+                      return tabBarOne(); // 1st tabView
+                    } else {
+                      return tabBarTwo(); // 2nd tabView
+                    }
+                  }),
+
+                   SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+
+                   Container(
             color: Colors.transparent,
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: TextFormField(
@@ -249,7 +250,15 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                     borderRadius: const BorderRadius.all(Radius.circular(6)),
                   )),
             ),
-          )),
+          ),
+
+          SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+
+                ],
+              ),
+            ),
+          ),
+    ),
     );
   }
 

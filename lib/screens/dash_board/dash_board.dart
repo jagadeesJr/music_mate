@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:music_mate/globalaccess/popup_message/signout.dart';
 
 import '../../globalaccess/applib/applib.dart';
 
@@ -17,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   List<Widget> tabItems = [
     const CreateRoom(),
     const JoinRoomWidget(),
-    const ProfileUpdate()
+    const ProfileUpdate(),
   ];
 
   @override
@@ -26,6 +29,7 @@ class _DashboardState extends State<Dashboard> {
     getParsingIndex();
   }
 
+  
   getParsingIndex() async {
     String indexString =
         await LocalStorage().getData("string", "dashboard_index") ?? "0";
@@ -216,9 +220,16 @@ class _DashboardState extends State<Dashboard> {
                               height: SizeConfig.blockSizeVertical! * 1.9,
                             ),
                             InkWell(
-                                onTap: () {
-                                  LocalStorage().clearData();
-                                },
+                                onTap: () async {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: Signoutpopup(),
+                              );
+                            });
+                      },
                                 child: Row(
                                   children: [
                                     Container(

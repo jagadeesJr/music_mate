@@ -16,6 +16,24 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushNamed(context, 'walk_through');
     });
+    checkTimer(context);
+  }
+
+  checkTimer(context) {
+    Timer(const Duration(seconds: 5), () async {
+      final connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.none) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NoInternet(),
+          ),
+        );
+      }else{
+        checkTimer(context);
+      }
+      
+    });
   }
 
   Future<bool> onBackButtonPressed() async {

@@ -34,7 +34,7 @@ class _PopupState extends State<Popup> {
                     "Delete",
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: SizeConfig.blockSizeVertical!*2.5,
+                        fontSize: SizeConfig.blockSizeVertical!*3.5,
                         fontFamily: 'Olimpos_bold'
                         ),
                         

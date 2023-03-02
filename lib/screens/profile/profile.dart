@@ -38,6 +38,10 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       alignment: Alignment.bottomRight,
                       child: InkWell(
                         onTap: () {
+                           LocalStorage().removeOneData(
+                                    "dashboard_index",
+                                  );
+                           LocalStorage().storeData('string', 'profile',"true");
                           Navigator.pushNamed(context, "profile_image_screen");
                         },
                         child: SizedBox(
@@ -106,7 +110,14 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                             fontSize: SizeConfig.blockSizeVertical! * 2.6),
                       ),
                       InkWell(
-                          onTap: () {},
+                          onTap: () {
+                             LocalStorage().removeOneData(
+                                    "dashboard_index",
+                                  );
+                                  LocalStorage().storeData('string', 'interestback',"true");
+                             Navigator.pushNamed(context, "interest_screen");
+                          },
+                          
                           child: Icon(Icons.mode_edit_rounded,
                               size: SizeConfig.blockSizeVertical! * 2.2)),
                     ],

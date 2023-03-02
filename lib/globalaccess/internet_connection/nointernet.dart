@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '../applib/applib.dart';
 
@@ -48,10 +50,13 @@ class _NoInternetState extends State<NoInternet> {
 }
 
 checkInterNetConnection(context) async{
+  Timer(const Duration(seconds: 5), () async {
   final connectivityResult = await(Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.none) {
-    
+    checkInterNetConnection(context);
   }else{
     Navigator.pop(context);
   }
+  
+  });
 }

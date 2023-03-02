@@ -10,8 +10,8 @@ class ProfileImageUpdate extends StatefulWidget {
 
 class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
   List singer = [
-    {"image": "assets/images/u1.jpg", "name":"Yuvan Shankar Raja"},
-    {"image":"assets/images/u1.jpg", "name":"Raja"}
+    {"image": "assets/images/u1.jpg", "name": "Yuvan Shankar Raja"},
+    {"image": "assets/images/u1.jpg", "name": "Raja"}
   ];
   int val = 0;
 
@@ -89,7 +89,7 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
                               crossAxisCount: 4, childAspectRatio: 0.8),
                       itemCount: singer.length,
                       itemBuilder: (buildcontext, index) {
-                        return profileImageArea(singer[index],index);
+                        return profileImageArea(singer[index], index);
                       }),
                   SizedBox(height: SizeConfig.blockSizeVertical! * 2),
                 ],
@@ -97,14 +97,39 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
             ),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.white,
+          onPressed: () async {
+            String screenType= await LocalStorage().getData('string', 'profile')??"";
+            
+            if (screenType.isEmpty) {
+              if(mounted){
+                  Navigator.pushNamed(context, "interest_screen");
+              }
+            } else {
+              if(mounted){
+               LocalStorage()
+                                    .storeData("string", "dashboard_index", "2");
+                                Navigator.pushNamed(
+                                  context,
+                                  "dashboard",
+                                );
+              }
+            }
+          },
+          child: Icon(
+            Icons.double_arrow_rounded,
+            color: const Color(0xFF18122B).withOpacity(0.9),
+          ),
+        ),
       );
     });
   }
 
-  Widget profileImageArea(data,index) {
+  Widget profileImageArea(data, index) {
     return InkWell(
       onTap: () {
-        
+        // Navigator.pushNamed(context, "interest_screen");
       },
       child: Column(
         children: [
@@ -115,7 +140,9 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
             height: SizeConfig.blockSizeVertical! * 9,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              image: DecorationImage(fit: BoxFit.cover, image: AssetImage(data["image"].toString())),
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(data["image"].toString())),
               border: Border.all(
                   color: const Color(0xFF635985),
                   width: SizeConfig.blockSizeHorizontal! * 0.18,

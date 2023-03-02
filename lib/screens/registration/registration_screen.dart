@@ -336,11 +336,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         if (!_form.currentState!.validate()) {
                           return;
                         } else {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const LoginScreenWidget()));
+                           Navigator.pushNamed(context, "profile_image_screen");
                         }
                       });
                     },

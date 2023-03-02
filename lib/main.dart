@@ -22,19 +22,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    checkTimer(context);
     WidgetsBinding.instance.addObserver(this);
   }
 
-  checkTimer(context) {
-    Timer(const Duration(seconds: 5), () async {
-      final connectivityResult = await (Connectivity().checkConnectivity());
-      if (connectivityResult == ConnectivityResult.none) {
-        Navigator.pushNamed(context, '/');
-      }
-      checkTimer(context);
-    });
-  }
 
   @override
   void dispose() {

@@ -72,10 +72,6 @@ class _CarouselWidgetState extends State<CarouselWidget> {
         ),
         body: Container(
             decoration: BoxDecoration(
-              //  color: Colors.indigo.withOpacity(0.1),
-              image: DecorationImage(
-                  image: Image.asset('assets/images/loading.gif').image,
-                  fit: BoxFit.contain),
               borderRadius: BorderRadius.circular(2),
               color: const Color.fromARGB(255, 252, 251, 251),
               gradient: const LinearGradient(
@@ -92,7 +88,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
               ],
             ),
             child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+                filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
                 child: Container(
                     margin: EdgeInsets.symmetric(
                         vertical: SizeConfig.blockSizeVertical! * 0,
@@ -204,7 +200,7 @@ class ContainerVerticalWidgets extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: SizeConfig.blockSizeVertical! * 1.2,
               horizontal: SizeConfig.blockSizeHorizontal! * 5),
-          height: SizeConfig.blockSizeVertical! * 25,
+          height: SizeConfig.blockSizeVertical! * 26,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 252, 251, 251),
             borderRadius: BorderRadius.circular(5),

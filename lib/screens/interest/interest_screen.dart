@@ -15,6 +15,7 @@ class _InterestScreenState extends State<InterestScreen> {
 
   @override
   Widget build(BuildContext context) {
+     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
@@ -102,6 +103,7 @@ class _InterestScreenState extends State<InterestScreen> {
           backgroundColor: Colors.white,
           onPressed: () {
             validateSelection(searchBar, selectSinger, context);
+            
           },
           child: Icon(
             Icons.double_arrow_rounded,
