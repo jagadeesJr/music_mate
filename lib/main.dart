@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:music_mate/screens/login/login_screen.dart';
@@ -16,7 +18,52 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    checkTimer(context);
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  checkTimer(context) {
+    Timer(const Duration(seconds: 5), () async {
+      final connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.none) {
+        Navigator.pushNamed(context, '/');
+      }
+      checkTimer(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        // --
+        print('Resumed');
+        break;
+      case AppLifecycleState.inactive:
+        // --
+        print('Inactive');
+        break;
+      case AppLifecycleState.paused:
+        // --
+        print('Paused');
+        break;
+      case AppLifecycleState.detached:
+        // --
+        print('Detached');
+        break;
+    }
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -41,7 +88,7 @@ class _MyAppState extends State<MyApp> {
         'profile_image_screen': (context) => const ProfileImageUpdate(),
         'join_room': (context) => const JoinRoomWidget(),
         'create_room': (context) => const CreateRoom(),
-        'about_us': (context) => const CreateRoom(),
+        'about_us': (context) => const Aboutus(),
         'forgot_password': (context) => const ForgetScreen(),
         'play_screen': (context) => const PlayScreen(),
       },

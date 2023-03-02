@@ -16,8 +16,10 @@ export '../../screens/joinroom/join_room.dart';
 export '../../screens/profile/profile.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:music_mate/screens/interest/interest_screen.dart';
-
+export 'package:music_mate/screens/about_us/about_us.dart';
 export 'package:music_mate/screens/createroom/create_room.dart';
 export 'package:music_mate/screens/joinroom/play_screen.dart';
 export 'package:music_mate/screens/login/forget_screen.dart';
+export 'package:music_mate/globalaccess/popup_message/popup.dart';
+export 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:music_mate/screens/about_us/about_us.dart';
+
 import '../../globalaccess/applib/applib.dart';
-import '../createroom/create_room.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+  const Dashboard({
+    super.key,
+  });
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -22,6 +23,16 @@ class _DashboardState extends State<Dashboard> {
   @override
   void initState() {
     super.initState();
+    getParsingIndex();
+  }
+
+  getParsingIndex() async {
+    String indexString =
+        await LocalStorage().getData("string", "dashboard_index") ?? "0";
+    selectedIndex = int.parse(indexString);
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -31,189 +42,232 @@ class _DashboardState extends State<Dashboard> {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
         extendBody: true,
-        drawer:Theme(
-      data: Theme.of(context).copyWith(
-       canvasColor: Colors.transparent.withOpacity(0.5), 
-           ),
-      child: Drawer(
-        width:MediaQuery.of(context).size.width*0.6,
-          child: 
-          // SizedBox(
-            // decoration: BoxDecoration(
-                // image: DecorationImage(
-                //     image: Image.asset('assets/images/design_1.jpg').image,
-                //     fit: BoxFit.cover)),
-            // child: SizedBox(
-                // color: Colors.black38,
-                // height: double.infinity,
-                // child:
-                 Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      SizeConfig.blockSizeHorizontal! * 5,
-                      SizeConfig.blockSizeVertical! * 0,
-                      SizeConfig.blockSizeHorizontal! * 0,
-                      SizeConfig.blockSizeVertical! * 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 15,
-                      ),
-                      
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
-                     Container(
-                      padding:const EdgeInsets.all(15),
-                      // height: SizeConfig.blockSizeHorizontal!* 11,
-                      // width: SizeConfig.blockSizeVertical!*5,
-                     decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/icons/dj.png').image,
-                    fit: BoxFit.cover)),
-                     ),
-                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                      Text(
-                        'Create',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: SizeConfig.blockSizeVertical! * 3),
-                      ),]),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2.5,
-                      ),
-                      Row(
-                        children: [
-                          // SizedBox(width: SizeConfig.blockSizeVertical!*0.5,),
-                          Container(
-                      // height: SizeConfig.blockSizeHorizontal!* 11,
-                      // width: SizeConfig.blockSizeVertical!*5,
-                      padding:const EdgeInsets.all(15),
-                     decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/icons/smartphone.png').image,
-                    fit: BoxFit.cover)),
-                     ),
-                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                          Text(
-                            'Listen',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 3),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2.5,
-                      ),
-                      Row(
-                        children: [
-                          // SizedBox(width: SizeConfig.blockSizeVertical!*1,),
-                          Container(
-                            padding:const EdgeInsets.all(15),
-                      // height: SizeConfig.blockSizeHorizontal!* 9,
-                      // width: SizeConfig.blockSizeVertical!*4,
-                     decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/icons/user_2.png').image,
-                    fit: BoxFit.cover),
-                    ),
-                     ),
-                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                          Text(
-                            'Profile',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 3),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 1,
-                      ),
-
-                      
-                      InkWell(
-                        onTap: (() {
-                          Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Aboutus()));
-                        }),
-                        child: Row(
+        drawer: Theme(
+            data: Theme.of(context).copyWith(
+              canvasColor: Colors.transparent.withOpacity(0.5),
+            ),
+            child: Drawer(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image:
+                              Image.asset('assets/images/design_1.jpg').image,
+                          fit: BoxFit.cover)),
+                  child: Container(
+                      color: Colors.black38,
+                      height: double.infinity,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(
+                            SizeConfig.blockSizeHorizontal! * 5,
+                            SizeConfig.blockSizeVertical! * 0,
+                            SizeConfig.blockSizeHorizontal! * 0,
+                            SizeConfig.blockSizeVertical! * 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                          
-                            Container(
-                        // height: SizeConfig.blockSizeHorizontal!* 11,
-                        // width: SizeConfig.blockSizeVertical!*5,
-                        padding:const EdgeInsets.all(15),
-                     decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/icons/about_us.png').image,
-                    fit: BoxFit.cover)),
-                    
-                     ),
-                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                            Text(
-                              'About Us',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: SizeConfig.blockSizeVertical! * 3),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 15,
                             ),
+                            InkWell(
+                                onTap: () {
+                                  LocalStorage().removeOneData(
+                                    "dashboard_index",
+                                  );
+                                  Navigator.pushNamed(
+                                    context,
+                                    "dashboard",
+                                  );
+                                },
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.all(15),
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: Image.asset(
+                                                        'assets/icons/dj.png')
+                                                    .image,
+                                                fit: BoxFit.cover)),
+                                      ),
+                                      SizedBox(
+                                          width: SizeConfig.blockSizeVertical! *
+                                              2.5),
+                                      Text(
+                                        'Create',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize:
+                                                SizeConfig.blockSizeVertical! *
+                                                    3),
+                                      ),
+                                    ])),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 2.5,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  LocalStorage().storeData(
+                                      "string", "dashboard_index", "1");
+                                  Navigator.pushNamed(
+                                    context,
+                                    "dashboard",
+                                  );
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: Image.asset(
+                                                      'assets/icons/smartphone.png')
+                                                  .image,
+                                              fit: BoxFit.cover)),
+                                    ),
+                                    SizedBox(
+                                        width: SizeConfig.blockSizeVertical! *
+                                            2.5),
+                                    Text(
+                                      'Listen',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical! *
+                                                  3),
+                                    ),
+                                  ],
+                                )),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 2.5,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  LocalStorage().storeData(
+                                      "string", "dashboard_index", "2");
+                                  Navigator.pushNamed(
+                                    context,
+                                    "dashboard",
+                                  );
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: Image.asset(
+                                                    'assets/icons/user_2.png')
+                                                .image,
+                                            fit: BoxFit.cover),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: SizeConfig.blockSizeVertical! *
+                                            2.5),
+                                    Text(
+                                      'Profile',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical! *
+                                                  3),
+                                    ),
+                                  ],
+                                )),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 1.9,
+                            ),
+                            InkWell(
+                              onTap: (() {
+                                LocalStorage().removeOneData(
+                                  "dashboard_index",
+                                );
+                                Navigator.pushNamed(
+                                  context,
+                                  "about_us",
+                                );
+                              }),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(18),
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: Image.asset(
+                                                    'assets/icons/about_us.png')
+                                                .image,
+                                            fit: BoxFit.cover)),
+                                  ),
+                                  SizedBox(
+                                      width: SizeConfig.blockSizeVertical! * 2),
+                                  Text(
+                                    'About Us',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical! * 3),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 1.9,
+                            ),
+                            InkWell(
+                                onTap: () {
+                                  LocalStorage().clearData();
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(18),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: Image.asset(
+                                                      'assets/icons/log_out.png')
+                                                  .image,
+                                              fit: BoxFit.cover)),
+                                    ),
+                                    SizedBox(
+                                        width:
+                                            SizeConfig.blockSizeVertical! * 2),
+                                    Text(
+                                      'Sign Out',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              SizeConfig.blockSizeVertical! *
+                                                  3),
+                                    ),
+                                  ],
+                                )),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  'From Nothing Presents',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: SizeConfig.blockSizeVertical! * 3,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical! * 1,
+                            )
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 1,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            padding:const EdgeInsets.all(15),
-                      // height: SizeConfig.blockSizeHorizontal!* 11,
-                      // width: SizeConfig.blockSizeVertical!*5,
-                     decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: Image.asset('assets/icons/log_out.png').image,
-                    fit: BoxFit.cover)),
-                     ),
-                     SizedBox(width: SizeConfig.blockSizeVertical!*2),
-                          Text(
-                            'Sign Out',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.blockSizeVertical! * 3),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            'From Nothing Presents',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: SizeConfig.blockSizeVertical! * 3,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 1,
-                      )
-                    ],
-                  ),
-                )),
-          ),
-        
+                      )),
+                ))),
         appBar: AppBar(
           toolbarHeight: SizeConfig.blockSizeVertical! * 12,
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
           centerTitle: true,
           backgroundColor: const Color(0xFF18122B).withOpacity(0.9),
-          // const Color(0xFF635985),
           title: Text(
             'Music Mate',
             style: TextStyle(
@@ -252,6 +306,9 @@ class _DashboardState extends State<Dashboard> {
             onItemSelected: (value) {
               setState(() {
                 selectedIndex = value;
+                LocalStorage().removeOneData(
+                  "dashboard_index",
+                );
               });
             },
             items: [

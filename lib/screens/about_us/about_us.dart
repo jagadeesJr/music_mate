@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../globalaccess/applib/sizer.dart';
+import 'package:music_mate/globalaccess/applib/applib.dart';
 
 class Aboutus extends StatefulWidget {
   const Aboutus({super.key});
@@ -7,44 +7,6 @@ class Aboutus extends StatefulWidget {
   @override
   State<Aboutus> createState() => _AboutusState();
 }
-
-// List member = [
-//   {
-//     'Name': 'Nmae:Ilaya Barathi',
-//     'Email': 'Email: papu@gmail.com',
-//     'Number': 'Cont_No: 9876543210',
-//     'Company': 'Company: Macincode',
-//     'Degree': 'Degree: Bsc(Cs)'
-//   },
-//   {
-//     'Name': 'Nmae: Vignesh',
-//     'Email': 'Email: papu@gmail.com',
-//     'Number': 'Cont_No: 9876543210',
-//     'Company': 'Company: Macincode',
-//     'Degree': 'Degree: Bsc(Cs)'
-//   },
-//   {
-//     'Name': 'Nmae: Jagadeeswaran Sivalingam ',
-//     'Email': 'Email: papu@gmail.com',
-//     'Number': 'Cont_No: 9876543210',
-//     'Company': 'Company: Macincode',
-//     'Degree': 'Degree: Bsc(Cs)'
-//   },
-//   {
-//     'Name': 'Nmae: Grija',
-//     'Email': 'Email: papu@gmail.com',
-//     'Number': 'Cont_No: 9876543210',
-//     'Company': 'Company: Macincode',
-//     'Degree': 'Degree: Bsc(Cs)'
-//   },
-//   {
-//     'Name': 'Nmae: Karthiga',
-//     'Email': 'Email: papu@gmail.com',
-//     'Number': 'Cont_No: 9876543210',
-//     'Company': 'Company: Macincode',
-//     'Degree': 'Degree: Bsc(Cs)'
-//   },
-// ];
 
 class _AboutusState extends State<Aboutus> {
   @override
@@ -70,7 +32,9 @@ class _AboutusState extends State<Aboutus> {
             ),
             leading: InkWell(
               onTap: (() {
-                Navigator.pushNamed(context, "dashboard");
+                LocalStorage()
+          .removeOneData("dashboard_index",);
+                          Navigator.pushNamed(context,"dashboard",);
               }),
               child: Icon(
                 Icons.arrow_back,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../applib/sizer.dart';
 
 class Popup extends StatefulWidget {
@@ -24,7 +23,7 @@ class _PopupState extends State<Popup> {
                children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(SizeConfig.blockSizeHorizontal!*0,0,5,0),
-                  child: Container(                  
+                  child: SizedBox(                  
                     child: 
                     Icon(Icons.music_off_rounded, size: SizeConfig.blockSizeVertical!*3, color: Colors.red),
                     // Image(image: AssetImage('assets/icons/cancel.png'))
@@ -50,7 +49,7 @@ class _PopupState extends State<Popup> {
                 "Do you want to delete this room..?",
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
-                    fontSize: SizeConfig.blockSizeVertical!*1.7,
+                    fontSize: SizeConfig.blockSizeVertical!*2.3,
                     fontFamily: 'Olimpos_light'),
               ),
           ],
@@ -58,7 +57,7 @@ class _PopupState extends State<Popup> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              //  Navigator.of(ctx).pop();
+               Navigator.of(context).pop();
             },
             child: Container(
               decoration: const BoxDecoration(
@@ -68,17 +67,15 @@ class _PopupState extends State<Popup> {
               ),
               padding: EdgeInsets.all(SizeConfig.safeBlockVertical!*1.3),
               child: const Text(
-                "OK",
+                "CANCEL",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Olimpos_bold'),
+                    color: Colors.white,),
               ),
             ),
           ),
           TextButton(
             onPressed: () {
-              //  Navigator.of(ctx).pop();
+               Navigator.of(context).pop();
             },
             child: Container(
               decoration: const BoxDecoration(
@@ -90,9 +87,7 @@ class _PopupState extends State<Popup> {
               child: const Text(
                 "DELETE",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Olimpos_bold'),
+                    color: Colors.white,),
               ),
             ),
           ),

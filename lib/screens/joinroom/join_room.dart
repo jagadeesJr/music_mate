@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../globalaccess/applib/applib.dart';
+import 'searchroom.dart';
 import 'tabwidgets.dart';
 
 class JoinRoomWidget extends StatefulWidget {
@@ -78,7 +79,7 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                         shrinkWrap: true,
                         itemBuilder: (buildContext, index) {
                           return ContainerVerticalWidgets(
-                              itemData: imgList[index]);
+                              itemData: imgList[index],index:index);
                         }),
                     SizedBox(
                       height: SizeConfig.blockSizeVertical! * 10,
@@ -89,7 +90,12 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                   vertical: SizeConfig.blockSizeVertical! * 2),
               child: FloatingActionButton(
                 backgroundColor: Colors.blue.withOpacity(0.6),
-                onPressed: () {},
+                onPressed: () {
+                  LocalStorage().removeOneData(
+                    "dashboard_index",
+                  );
+                  Navigator.of(context).push(SecondPageRoute());
+                },
                 child: const Icon(Icons.search_outlined),
               )),
           floatingActionButtonLocation: FloatingActionButtonLocation.endTop);

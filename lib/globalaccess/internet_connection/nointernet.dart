@@ -12,7 +12,7 @@ class _NoInternetState extends State<NoInternet> {
   @override
   void initState() {
     super.initState();
-    checkInterNetConnection();
+    checkInterNetConnection(context);
   }
 
   Future<bool> onBackButtonPressed() async {
@@ -47,9 +47,11 @@ class _NoInternetState extends State<NoInternet> {
   }
 }
 
-checkInterNetConnection() async{
+checkInterNetConnection(context) async{
   final connectivityResult = await(Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.none) {
-    return {"status": 0, "message": "Network Error"};
+    
+  }else{
+    Navigator.pop(context);
   }
 }

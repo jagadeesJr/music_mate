@@ -1,8 +1,5 @@
-// import 'dart:ffi';
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:music_mate/globalaccess/popup_message/popup.dart';
-import 'package:music_mate/screens/createroom/create_room.dart';
 import '../../globalaccess/applib/applib.dart';
 
 class CarouselWidget extends StatefulWidget {
@@ -22,6 +19,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Scaffold(
         key: scaffoldKeyOne,
+        drawerScrimColor: Colors.black38,
         endDrawer: ClipRRect(
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20),
@@ -37,6 +35,9 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   ),
                   InkWell(
                       onTap: () async {
+                        LocalStorage().removeOneData(
+                          "dashboard_index",
+                        );
                         Navigator.pushNamed(context, "play_screen");
                       },
                       child: const Icon(Icons.visibility, color: Colors.white)),
@@ -45,10 +46,12 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   ),
                   InkWell(
                       onTap: () async {
-                       Navigator.pushNamed(context, "dashboard");
-                        
+                        LocalStorage().removeOneData(
+                          "dashboard_index",
+                        );
+                        Navigator.pushNamed(context, "dashboard");
                       },
-                      child:const Icon(Icons.edit, color: Colors.white)),
+                      child: const Icon(Icons.edit, color: Colors.white)),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical! * 2,
                   ),
@@ -69,87 +72,116 @@ class _CarouselWidgetState extends State<CarouselWidget> {
         ),
         body: Container(
             decoration: BoxDecoration(
-              color: Colors.indigo.withOpacity(0.1),
+              //  color: Colors.indigo.withOpacity(0.1),
               image: DecorationImage(
-                  opacity: 0.1,
                   image: Image.asset('assets/images/loading.gif').image,
                   fit: BoxFit.contain),
               borderRadius: BorderRadius.circular(2),
+              color: const Color.fromARGB(255, 252, 251, 251),
+              gradient: const LinearGradient(
+                  stops: [.5, .5],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Color(0xFF18122B), Color(0xFF635985)]),
+              boxShadow: const [
+                BoxShadow(
+                  blurRadius: 11,
+                  color: Color.fromARGB(199, 200, 200, 200),
+                  offset: Offset(0, 3),
+                )
+              ],
             ),
-            child: Container(
-                margin: EdgeInsets.symmetric(
-                    vertical: SizeConfig.blockSizeVertical! * 0,
-                    horizontal: SizeConfig.blockSizeHorizontal! * 3),
-                decoration: const BoxDecoration(),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: SizeConfig.blockSizeVertical! * 0.7,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+            child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+                child: Container(
+                    margin: EdgeInsets.symmetric(
+                        vertical: SizeConfig.blockSizeVertical! * 0,
+                        horizontal: SizeConfig.blockSizeHorizontal! * 3),
+                    decoration: const BoxDecoration(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        InkWell(
-                            onTap: () {
-                              scaffoldKeyOne.currentState!.openEndDrawer();
-                            },
-                            child: const Icon(
-                              Icons.more_horiz,
-                            ))
-                      ],
-                    ),
-                    Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 3)),
-                    Text("Room ID : Captain001",
-                        style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2.3)),
-                    SizedBox(
-                      height: SizeConfig.blockSizeVertical! * 1,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
+                        SizedBox(
+                          height: SizeConfig.blockSizeVertical! * 0.7,
+                        ),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Container(
-                              width: SizeConfig.blockSizeHorizontal! * 8.2,
-                              height: SizeConfig.blockSizeVertical! * 4,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: const Color(0xFF635985)),
-                                  borderRadius: BorderRadius.circular(100),
-                                  image: const DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                          "assets/images/coming_soon.gif"))),
-                            ),
-                            SizedBox(
-                              width: SizeConfig.blockSizeHorizontal! * 2,
-                            ),
-                            Text("Vicky",
-                                style: TextStyle(
-                                    fontSize:
-                                        SizeConfig.blockSizeVertical! * 2.2)),
+                            InkWell(
+                                onTap: () {
+                                  scaffoldKeyOne.currentState!.openEndDrawer();
+                                },
+                                child: const Icon(Icons.more_horiz,
+                                    color: Colors.white))
                           ],
                         ),
-                        Text("Sun,14 1998",
+                        Text(
+                            "Yuvean Shankar raja hits Yuvean Shankar raja hits",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                fontSize: SizeConfig.blockSizeVertical! * 2)),
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 3)),
+                        Text("Room ID : Captain001",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+                        SizedBox(
+                          height: SizeConfig.blockSizeVertical! * 1,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  width: SizeConfig.blockSizeHorizontal! * 8.2,
+                                  height: SizeConfig.blockSizeVertical! * 4,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: const Color(0xFF635985)),
+                                      image: const DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              "assets/images/coming_soon.gif"))),
+                                ),
+                                SizedBox(
+                                  width: SizeConfig.blockSizeHorizontal! * 2,
+                                ),
+                                Text("Vicky",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical! *
+                                                2.2)),
+                              ],
+                            ),
+                            Text("Sun,14 1998",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2)),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Icon(Icons.chair_outlined,
+                                color: Colors.white70),
+                            SizedBox(
+                                width: SizeConfig.blockSizeHorizontal! * 2),
+                            Text("2 Seats are available",
+                                style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.3)),
+                          ],
+                        )
                       ],
-                    ),
-                    Text("2 Seats are available",
-                        style: TextStyle(
-                            color: Colors.green,
-                            fontSize: SizeConfig.blockSizeVertical! * 2.3)),
-                  ],
-                ))),
+                    )))),
       );
     });
   }
@@ -157,7 +189,8 @@ class _CarouselWidgetState extends State<CarouselWidget> {
 
 class ContainerVerticalWidgets extends StatelessWidget {
   final String itemData;
-  const ContainerVerticalWidgets({super.key, required this.itemData});
+  final int index;
+  const ContainerVerticalWidgets({super.key, required this.itemData,required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -173,19 +206,21 @@ class ContainerVerticalWidgets extends StatelessWidget {
               horizontal: SizeConfig.blockSizeHorizontal! * 5),
           height: SizeConfig.blockSizeVertical! * 25,
           decoration: BoxDecoration(
-              color: Colors.indigo.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10),
-              // color: Color.fromARGB(255, 27, 28, 30),
-              // boxShadow: [
-              //   BoxShadow(
-              //       color: Colors.indigo.withOpacity(0.05),
-              //       blurRadius: 5,
-              //       spreadRadius: 5)
-              // ],
-              image: DecorationImage(
-                  opacity: 0.4,
-                  image: Image.asset('assets/images/loading.gif').image,
-                  fit: BoxFit.contain)),
+            color: const Color.fromARGB(255, 252, 251, 251),
+            borderRadius: BorderRadius.circular(5),
+            gradient: const LinearGradient(
+                stops: [.5, .5],
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [Color(0xFF18122B), Color(0xFF635985)]),
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 11,
+                color: Color.fromARGB(199, 200, 200, 200),
+                offset: Offset(0, 3),
+              )
+            ],
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -194,19 +229,20 @@ class ContainerVerticalWidgets extends StatelessWidget {
                 children: [
                   InkWell(
                       onTap: () {},
-                      child: const Icon(
-                        Icons.my_library_music_rounded,
-                      ))
+                      child: const Icon(Icons.my_library_music_rounded,
+                          color: Colors.white))
                 ],
               ),
               Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style:
-                      TextStyle(fontSize: SizeConfig.blockSizeVertical! * 3)),
+                  style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical! * 3,
+                      color: Colors.white)),
               Text("Room ID : Captain002",
-                  style:
-                      TextStyle(fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+                  style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                      color: Colors.white)),
               SizedBox(
                 height: SizeConfig.blockSizeVertical! * 1,
               ),
@@ -233,11 +269,13 @@ class ContainerVerticalWidgets extends StatelessWidget {
                       ),
                       Text("Vicky",
                           style: TextStyle(
+                              color: Colors.white,
                               fontSize: SizeConfig.blockSizeVertical! * 2)),
                     ],
                   ),
                   Text("Sun,14 1999",
                       style: TextStyle(
+                          color: Colors.white,
                           fontSize: SizeConfig.blockSizeVertical! * 2)),
                 ],
               ),
@@ -250,14 +288,20 @@ class ContainerVerticalWidgets extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("No seats are available",
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontSize: SizeConfig.blockSizeVertical! * 2.3)),
-                    ElevatedButton(
+                    Row(
+                      children: [
+                        const Icon(Icons.chair_sharp, color: Colors.white38),
+                        SizedBox(width: SizeConfig.blockSizeHorizontal! * 2),
+                        Text("Seats are full",
+                            style: TextStyle(
+                                color: Colors.white38,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.3)),
+                      ],
+                    ),
+                    index==1?ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           elevation: 6,
-                          backgroundColor: Color(0xFFd4e7cd),
+                          backgroundColor: Colors.red.withOpacity(0.5),
                           shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(4)))),
@@ -267,26 +311,59 @@ class ContainerVerticalWidgets extends StatelessWidget {
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                SizeConfig.blockSizeHorizontal! * 0,0,8,0),
-                            child: Container(
-                                child: Icon(
-                              Icons.music_note_outlined,
-                              color: Colors.green.withOpacity(0.8),
+                                SizeConfig.blockSizeHorizontal! * 0, 0, 8, 0),
+                            child: Icon(
+                              Icons.headset_off_outlined,
+                              color: Colors.red,
                               size: SizeConfig.blockSizeVertical! * 2.3,
-                            )),
+                            ),
+                          ),
+                          Text(
+                            'Full',
+                            style: TextStyle(
+                              color: Colors.red.withOpacity(0.9),
+                              fontFamily: "Olimpos_bold",
+                              fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ):  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 6,
+                          backgroundColor:Colors.green.withOpacity(0.5),
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(4)))),
+                      onPressed: () {
+                        LocalStorage().removeOneData(
+                          "dashboard_index",
+                        );
+                        Navigator.pushNamed(context, "play_screen");
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                SizeConfig.blockSizeHorizontal! * 0, 0, 8, 0),
+                            child: Icon(
+                              Icons.music_note_outlined,
+                              color:Colors.green,
+                              size: SizeConfig.blockSizeVertical! * 2.3,
+                            ),
                           ),
                           Text(
                             'Join now',
                             style: TextStyle(
                               color: Colors.green.withOpacity(0.8),
-                              fontFamily: 'Olimpos Bold',
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                              fontFamily: "Olimpos_bold",
                             ),
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
