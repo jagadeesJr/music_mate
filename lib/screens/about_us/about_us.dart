@@ -32,9 +32,13 @@ class _AboutusState extends State<Aboutus> {
             ),
             leading: InkWell(
               onTap: (() {
-                LocalStorage()
-          .removeOneData("dashboard_index",);
-                          Navigator.pushNamed(context,"dashboard",);
+                LocalStorage().removeOneData(
+                  "dashboard_index",
+                );
+                Navigator.pushNamed(
+                  context,
+                  "dashboard",
+                );
               }),
               child: Icon(
                 Icons.arrow_back,
@@ -79,15 +83,59 @@ class _AboutusState extends State<Aboutus> {
                             fontSize: SizeConfig.blockSizeVertical! * 3,
                             fontFamily: 'Olimpos_italic_light'),
                       ),
-                      RichText(
-                          text: TextSpan(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-                              style: TextStyle(
-                                fontSize: SizeConfig.blockSizeVertical! * 2,
-                                fontFamily: 'Olimpos_italic_light',
-                                color: Colors.black,
-                              ))),
+                      Text(
+                          "It's hard to know which came first Music or Musician.\n",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                             fontWeight: FontWeight.w600,
+                        fontSize: SizeConfig.blockSizeVertical!*2.3,
+                        fontFamily: 'Olimpos_light',
+                            color: Colors.red,
+                          )),
+                      Text(
+                          "     There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                                 fontWeight: FontWeight.w600,
+                        fontSize: SizeConfig.blockSizeVertical!*2.3,
+                        fontFamily: 'Olimpos_light',
+                            color: Colors.black,
+                          )),
+                      Text(
+                          "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                                 fontWeight: FontWeight.w600,
+                        fontSize: SizeConfig.blockSizeVertical!*2.3,
+                        fontFamily: 'Olimpos_light',
+                            color: Colors.blue[900],
+                          )),
+                      // RichText(
+                      //     text: TextSpan(
+                      //         style: TextStyle(
+                      //           fontSize: SizeConfig.blockSizeVertical! * 2,
+                      //           fontFamily: 'Olimpos_italic_light',
+                      //           color: Colors.black,
+                      //         ),
+                      //         children: [
+                      //       TextSpan(
+                      //           text:
+                      //               "It's hard to know which came first Music or Musician.\n",
+                      //           style: TextStyle(
+                      //             color: Colors.red,
+                      //           )),
+                      //       TextSpan(
+                      //         text:
+                      //             "There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
+                      //       ),
+                      //       TextSpan(
+                      //           text:
+                      //               "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
+                      //           style: TextStyle(
+                      //             color: Colors.blue[900],
+                      //           ))
+                      //     ])
+                      //     ),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 2,
                       ),

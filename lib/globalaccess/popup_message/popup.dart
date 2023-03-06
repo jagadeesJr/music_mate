@@ -15,6 +15,7 @@ class _PopupState extends State<Popup> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return AlertDialog(
+        backgroundColor: Color(0xFF18122b),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,6 +34,7 @@ class _PopupState extends State<Popup> {
                 Text(
                     "Delete",
                     style: TextStyle(
+                      color: Color.fromARGB(255, 214, 213, 213),
                         fontWeight: FontWeight.w600,
                         fontSize: SizeConfig.blockSizeVertical!*3.5,
                         fontFamily: 'Olimpos_bold'
@@ -48,6 +50,7 @@ class _PopupState extends State<Popup> {
                Text(
                 "Do you want to delete this room..?",
                 style: TextStyle(
+                  color: Color.fromARGB(255, 214, 213, 213),
                     fontWeight: FontWeight.w400,
                     fontSize: SizeConfig.blockSizeVertical!*2.3,
                     fontFamily: 'Olimpos_light'),

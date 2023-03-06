@@ -61,6 +61,46 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                   padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockSizeHorizontal! * 8),
                   child: Text(
+                    "User Name:",
+                    style: TextStyle(
+                        fontFamily: "Olimpos_bold",
+                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
+                  ),
+                ),
+                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal! * 6),
+                  height: SizeConfig.blockSizeVertical! * 6,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFF635985)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeHorizontal! * 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Musicphile's name",
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                          ),
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.mode_edit_rounded,
+                                size: SizeConfig.blockSizeVertical! * 2.2)),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: SizeConfig.blockSizeVertical! * 4),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal! * 8),
+                  child: Text(
                     "Phone number:",
                     style: TextStyle(
                         fontFamily: "Olimpos_bold",
@@ -84,6 +124,46 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       children: [
                         Text(
                           "+91 6381077758",
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockSizeVertical! * 2.2,
+                          ),
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.mode_edit_rounded,
+                                size: SizeConfig.blockSizeVertical! * 2.2)),
+                      ],
+                    ),
+                  ),
+                ),
+                 SizedBox(height: SizeConfig.blockSizeVertical! * 4),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal! * 8),
+                  child: Text(
+                    "Bio:",
+                    style: TextStyle(
+                        fontFamily: "Olimpos_bold",
+                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
+                  ),
+                ),
+                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockSizeHorizontal! * 6),
+                  height: SizeConfig.blockSizeVertical! * 6,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xFF635985)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.blockSizeHorizontal! * 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Who am I..?",
                           style: TextStyle(
                             fontSize: SizeConfig.blockSizeVertical! * 2.2,
                           ),
@@ -164,6 +244,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                     ],
                   ),
                 ),
+               
                 SizedBox(height: SizeConfig.blockSizeVertical! * 15),
               ],
             ),

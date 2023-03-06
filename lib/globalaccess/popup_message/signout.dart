@@ -18,6 +18,7 @@ class _SignoutpopupState extends State<Signoutpopup> {
           image: DecorationImage(image: NetworkImage('https://freepngimg.com/thumb/jazz/48347-5-musical-notation-symbol-image-png-image-high-quality.png'))
         ),
         child: AlertDialog(
+          backgroundColor: Color(0xFF18122b),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -35,6 +36,7 @@ class _SignoutpopupState extends State<Signoutpopup> {
                     Text(
                         "Sign Out",
                         style: TextStyle(
+                          color: Color.fromARGB(255, 214, 213, 213),
                             fontWeight: FontWeight.w600,
                             fontSize: SizeConfig.blockSizeVertical!*3.5,
                             fontFamily: 'Olimpos_bold'
@@ -48,6 +50,7 @@ class _SignoutpopupState extends State<Signoutpopup> {
                    Text(
                     "Do you want to sign out really..?",
                     style: TextStyle(
+                      color: Color.fromARGB(255, 214, 213, 213),
                         fontWeight: FontWeight.w400,
                         fontSize: SizeConfig.blockSizeVertical!*2.3,
                         fontFamily: 'Olimpos_light'),

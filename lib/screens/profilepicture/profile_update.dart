@@ -100,20 +100,20 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
           onPressed: () async {
-            String screenType= await LocalStorage().getData('string', 'profile')??"";
-            
+            String screenType =
+                await LocalStorage().getData('string', 'profile') ?? "";
+
             if (screenType.isEmpty) {
-              if(mounted){
-                  Navigator.pushNamed(context, "interest_screen");
+              if (mounted) {
+                Navigator.pushNamed(context, "interest_screen");
               }
             } else {
-              if(mounted){
-               LocalStorage()
-                                    .storeData("string", "dashboard_index", "2");
-                                Navigator.pushNamed(
-                                  context,
-                                  "dashboard",
-                                );
+              if (mounted) {
+                LocalStorage().storeData("string", "dashboard_index", "2");
+                Navigator.pushNamed(
+                  context,
+                  "dashboard",
+                );
               }
             }
           },
