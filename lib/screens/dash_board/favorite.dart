@@ -104,7 +104,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                       FocusScope.of(context).unfocus();
                                     },
                                     child: const Icon(Icons.clear)),
-                                hintText: 'Search Favorites...',
+                                hintText: 'Search your Favorites...',
                                 border: InputBorder.none),
                           ),
                         ),
