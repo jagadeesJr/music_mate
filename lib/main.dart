@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:music_mate/screens/login/login_screen.dart';
+import 'package:music_mate/screens/profile/profile_edit.dart';
 import 'package:music_mate/screens/registration/registration_screen.dart';
 
 import '../../globalaccess/applib/applib.dart';
@@ -80,6 +81,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         'about_us': (context) => const Aboutus(),
         'forgot_password': (context) => const ForgetScreen(),
         'play_screen': (context) => const PlayScreen(),
+        'profile_edit':(context) => const ProfileEdit(),
       },
       initialRoute: 'splash_screen',
     );

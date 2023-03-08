@@ -38,10 +38,10 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       alignment: Alignment.bottomRight,
                       child: InkWell(
                         onTap: () {
-                           LocalStorage().removeOneData(
-                                    "dashboard_index",
-                                  );
-                           LocalStorage().storeData('string', 'profile',"true");
+                          LocalStorage().removeOneData(
+                            "dashboard_index",
+                          );
+                          LocalStorage().storeData('string', 'profile', "true");
                           Navigator.pushNamed(context, "profile_image_screen");
                         },
                         child: SizedBox(
@@ -56,124 +56,177 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                     ),
                   ),
                 ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 4),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 8),
-                  child: Text(
-                    "User Name:",
-                    style: TextStyle(
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
-                  ),
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                  height: SizeConfig.blockSizeVertical! * 6,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFF635985)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.blockSizeHorizontal! * 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Musicphile's name",
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                          ),
-                        ),
-                        InkWell(
-                            onTap: () {},
-                            child: Icon(Icons.mode_edit_rounded,
-                                size: SizeConfig.blockSizeVertical! * 2.2)),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 4),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 8),
-                  child: Text(
-                    "Phone number:",
-                    style: TextStyle(
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
-                  ),
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                  height: SizeConfig.blockSizeVertical! * 6,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFF635985)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.blockSizeHorizontal! * 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "+91 6381077758",
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                          ),
-                        ),
-                        InkWell(
-                            onTap: () {},
-                            child: Icon(Icons.mode_edit_rounded,
-                                size: SizeConfig.blockSizeVertical! * 2.2)),
-                      ],
-                    ),
-                  ),
-                ),
-                 SizedBox(height: SizeConfig.blockSizeVertical! * 4),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 8),
-                  child: Text(
-                    "Bio:",
-                    style: TextStyle(
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 2.6),
-                  ),
-                ),
-                SizedBox(height: SizeConfig.blockSizeVertical! * 3),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                  height: SizeConfig.blockSizeVertical! * 6,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFF635985)),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.blockSizeHorizontal! * 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Who am I..?",
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2.2,
-                          ),
-                        ),
-                        InkWell(
-                            onTap: () {},
-                            child: Icon(Icons.mode_edit_rounded,
-                                size: SizeConfig.blockSizeVertical! * 2.2)),
-                      ],
-                    ),
+                  padding: const EdgeInsets.all(30.0),
+                  child: Material(
+                    elevation: 7,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    child: SizedBox(
+                        width: SizeConfig.blockSizeHorizontal! * 100,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 8),
+                              child: Text(
+                                'Username',
+                                style: TextStyle(
+                                    fontFamily: "Olimpos_bold",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.6),
+                              ),
+                            ),
+                            SizedBox(
+                                height: SizeConfig.blockSizeVertical! * 1.5),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 6),
+                              height: SizeConfig.blockSizeVertical! * 6,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: const Color(0xFF635985)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        SizeConfig.blockSizeHorizontal! * 5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Musicphile's Name",
+                                      style: TextStyle(
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical! * 2.2,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 8),
+                              child: Text(
+                                'Phone number',
+                                style: TextStyle(
+                                    fontFamily: "Olimpos_bold",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.6),
+                              ),
+                            ),
+                            SizedBox(
+                                height: SizeConfig.blockSizeVertical! * 1.5),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 6),
+                              height: SizeConfig.blockSizeVertical! * 6,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: const Color(0xFF635985)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        SizeConfig.blockSizeHorizontal! * 5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "+91 6381077758",
+                                      style: TextStyle(
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical! * 2.2,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 8),
+                              child: Text(
+                                'Bio',
+                                style: TextStyle(
+                                    fontFamily: "Olimpos_bold",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.6),
+                              ),
+                            ),
+                            SizedBox(
+                                height: SizeConfig.blockSizeVertical! * 1.5),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 6),
+                              height: SizeConfig.blockSizeVertical! * 6,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: const Color(0xFF635985)),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        SizeConfig.blockSizeHorizontal! * 5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Who am I..?",
+                                      style: TextStyle(
+                                        fontSize:
+                                            SizeConfig.blockSizeVertical! * 2.2,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                                height: SizeConfig.blockSizeVertical! * 1.5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal:
+                                          SizeConfig.blockSizeHorizontal! * 3,
+                                      vertical:
+                                          SizeConfig.blockSizeVertical! * 2),
+                                  child: InkWell(
+                                      onTap: () {
+                                        LocalStorage().removeOneData(
+                              "dashboard_index",
+                            );
+                            LocalStorage()
+                                .storeData('string', 'profileEdit', "true");
+                                        Navigator.pushNamed(
+                                            context, 'profile_edit');
+                                      },
+                                      child: Icon(Icons.mode_edit_rounded,
+                                          size: SizeConfig.blockSizeVertical! *
+                                              2.2)),
+                                ),
+                              ],
+                            )
+                          ],
+                        )),
                   ),
                 ),
                 SizedBox(height: SizeConfig.blockSizeVertical! * 4),
@@ -191,13 +244,13 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       ),
                       InkWell(
                           onTap: () {
-                             LocalStorage().removeOneData(
-                                    "dashboard_index",
-                                  );
-                                  LocalStorage().storeData('string', 'interestback',"true");
-                             Navigator.pushNamed(context, "interest_screen");
+                            LocalStorage().removeOneData(
+                              "dashboard_index",
+                            );
+                            LocalStorage()
+                                .storeData('string', 'interestback', "true");
+                            Navigator.pushNamed(context, "interest_screen");
                           },
-                          
                           child: Icon(Icons.mode_edit_rounded,
                               size: SizeConfig.blockSizeVertical! * 2.2)),
                     ],
@@ -244,7 +297,6 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                     ],
                   ),
                 ),
-               
                 SizedBox(height: SizeConfig.blockSizeVertical! * 15),
               ],
             ),

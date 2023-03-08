@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
 
@@ -15,10 +15,22 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
   dynamic pageLength = 4;
   PageController pageController = PageController();
 
+  DateTime preBackPress = DateTime.now();
 
-  
-Future<bool> onBackButtonPressed() async {
-    return false;
+  Future<bool> onBackButtonPressed() async {
+    final timeGap = DateTime.now().difference(preBackPress);
+    final cantExit = timeGap >= const Duration(seconds: 2);
+    preBackPress = DateTime.now();
+    if (cantExit) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(toasterMessage(
+            "Press back again to exit.", "assets/icons/warning.png"));
+      return false;
+    } else {
+      SystemNavigator.pop();
+      return true;
+    }
   }
 
   @override
@@ -60,7 +72,6 @@ Future<bool> onBackButtonPressed() async {
                         imageUrl: "assets/images/shreyaGoshal_01.jpg",
                         content:
                             "acts like a magic key, to which the most tightly closed heart opens."),
-                    
                   ],
                 ),
                 Padding(
@@ -105,7 +116,7 @@ class GoWidget extends StatelessWidget {
             ),
             child: InkWell(
                 onTap: () {
-                Navigator.pushNamed(context,"register");
+                  Navigator.pushNamed(context, "register");
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));

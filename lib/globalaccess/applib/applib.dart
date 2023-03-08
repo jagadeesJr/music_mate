@@ -22,4 +22,6 @@ export 'package:music_mate/screens/joinroom/play_screen.dart';
 export 'package:music_mate/screens/login/forget_screen.dart';
 export 'package:music_mate/globalaccess/popup_message/popup.dart';
 export 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+export 'package:just_audio/just_audio.dart';
+export 'package:file_picker/file_picker.dart';
 

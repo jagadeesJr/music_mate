@@ -9,12 +9,21 @@ class Aboutus extends StatefulWidget {
 }
 
 class _AboutusState extends State<Aboutus> {
+
+  Future<bool> onBackButtonPressed() async {
+    Navigator.pushNamed(context, 'dashboard');
+    return false;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return Scaffold(
+      return WillPopScope(
+          onWillPop: onBackButtonPressed,
+          child:Scaffold(
           appBar: AppBar(
             toolbarHeight: SizeConfig.blockSizeVertical! * 12,
             shape: const RoundedRectangleBorder(
@@ -77,7 +86,7 @@ class _AboutusState extends State<Aboutus> {
                         width: SizeConfig.blockSizeHorizontal! * 30,
                       ),
                       Text(
-                        'Music Mate:',
+                        'Music Mate',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: SizeConfig.blockSizeVertical! * 3,
@@ -197,7 +206,7 @@ class _AboutusState extends State<Aboutus> {
                 ),
               ],
             ),
-          ));
+          )));
     });
   }
 

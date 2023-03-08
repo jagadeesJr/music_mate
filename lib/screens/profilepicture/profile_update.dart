@@ -15,114 +15,131 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
   ];
   int val = 0;
 
+  Future<bool> onBackButtonPressed() async {
+    String screenType = await LocalStorage().getData('string', 'profile') ?? "";
+    if (screenType.isEmpty) {
+    } else {
+      if (mounted) {
+        LocalStorage().storeData("string", "dashboard_index", "2");
+        Navigator.pushNamed(
+          context,
+          "dashboard",
+        );
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  stops: [.2, 1],
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [Colors.black, Color(0xFF635985)])),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal! * 5),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 4),
-                  Text(
-                    "SELECT PROFILE",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 5),
-                  ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                  Container(
-                    width: double.infinity,
-                    height: SizeConfig.blockSizeVertical! * 5,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Center(
-                      child: TextFormField(
-                        style: TextStyle(
-                            fontFamily: "Olimpos_light",
-                            fontSize: SizeConfig.blockSizeVertical! * 2.5),
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: InkWell(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                },
-                                child: const Icon(Icons.clear)),
-                            hintText: 'Search...',
-                            border: InputBorder.none),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                  Row(
+      return WillPopScope(
+          onWillPop: onBackButtonPressed,
+          child: Scaffold(
+            body: Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      stops: [.2, 1],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [Colors.black, Color(0xFF635985)])),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.blockSizeHorizontal! * 5),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 4),
                       Text(
-                        "Select Your Profile Image",
+                        "SELECT PROFILE",
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Olimpos_bold",
-                            fontSize: SizeConfig.blockSizeVertical! * 2.2),
-                      )
+                            fontSize: SizeConfig.blockSizeVertical! * 5),
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                      Container(
+                        width: double.infinity,
+                        height: SizeConfig.blockSizeVertical! * 5,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Center(
+                          child: TextFormField(
+                            style: TextStyle(
+                                fontFamily: "Olimpos_light",
+                                fontSize: SizeConfig.blockSizeVertical! * 2.5),
+                            decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                suffixIcon: InkWell(
+                                    onTap: () {
+                                      FocusScope.of(context).unfocus();
+                                    },
+                                    child: const Icon(Icons.clear)),
+                                hintText: 'Search...',
+                                border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                      Row(
+                        children: [
+                          Text(
+                            "Select Your Profile Image",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Olimpos_bold",
+                                fontSize: SizeConfig.blockSizeVertical! * 2.2),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                      GridView.builder(
+                          physics: const ScrollPhysics(),
+                          shrinkWrap: true,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4, childAspectRatio: 0.8),
+                          itemCount: singer.length,
+                          itemBuilder: (buildcontext, index) {
+                            return profileImageArea(singer[index], index);
+                          }),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
                     ],
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                  GridView.builder(
-                      physics: const ScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4, childAspectRatio: 0.8),
-                      itemCount: singer.length,
-                      itemBuilder: (buildcontext, index) {
-                        return profileImageArea(singer[index], index);
-                      }),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          onPressed: () async {
-            String screenType =
-                await LocalStorage().getData('string', 'profile') ?? "";
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.white,
+              onPressed: () async {
+                String screenType =
+                    await LocalStorage().getData('string', 'profile') ?? "";
 
-            if (screenType.isEmpty) {
-              if (mounted) {
-                Navigator.pushNamed(context, "interest_screen");
-              }
-            } else {
-              if (mounted) {
-                LocalStorage().storeData("string", "dashboard_index", "2");
-                Navigator.pushNamed(
-                  context,
-                  "dashboard",
-                );
-              }
-            }
-          },
-          child: Icon(
-            Icons.double_arrow_rounded,
-            color: const Color(0xFF18122B).withOpacity(0.9),
-          ),
-        ),
-      );
+                if (screenType.isEmpty) {
+                  if (mounted) {
+                    Navigator.pushNamed(context, "interest_screen");
+                  }
+                } else {
+                  if (mounted) {
+                    LocalStorage().storeData("string", "dashboard_index", "2");
+                    Navigator.pushNamed(
+                      context,
+                      "dashboard",
+                    );
+                  }
+                }
+              },
+              child: Icon(
+                Icons.double_arrow_rounded,
+                color: const Color(0xFF18122B).withOpacity(0.9),
+              ),
+            ),
+          ));
     });
   }
 

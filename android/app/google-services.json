@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "737395290212",
+    "firebase_url": "https://music-mate-1272b-default-rtdb.firebaseio.com",
+    "project_id": "music-mate-1272b",
+    "storage_bucket": "music-mate-1272b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737395290212:android:66c6f416c06079b61eaf71",
+        "android_client_info": {
+          "package_name": "com.company.musicmates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737395290212-0itfvpuqoq6h5a7bcmmgliq8h3mcpvc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwSn62oStqp8aQvzh-qhSrI0T2hb0s14M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737395290212-0itfvpuqoq6h5a7bcmmgliq8h3mcpvc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

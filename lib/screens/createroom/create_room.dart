@@ -14,6 +14,24 @@ class _CreateRoomState extends State<CreateRoom> {
   int membersCount = 0;
   bool checkVal = false;
   late Timer _timer;
+  String selectedAudio="";
+
+
+   void openAudioPicker() async {
+     FilePickerResult? result = await FilePicker.platform.pickFiles(type:FileType.audio);
+  if (result == null) {
+    print("No file selected");
+  } else {
+    selectedAudio = result.files.single.name;
+    print(result.files.single.name);
+  }
+  if(mounted){
+    setState(() {
+      
+    });
+  }
+   }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -194,15 +212,19 @@ class _CreateRoomState extends State<CreateRoom> {
                                 fontSize: SizeConfig.blockSizeVertical! * 2.6),
                           ),
                           Text(
-                            "Why this kolaveri di!",
+                            selectedAudio,
                             style: TextStyle(
                                 fontFamily: "Olimpos_bold",
                                 fontSize: SizeConfig.blockSizeVertical! * 2),
                           ),
                         ],
                       ),
-                     Icon(Icons.file_copy,
-                      color: const Color(0xFF18122B).withOpacity(0.9),)
+                     InkWell(
+                      onTap:(){
+                        openAudioPicker();
+                      },
+                      child:Icon(Icons.file_copy,
+                      color: const Color(0xFF18122B).withOpacity(0.9),))
                     ],
                   ),
                   SizedBox(height: SizeConfig.blockSizeVertical! * 5),
@@ -210,7 +232,7 @@ class _CreateRoomState extends State<CreateRoom> {
                     alignment: Alignment.center,
                     child: ElevatedButton(
                       onPressed: () {
-                        setState(() {});
+                        
                       },
                       style: ButtonStyle(
                           backgroundColor:

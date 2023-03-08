@@ -55,6 +55,19 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
         duration: const Duration(seconds: 1), curve: Curves.decelerate);
   }
 
+
+  Future<bool> onBackButtonPressed() async {
+    LocalStorage().storeData("string", "dashboard_index", "1");
+    if (mounted) {
+      Navigator.pushNamed(
+        context,
+        "dashboard",
+      );
+    }
+
+    return false;
+  }
+
   @override
   void initState() {
     scrollController = ScrollController()
@@ -82,7 +95,9 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return Scaffold(
+      return WillPopScope(
+        onWillPop: onBackButtonPressed,
+        child:Scaffold(
         body: SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -169,7 +184,7 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
                   },
                   child: const Icon(Icons.arrow_upward_rounded),
                 )),
-      );
+      ));
     });
   }
 }

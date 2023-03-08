@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/popup_message/signout.dart';
 
 import '../../globalaccess/applib/applib.dart';
@@ -39,12 +40,33 @@ class _DashboardState extends State<Dashboard> {
     }
   }
 
+
+  DateTime preBackPress = DateTime.now();
+
+  Future<bool> onBackButtonPressed() async {
+    final timeGap = DateTime.now().difference(preBackPress);
+    final cantExit = timeGap >= const Duration(seconds: 2);
+    preBackPress = DateTime.now();
+    if (cantExit) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(toasterMessage(
+            "Press back again to exit.", "assets/icons/warning.png"));
+      return false;
+    } else {
+      SystemNavigator.pop();
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return Scaffold(
+      return WillPopScope(
+          onWillPop: onBackButtonPressed,
+          child:Scaffold(
         extendBody: true,
         drawer: Theme(
             data: Theme.of(context).copyWith(
@@ -363,7 +385,7 @@ class _DashboardState extends State<Dashboard> {
             ],
           ),
         ),
-      );
+      ));
     });
   }
 }

@@ -13,104 +13,126 @@ class _InterestScreenState extends State<InterestScreen> {
   String searchBar = "";
   List selectSinger = [];
 
+  Future<bool> onBackButtonPressed() async {
+    // Navigator.pushNamed(context, "dashboard");
+    String screenType =
+        await LocalStorage().getData('string', 'interestback') ?? "";
+
+    if (screenType.isEmpty) {
+    } else {
+      LocalStorage().storeData("string", "dashboard_index", "2");
+      if(mounted){
+            Navigator.pushNamed(
+        context,
+        "dashboard",
+      );
+      }
+  
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-     SizeConfig().init(context);
+    SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  stops: [.2, 1],
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [Colors.black, Color(0xFF635985)])),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockSizeHorizontal! * 5),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 4),
-                  Text(
-                    "INTEREST",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Olimpos_bold",
-                        fontSize: SizeConfig.blockSizeVertical! * 5),
-                  ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 1),
-                  Row(
+      return WillPopScope(
+          onWillPop: onBackButtonPressed,
+          child: Scaffold(
+            body: Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      stops: [.2, 1],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [Colors.black, Color(0xFF635985)])),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.blockSizeHorizontal! * 5),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 4),
                       Text(
-                        "Select Your Favorite's",
+                        "INTEREST",
                         style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Olimpos_bold",
-                            fontSize: SizeConfig.blockSizeVertical! * 2.2),
-                      )
+                            fontSize: SizeConfig.blockSizeVertical! * 5),
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 1),
+                      Row(
+                        children: [
+                          Text(
+                            "Select Your Favorite's",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Olimpos_bold",
+                                fontSize: SizeConfig.blockSizeVertical! * 2.2),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                      Container(
+                        width: double.infinity,
+                        height: SizeConfig.blockSizeVertical! * 5,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Center(
+                          child: TextFormField(
+                            style: TextStyle(
+                                fontFamily: "Olimpos_light",
+                                fontSize: SizeConfig.blockSizeVertical! * 2.5),
+                            decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search),
+                                suffixIcon: InkWell(
+                                    onTap: () {
+                                      FocusScope.of(context).unfocus();
+                                    },
+                                    child: const Icon(Icons.clear)),
+                                hintText: 'Search...',
+                                border: InputBorder.none),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
+                      GridView.builder(
+                          physics: const ScrollPhysics(),
+                          shrinkWrap: true,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4,
+                                  childAspectRatio: 0.7,
+                                  mainAxisSpacing:
+                                      SizeConfig.blockSizeVertical! * 1,
+                                  crossAxisSpacing:
+                                      SizeConfig.blockSizeHorizontal! * 2.5),
+                          itemCount: 60,
+                          itemBuilder: (buildcontext, index) {
+                            return interestArea(
+                                "assets/images/u1.jpg", "Yuvan Shankar Raja");
+                          }),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 2),
                     ],
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                  Container(
-                    width: double.infinity,
-                    height: SizeConfig.blockSizeVertical! * 5,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Center(
-                      child: TextFormField(
-                        style: TextStyle(
-                            fontFamily: "Olimpos_light",
-                            fontSize: SizeConfig.blockSizeVertical! * 2.5),
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: InkWell(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                },
-                                child: const Icon(Icons.clear)),
-                            hintText: 'Search...',
-                            border: InputBorder.none),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                  GridView.builder(
-                      physics: const ScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4,
-                          childAspectRatio: 0.7,
-                          mainAxisSpacing: SizeConfig.blockSizeVertical! * 1,
-                          crossAxisSpacing:
-                              SizeConfig.blockSizeHorizontal! * 2.5),
-                      itemCount: 60,
-                      itemBuilder: (buildcontext, index) {
-                        return interestArea(
-                            "assets/images/u1.jpg", "Yuvan Shankar Raja");
-                      }),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          onPressed: () {
-            validateSelection(searchBar, selectSinger, context);
-            
-          },
-          child: Icon(
-            Icons.double_arrow_rounded,
-            color: const Color(0xFF18122B).withOpacity(0.9),
-          ),
-        ),
-      );
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.white,
+              onPressed: () {
+                validateSelection(searchBar, selectSinger, context);
+              },
+              child: Icon(
+                Icons.double_arrow_rounded,
+                color: const Color(0xFF18122B).withOpacity(0.9),
+              ),
+            ),
+          ));
     });
   }
 

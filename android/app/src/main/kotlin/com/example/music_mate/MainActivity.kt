@@ -1,4 +1,4 @@
-package com.example.music_mate
+package com.company.musicmates
 
 import io.flutter.embedding.android.FlutterActivity
 
