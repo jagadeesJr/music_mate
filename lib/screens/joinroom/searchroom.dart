@@ -107,7 +107,7 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2.5,
+                        height: SizeConfig.blockSizeVertical! * 3.5,
                       ),
                       Container(
                           margin: EdgeInsets.symmetric(

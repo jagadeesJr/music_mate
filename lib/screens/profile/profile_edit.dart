@@ -242,7 +242,11 @@ class _ProfileEditState extends State<ProfileEdit> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, 'profile_screen');
+                     LocalStorage().storeData("string", "dashboard_index", "2");
+                Navigator.pushNamed(
+                  context,
+                  "dashboard",
+                );
                   },
                   child: Container(
                     decoration: const BoxDecoration(

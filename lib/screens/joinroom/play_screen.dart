@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/applib/applib.dart';
 import 'tooltip_content.dart';
 
@@ -47,7 +47,7 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 3),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -130,7 +130,7 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                           ))
                     ],
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 7),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 5),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: SizeConfig.blockSizeHorizontal! * 3),
@@ -142,8 +142,8 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                       baseBarColor: Colors.grey.withOpacity(0.20),
                       bufferedBarColor: Colors.red.withOpacity(0.20),
                       thumbColor: Colors.deepPurple[300],
-                      barHeight: 10.0,
-                      thumbRadius: 4.0,
+                      barHeight: 5.0,
+                      thumbRadius: 5.0,
                     ),
                   ),
                   Row(
@@ -166,6 +166,16 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                               onPressed: () {},
                               icon: Icon(
                                 Icons.change_circle_outlined,
+                                size: SizeConfig.blockSizeVertical! * 4,
+                                color: Colors.deepPurple[300],
+                              ))),
+                      SizedBox(width: SizeConfig.blockSizeVertical! * 2),
+                      Tooltip(
+                          message: 'Add to favorites',
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.favorite_border,
                                 size: SizeConfig.blockSizeVertical! * 4,
                                 color: Colors.deepPurple[300],
                               ))),
@@ -225,45 +235,53 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                     }
                   }),
                   SizedBox(height: SizeConfig.blockSizeVertical! * 1),
-                  Container(
-                    color: Colors.transparent,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    child: TextFormField(
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.blockSizeVertical! * 2.7,
-                      ),
-                      textAlign: TextAlign.start,
-                      decoration: InputDecoration(
-                          hintText: 'Enter Text',
-                          hintStyle: const TextStyle(color: Colors.deepPurple),
-                          fillColor: Colors.transparent,
-                          errorStyle: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2,
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        color: Colors.transparent,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        child: TextFormField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(80),
+                          ],
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: SizeConfig.blockSizeVertical! * 2.7,
                           ),
-                          suffixIcon: const Icon(
-                            Icons.send,
-                            color: Colors.deepPurple,
-                          ),
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: SizeConfig.blockSizeVertical! * 0.05,
-                                  color: const Color(0xFFF3F4F8),
-                                  style: BorderStyle.solid),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(6))),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                width: SizeConfig.blockSizeVertical! * 0.05,
-                                color: const Color.fromARGB(255, 130, 167, 243),
-                                style: BorderStyle.solid),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(6)),
-                          )),
-                    ),
-                  ),
+                          textAlign: TextAlign.start,
+                          decoration: InputDecoration(
+                              hintText: 'Enter Text',
+                              hintStyle:
+                                  const TextStyle(color: Colors.deepPurple),
+                              fillColor: Colors.transparent,
+                              errorStyle: TextStyle(
+                                fontSize: SizeConfig.blockSizeVertical! * 2,
+                              ),
+                              suffixIcon: const Icon(
+                                Icons.send,
+                                color: Colors.deepPurple,
+                              ),
+                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width:
+                                          SizeConfig.blockSizeVertical! * 0.05,
+                                      color: const Color(0xFFF3F4F8),
+                                      style: BorderStyle.solid),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(6))),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: SizeConfig.blockSizeVertical! * 0.05,
+                                    color: const Color.fromARGB(
+                                        255, 130, 167, 243),
+                                    style: BorderStyle.solid),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(6)),
+                              )),
+                        ),
+                      )),
                   SizedBox(height: SizeConfig.blockSizeVertical! * 1),
                 ],
               ),
@@ -408,5 +426,4 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
       ),
     );
   }
-
 }

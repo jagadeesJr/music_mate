@@ -223,10 +223,16 @@ class ContainerVerticalWidgets extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+
                   InkWell(
                       onTap: () {},
                       child: const Icon(Icons.my_library_music_rounded,
-                          color: Colors.white))
+                          color: Colors.white)),
+                      SizedBox(width: SizeConfig.blockSizeHorizontal! * 2,),
+                          InkWell(
+                      onTap: () {
+                      },
+                      child: Icon(Icons.favorite,color: Colors.white))
                 ],
               ),
               Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",

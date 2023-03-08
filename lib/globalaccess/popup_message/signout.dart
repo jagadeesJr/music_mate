@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import '../applib/sizer.dart';
 
 class Signoutpopup extends StatefulWidget {
-  const Signoutpopup({super.key});
+  final String title;
+  final String content;
+  final String icon;
+  const Signoutpopup({super.key,required this.title,required this.content,required this.icon});
 
   @override
   State<Signoutpopup> createState() => _SignoutpopupState();
@@ -15,12 +18,24 @@ class _SignoutpopupState extends State<Signoutpopup> {
     return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
       return Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: NetworkImage('https://freepngimg.com/thumb/jazz/48347-5-musical-notation-symbol-image-png-image-high-quality.png'))
+          image: DecorationImage(
+            image: NetworkImage('https://freepngimg.com/thumb/jazz/48347-5-musical-notation-symbol-image-png-image-high-quality.png'))
         ),
         child: AlertDialog(
-          backgroundColor: Color(0xFF18122b),
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          backgroundColor: Colors.transparent,
+          content:Container(
+            height: SizeConfig.blockSizeVertical!*20,
+            padding: EdgeInsets.symmetric(horizontal:SizeConfig.blockSizeHorizontal!*3 ),
+              decoration: BoxDecoration(
+               borderRadius: BorderRadius.circular(5),
+            gradient: const LinearGradient(
+                stops: [.5, .5],
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [Color(0xFF18122B), Color(0xFF635985)])),
+              child:Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 
                  Row(
@@ -29,12 +44,14 @@ class _SignoutpopupState extends State<Signoutpopup> {
                       padding: EdgeInsetsDirectional.fromSTEB(SizeConfig.blockSizeHorizontal!*0,0,5,0),
                       child: SizedBox(                  
                         child: 
-                        Icon(Icons.logout , size: SizeConfig.blockSizeVertical!*3, color: Colors.red),
+                        Icon(widget.icon=="logout"?Icons.logout:Icons.delete , 
+                        size: SizeConfig.blockSizeVertical!*3, color: Color(0xFF635985)),
                         // Image(image: AssetImage('assets/icons/cancel.png'))
                         ),
                     ),
+
                     Text(
-                        "Sign Out",
+                        widget.title,
                         style: TextStyle(
                           color: Color.fromARGB(255, 214, 213, 213),
                             fontWeight: FontWeight.w600,
@@ -48,17 +65,22 @@ class _SignoutpopupState extends State<Signoutpopup> {
                  ),        
               
                    Text(
-                    "Do you want to sign out really..?",
+                    widget.content,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color.fromARGB(255, 214, 213, 213),
                         fontWeight: FontWeight.w400,
                         fontSize: SizeConfig.blockSizeVertical!*2.3,
                         fontFamily: 'Olimpos_light'),
                   ),
-              ],
-            ),
-            actions: <Widget>[
-              TextButton(
+
+
+              SizedBox(height:10),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                    TextButton(
                 onPressed: () {
                    Navigator.of(context).pop();
                 },
@@ -78,7 +100,10 @@ class _SignoutpopupState extends State<Signoutpopup> {
               ),
               TextButton(
                 onPressed: () {
-                   Navigator.of(context).pop();
+                   Navigator.pushNamed(
+                                      context,
+                                      "splash_screen",
+                                    );
                 },
                 child: Container(
                   decoration: const BoxDecoration(
@@ -94,7 +119,10 @@ class _SignoutpopupState extends State<Signoutpopup> {
                   ),
                 ),
               ),
-            ],
+                  ],)
+              ],
+            )),
+       
         ),
       );
     }

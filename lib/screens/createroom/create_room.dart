@@ -201,6 +201,7 @@ class _CreateRoomState extends State<CreateRoom> {
                   SizedBox(height: SizeConfig.blockSizeVertical! * 3),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,11 +212,14 @@ class _CreateRoomState extends State<CreateRoom> {
                                 fontFamily: "Olimpos_bold",
                                 fontSize: SizeConfig.blockSizeVertical! * 2.6),
                           ),
-                          Text(
-                            selectedAudio,
-                            style: TextStyle(
-                                fontFamily: "Olimpos_bold",
-                                fontSize: SizeConfig.blockSizeVertical! * 2),
+                          Container(
+                            width:SizeConfig.blockSizeHorizontal! * 70,
+                            child: Text(
+                              selectedAudio,
+                              style: TextStyle(
+                                  fontFamily: "Olimpos_bold",
+                                  fontSize: SizeConfig.blockSizeVertical! * 2),
+                            ),
                           ),
                         ],
                       ),
