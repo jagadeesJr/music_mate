@@ -82,24 +82,34 @@ class _ProfileEditState extends State<ProfileEdit> {
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical! * 1.5),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.blockSizeHorizontal! * 6),
-              height: SizeConfig.blockSizeVertical! * 6,
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xFF635985)),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
+            Padding(
+              padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                child: TextFormField(
-                    decoration: InputDecoration(
-                      
-                  hintText: "Musicphile's name",
-                )),
+              child: TextFormField(
+                decoration: InputDecoration(
+                                      hintText: "Musicphile's Name",
+                                      
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width:
+                                                  SizeConfig.blockSizeVertical! *
+                                                      0.05,
+                                              color: const Color(0xFF635985),
+                                              style: BorderStyle.solid),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(6))),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: SizeConfig.blockSizeVertical! *
+                                                0.05,
+                                           color: const Color(0xFF635985),
+                                            style: BorderStyle.solid),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(6)),
+                                      )),
               ),
             ),
+          
             SizedBox(height: SizeConfig.blockSizeVertical! * 2),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -114,21 +124,31 @@ class _ProfileEditState extends State<ProfileEdit> {
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical! * 1.5),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.blockSizeHorizontal! * 6),
-              height: SizeConfig.blockSizeVertical! * 6,
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xFF635985)),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
+            Padding(
+              padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                child: TextFormField(
-                    decoration: InputDecoration(
-                  hintText: "+91 8495757820",
-                )),
+              child: TextFormField(
+                decoration: InputDecoration(
+                                      hintText: "+91 8874377343",
+                                      
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width:
+                                                  SizeConfig.blockSizeVertical! *
+                                                      0.05,
+                                              color: const Color(0xFF635985),
+                                              style: BorderStyle.solid),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(6))),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: SizeConfig.blockSizeVertical! *
+                                                0.05,
+                                           color: const Color(0xFF635985),
+                                            style: BorderStyle.solid),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(6)),
+                                      )),
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical! * 2),
@@ -145,21 +165,31 @@ class _ProfileEditState extends State<ProfileEdit> {
               ),
             ),
             SizedBox(height: SizeConfig.blockSizeVertical! * 1.5),
-            Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.blockSizeHorizontal! * 6),
-              height: SizeConfig.blockSizeVertical! * 6,
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xFF635985)),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
+            Padding(
+              padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.blockSizeHorizontal! * 6),
-                child: TextFormField(
-                    decoration: InputDecoration(
-                  hintText: "Who am I..?",
-                )),
+              child: TextFormField(
+                decoration: InputDecoration(
+                                      hintText: "Who am I..?",
+                                      
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width:
+                                                  SizeConfig.blockSizeVertical! *
+                                                      0.05,
+                                              color: const Color(0xFF635985),
+                                              style: BorderStyle.solid),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(6))),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: SizeConfig.blockSizeVertical! *
+                                                0.05,
+                                           color: const Color(0xFF635985),
+                                            style: BorderStyle.solid),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(6)),
+                                      )),
               ),
             ),
 
