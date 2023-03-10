@@ -55,7 +55,6 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
         duration: const Duration(seconds: 1), curve: Curves.decelerate);
   }
 
-
   Future<bool> onBackButtonPressed() async {
     LocalStorage().storeData("string", "dashboard_index", "1");
     if (mounted) {
@@ -96,95 +95,174 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return WillPopScope(
-        onWillPop: onBackButtonPressed,
-        child:Scaffold(
-        body: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 3.5,
-                      ),
-                      Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal: SizeConfig.blockSizeHorizontal! * 3,
-                              vertical: SizeConfig.blockSizeVertical! * 0),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 252, 251, 251),
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 16,
-                                color: Color.fromARGB(199, 200, 200, 200),
-                                offset: Offset(0, 3),
-                              )
+          onWillPop: onBackButtonPressed,
+          child: Scaffold(
+            body: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: SingleChildScrollView(
+                    controller: scrollController,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical! * 3.5,
+                          ),
+                          Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 3,
+                                  vertical: SizeConfig.blockSizeVertical! * 0),
+                              decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 252, 251, 251),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 16,
+                                    color: Color.fromARGB(199, 200, 200, 200),
+                                    offset: Offset(0, 3),
+                                  )
+                                ],
+                              ),
+                              child: IconButton(
+                                  onPressed: () {
+                                    LocalStorage().storeData(
+                                        "string", "dashboard_index", "1");
+                                    Navigator.pushNamed(
+                                      context,
+                                      "dashboard",
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_back_ios_new,
+                                    size: SizeConfig.blockSizeVertical! * 3,
+                                  ))),
+                          Container(
+                            width: double.infinity,
+                            height: SizeConfig.blockSizeVertical! * 5,
+                            margin: EdgeInsets.symmetric(
+                                horizontal: SizeConfig.blockSizeHorizontal! * 3,
+                                vertical: SizeConfig.blockSizeVertical! * 4),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                              child: TextFormField(
+                                style: TextStyle(
+                                    fontFamily: "Olimpos_light",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.5),
+                                decoration: InputDecoration(
+                                    prefixIcon: const Icon(Icons.search),
+                                    suffixIcon: InkWell(
+                                        onTap: () {
+                                          FocusScope.of(context).unfocus();
+                                        },
+                                        child: const Icon(Icons.clear)),
+                                    hintText: 'Search Rooms...',
+                                    border: InputBorder.none),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    SizeConfig.blockSizeHorizontal! * 3),
+                            child: Text(
+                              "Search By ",
+                              style: TextStyle(
+                                  fontFamily: "Olimpos_bold",
+                                  fontSize: SizeConfig.blockSizeVertical! * 3),
+                            ),
+                          ),
+                           Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    SizeConfig.blockSizeHorizontal! * 3),
+                            child: Row(
+                            children: [
+                              InkWell(
+                                onTap:(){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFF635985),
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                ),
+                                child: Text(
+                                  "Room Id",
+                                  style: TextStyle(
+                                      fontFamily: "Olimpos_light",
+                                      color:Colors.white,
+                                      fontSize:
+                                          SizeConfig.blockSizeVertical! * 2),
+                                ),
+                              )),
+
+
+                         SizedBox(width:5),
+                         
+                              InkWell(
+                                onTap:(){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                decoration:  BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                ),
+                                child: Text(
+                                  "Room Name",
+                                  style: TextStyle(
+                                      fontFamily: "Olimpos_light",
+                                      color:Colors.white,
+                                      fontSize:
+                                          SizeConfig.blockSizeVertical! * 2),
+                                ),
+                              )),
+
+                              SizedBox(width:5),
+
+                              InkWell(
+                                onTap:(){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
+                                decoration:  BoxDecoration(
+                                  color:  Colors.grey.withOpacity(0.5),
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                ),
+                                child: Text(
+                                  "Musicophille Name",
+                                  style: TextStyle(
+                                      fontFamily: "Olimpos_light",
+                                      color:Colors.white,
+                                      fontSize:
+                                          SizeConfig.blockSizeVertical! * 2),
+                                ),
+                              ))
                             ],
-                          ),
-                          child: IconButton(
-                              onPressed: () {
-                                LocalStorage().storeData(
-                                    "string", "dashboard_index", "1");
-                                Navigator.pushNamed(
-                                  context,
-                                  "dashboard",
-                                );
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios_new,
-                                size: SizeConfig.blockSizeVertical! * 3,
-                              ))),
-                      Container(
-                        width: double.infinity,
-                        height: SizeConfig.blockSizeVertical! * 5,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.blockSizeHorizontal! * 3,
-                            vertical: SizeConfig.blockSizeVertical! * 4),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Center(
-                          child: TextFormField(
-                            style: TextStyle(
-                                fontFamily: "Olimpos_light",
-                                fontSize: SizeConfig.blockSizeVertical! * 2.5),
-                            decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                suffixIcon: InkWell(
-                                    onTap: () {
-                                      FocusScope.of(context).unfocus();
-                                    },
-                                    child: const Icon(Icons.clear)),
-                                hintText: 'Search Rooms...',
-                                border: InputBorder.none),
-                          ),
-                        ),
-                      ),
-                      ListView.builder(
-                          physics: const ScrollPhysics(),
-                          itemCount: 6,
-                          shrinkWrap: true,
-                          itemBuilder: (buildContext, index) {
-                            return ContainerVerticalWidgets(
-                                itemData: imgList[index],index:index);
-                          }),
-                    ]))),
-        floatingActionButton: showBackToTopButton == false
-            ? null
-            : Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: SizeConfig.blockSizeVertical! * 2),
-                child: FloatingActionButton(
-                  backgroundColor: Colors.blue.withOpacity(0.6),
-                  onPressed: () {
-                    scrollToTop();
-                  },
-                  child: const Icon(Icons.arrow_upward_rounded),
-                )),
-      ));
+                          )),
+                          ListView.builder(
+                              physics: const ScrollPhysics(),
+                              itemCount: 6,
+                              shrinkWrap: true,
+                              itemBuilder: (buildContext, index) {
+                                return ContainerVerticalWidgets(
+                                    itemData: imgList[index], index: index);
+                              }),
+                        ]))),
+            floatingActionButton: showBackToTopButton == false
+                ? null
+                : Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: SizeConfig.blockSizeVertical! * 2),
+                    child: FloatingActionButton(
+                      backgroundColor: Colors.blue.withOpacity(0.6),
+                      onPressed: () {
+                        scrollToTop();
+                      },
+                      child: const Icon(Icons.arrow_upward_rounded),
+                    )),
+          ));
     });
   }
 }

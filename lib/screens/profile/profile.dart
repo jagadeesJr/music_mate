@@ -100,7 +100,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Musicphile's Name",
+                                      "Musicophile's Name",
                                       style: TextStyle(
                                         fontSize:
                                             SizeConfig.blockSizeVertical! * 2.2,

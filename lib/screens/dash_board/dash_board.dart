@@ -93,8 +93,53 @@ class _DashboardState extends State<Dashboard> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+
+                                 SizedBox(
+                                  height: SizeConfig.blockSizeVertical! * 5,
+                                ),
+
+                                  Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/Vector_2.png',
+                                    height: SizeConfig.blockSizeVertical! * 10,
+                                    width: SizeConfig.blockSizeHorizontal! * 15,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: SizeConfig.blockSizeHorizontal! * 2,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Music Mate',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            SizeConfig.blockSizeHorizontal! *
+                                                7.5,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text( "Version 1.0.7", //'Find your music mate',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              SizeConfig.blockSizeHorizontal! *
+                                                  5)),
+                                ],
+                              )
+                            ],
+                          ),
+
                                 SizedBox(
-                                  height: SizeConfig.blockSizeVertical! * 15,
+                                  height: SizeConfig.blockSizeVertical! * 5,
                                 ),
                                 InkWell(
                                     onTap: () {

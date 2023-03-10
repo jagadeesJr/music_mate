@@ -56,7 +56,7 @@ class _SignoutpopupState extends State<Signoutpopup> {
                           color: Color.fromARGB(255, 214, 213, 213),
                             fontWeight: FontWeight.w600,
                             fontSize: SizeConfig.blockSizeVertical!*3.5,
-                            fontFamily: 'Olimpos_bold'
+                            fontFamily: 'Olimpos_light'
                             ),
                             
                       ),
