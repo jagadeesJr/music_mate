@@ -262,11 +262,16 @@ class _AboutusState extends State<Aboutus> {
                           fontSize: SizeConfig.blockSizeVertical! * 3,
                         ),
                       ),
-                      Text(
-                        mail,
-                        // 'Mail_Id: Mail@gmail.com',
-                        style: TextStyle(
-                            fontSize: SizeConfig.blockSizeVertical! * 2),
+                      InkWell(
+                        onTap: () {
+                          _launchURL('https://bit.ly/3BvLFo4');
+                        },
+                        child: Text(
+                          mail,
+                          // 'Mail_Id: Mail@gmail.com',
+                          style: TextStyle(
+                              fontSize: SizeConfig.blockSizeVertical! * 2),
+                        ),
                       ),
                       Text(
                         contNo,
@@ -316,4 +321,22 @@ class _AboutusState extends State<Aboutus> {
           ]),
     );
   }
+
+
+
+
+
+
+    _launchURL(url) async {
+    const url = 'https://bit.ly/3BvLFo4';
+   if (!await launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+
+
 }

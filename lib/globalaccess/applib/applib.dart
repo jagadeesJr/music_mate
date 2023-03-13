@@ -26,5 +26,5 @@ export 'package:just_audio/just_audio.dart';
 export 'package:file_picker/file_picker.dart';
 export 'package:music_mate/screens/dash_board/favorite.dart';
 export 'package:music_mate/screens/profile/profile_edit.dart';
-
+export 'package:url_launcher/url_launcher.dart';
 export 'package:share/share.dart';
