@@ -20,10 +20,13 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
     if (screenType.isEmpty) {
     } else {
       if (mounted) {
-        LocalStorage().storeData("string", "dashboard_index", "2");
-        Navigator.pushNamed(
+        Navigator.pushReplacement(
           context,
-          "dashboard",
+          MaterialPageRoute(
+            builder: (context) => const Dashboard(
+              naviIndex: 2,
+            ),
+          ),
         );
       }
     }
@@ -122,14 +125,22 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
 
                 if (screenType.isEmpty) {
                   if (mounted) {
-                    Navigator.pushNamed(context, "interest_screen");
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const InterestScreen(),
+                      ),
+                    );
                   }
                 } else {
                   if (mounted) {
-                    LocalStorage().storeData("string", "dashboard_index", "2");
-                    Navigator.pushNamed(
+                    Navigator.pushReplacement(
                       context,
-                      "dashboard",
+                      MaterialPageRoute(
+                        builder: (context) => const Dashboard(
+                          naviIndex: 2,
+                        ),
+                      ),
                     );
                   }
                 }
@@ -145,9 +156,7 @@ class _ProfileImageUpdateState extends State<ProfileImageUpdate> {
 
   Widget profileImageArea(data, index) {
     return InkWell(
-      onTap: () {
-        // Navigator.pushNamed(context, "interest_screen");
-      },
+      onTap: () {},
       child: Column(
         children: [
           Container(

@@ -56,11 +56,14 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
   }
 
   Future<bool> onBackButtonPressed() async {
-    LocalStorage().storeData("string", "dashboard_index", "1");
     if (mounted) {
-      Navigator.pushNamed(
+      Navigator.pushReplacement(
         context,
-        "dashboard",
+        MaterialPageRoute(
+          builder: (context) => const Dashboard(
+            naviIndex: 1,
+          ),
+        ),
       );
     }
 
@@ -126,11 +129,13 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
                               ),
                               child: IconButton(
                                   onPressed: () {
-                                    LocalStorage().storeData(
-                                        "string", "dashboard_index", "1");
-                                    Navigator.pushNamed(
+                                    Navigator.pushReplacement(
                                       context,
-                                      "dashboard",
+                                      MaterialPageRoute(
+                                        builder: (context) => const Dashboard(
+                                          naviIndex: 1,
+                                        ),
+                                      ),
                                     );
                                   },
                                   icon: Icon(
@@ -175,72 +180,76 @@ class _SearchRoomsWidgetState extends State<SearchRoomsWidget> {
                                   fontSize: SizeConfig.blockSizeVertical! * 3),
                             ),
                           ),
-                           Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    SizeConfig.blockSizeHorizontal! * 3),
-                            child: Row(
-                            children: [
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration: const BoxDecoration(
-                                  color: Color(0xFF635985),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Room Id",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
+                          Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 3),
+                              child: Row(
+                                children: [
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF635985),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Room Id",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      )),
+                                  SizedBox(width: 5),
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Room Name",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      )),
+                                  SizedBox(width: 5),
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Musicophille Name",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      ))
+                                ],
                               )),
-
-
-                         SizedBox(width:5),
-                         
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration:  BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Room Name",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
-                              )),
-
-                              SizedBox(width:5),
-
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration:  BoxDecoration(
-                                  color:  Colors.grey.withOpacity(0.5),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Musicophille Name",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
-                              ))
-                            ],
-                          )),
                           ListView.builder(
                               physics: const ScrollPhysics(),
                               itemCount: 6,

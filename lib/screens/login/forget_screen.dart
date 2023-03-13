@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:music_mate/screens/login/login_screen.dart';
+import '../../globalaccess/applib/applib.dart';
 import '../../globalaccess/applib/sizer.dart';
 
 class ForgetScreen extends StatefulWidget {
@@ -19,7 +21,12 @@ class _ForgetScreenState extends State<ForgetScreen> {
   TextEditingController confirmpassword = TextEditingController();
 
   Future<bool> onBackButtonPressed() async {
-    Navigator.pushNamed(context, 'login_screen');
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const LoginScreenWidget(),
+      ),
+    );
     return false;
   }
 
@@ -192,7 +199,6 @@ class _CheckMobileNumberState extends State<CheckMobileNumber> {
                     return;
                   } else {
                     widget.callBack(true);
-                    // Navigator.pushNamed(context, "dashboard");
                     // var snackBar = const SnackBar(content: Text('Login Successfully'));
                     // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
@@ -407,7 +413,14 @@ class _ForgetState extends State<Forget> {
               onPressed: () {
                 if (!passwordform.currentState!.validate()) {
                 } else {
-                  Navigator.pushNamed(context, "dashboard");
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Dashboard(
+                        naviIndex: 0,
+                      ),
+                    ),
+                  );
                 }
               },
               style: ButtonStyle(

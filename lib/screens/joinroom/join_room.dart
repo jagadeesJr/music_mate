@@ -79,7 +79,7 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
                         shrinkWrap: true,
                         itemBuilder: (buildContext, index) {
                           return ContainerVerticalWidgets(
-                              itemData: imgList[index],index:index);
+                              itemData: imgList[index], index: index);
                         }),
                     SizedBox(
                       height: SizeConfig.blockSizeVertical! * 10,
@@ -91,9 +91,6 @@ class _JoinRoomWidgetState extends State<JoinRoomWidget> {
               child: FloatingActionButton(
                 backgroundColor: Colors.blue.withOpacity(0.6),
                 onPressed: () {
-                  LocalStorage().removeOneData(
-                    "dashboard_index",
-                  );
                   Navigator.of(context).push(SecondPageRoute());
                 },
                 child: const Icon(Icons.search_outlined),

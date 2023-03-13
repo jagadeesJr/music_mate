@@ -10,8 +10,7 @@ class MyFavorites extends StatefulWidget {
 }
 
 class _MyFavoritesState extends State<MyFavorites> {
-
-    final List<String> imgList = [
+  final List<String> imgList = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
     'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
@@ -20,31 +19,32 @@ class _MyFavoritesState extends State<MyFavorites> {
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
 
-     
   bool showBackToTopButton = false;
 
-   late ScrollController scrollController;
+  late ScrollController scrollController;
 
-     // This function is triggered when the user presses the back-to-top button
+  // This function is triggered when the user presses the back-to-top button
   void scrollToTop() {
     scrollController.animateTo(0,
         duration: const Duration(seconds: 1), curve: Curves.decelerate);
   }
 
-
-   Future<bool> onBackButtonPressed() async {
-    LocalStorage().storeData("string", "dashboard_index", "1");
+  Future<bool> onBackButtonPressed() async {
     if (mounted) {
-      Navigator.pushNamed(
+      Navigator.pushReplacement(
         context,
-        "dashboard",
+        MaterialPageRoute(
+          builder: (context) => const Dashboard(
+            naviIndex: 1,
+          ),
+        ),
       );
     }
 
     return false;
   }
 
-   @override
+  @override
   void initState() {
     super.initState();
     scrollController = ScrollController()
@@ -59,82 +59,85 @@ class _MyFavoritesState extends State<MyFavorites> {
         });
       });
   }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return WillPopScope(
-        onWillPop: onBackButtonPressed,
-        child:Scaffold(
-        body: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(
-               controller: scrollController,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 3.5,
-                      ),
-                      Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal: SizeConfig.blockSizeHorizontal! * 3,
-                              vertical: SizeConfig.blockSizeVertical! * 0),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 252, 251, 251),
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 16,
-                                color: Color.fromARGB(199, 200, 200, 200),
-                                offset: Offset(0, 3),
-                              )
-                            ],
+          onWillPop: onBackButtonPressed,
+          child: Scaffold(
+            body: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: SingleChildScrollView(
+                    controller: scrollController,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical! * 3.5,
                           ),
-                          child: IconButton(
-                              onPressed: () {
-                                LocalStorage().storeData(
-                                    "string", "dashboard_index", "1");
-                                Navigator.pushNamed(
-                                  context,
-                                  "dashboard",
-                                );
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios_new,
-                                size: SizeConfig.blockSizeVertical! * 3,
-                              ))),
-                      Container(
-                        width: double.infinity,
-                        height: SizeConfig.blockSizeVertical! * 5,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: SizeConfig.blockSizeHorizontal! * 3,
-                            vertical: SizeConfig.blockSizeVertical! * 4),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Center(
-                          child: TextFormField(
-                            style: TextStyle(
-                                fontFamily: "Olimpos_light",
-                                fontSize: SizeConfig.blockSizeVertical! * 2.5),
-                            decoration: InputDecoration(
-                                prefixIcon: const Icon(Icons.search),
-                                suffixIcon: InkWell(
-                                    onTap: () {
-                                      FocusScope.of(context).unfocus();
-                                    },
-                                    child: const Icon(Icons.clear)),
-                                hintText: 'Search your Favorites...',
-                                border: InputBorder.none),
+                          Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 3,
+                                  vertical: SizeConfig.blockSizeVertical! * 0),
+                              decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 252, 251, 251),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 16,
+                                    color: Color.fromARGB(199, 200, 200, 200),
+                                    offset: Offset(0, 3),
+                                  )
+                                ],
+                              ),
+                              child: IconButton(
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const Dashboard(
+                                          naviIndex: 1,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_back_ios_new,
+                                    size: SizeConfig.blockSizeVertical! * 3,
+                                  ))),
+                          Container(
+                            width: double.infinity,
+                            height: SizeConfig.blockSizeVertical! * 5,
+                            margin: EdgeInsets.symmetric(
+                                horizontal: SizeConfig.blockSizeHorizontal! * 3,
+                                vertical: SizeConfig.blockSizeVertical! * 4),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                              child: TextFormField(
+                                style: TextStyle(
+                                    fontFamily: "Olimpos_light",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.5),
+                                decoration: InputDecoration(
+                                    prefixIcon: const Icon(Icons.search),
+                                    suffixIcon: InkWell(
+                                        onTap: () {
+                                          FocusScope.of(context).unfocus();
+                                        },
+                                        child: const Icon(Icons.clear)),
+                                    hintText: 'Search your Favorites...',
+                                    border: InputBorder.none),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-
-
-                      Padding(
+                          Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
                                     SizeConfig.blockSizeHorizontal! * 3),
@@ -145,85 +148,86 @@ class _MyFavoritesState extends State<MyFavorites> {
                                   fontSize: SizeConfig.blockSizeVertical! * 3),
                             ),
                           ),
-                           Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    SizeConfig.blockSizeHorizontal! * 3),
-                            child: Row(
-                            children: [
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration: const BoxDecoration(
-                                  color: Color(0xFF635985),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Room Id",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
+                          Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      SizeConfig.blockSizeHorizontal! * 3),
+                              child: Row(
+                                children: [
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF635985),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Room Id",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      )),
+                                  SizedBox(width: 5),
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Room Name",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      )),
+                                  SizedBox(width: 5),
+                                  InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                        ),
+                                        child: Text(
+                                          "Musicophille Name",
+                                          style: TextStyle(
+                                              fontFamily: "Olimpos_light",
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeVertical! *
+                                                  2),
+                                        ),
+                                      ))
+                                ],
                               )),
-
-
-                         SizedBox(width:5),
-                         
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration:  BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Room Name",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
-                              )),
-
-                              SizedBox(width:5),
-
-                              InkWell(
-                                onTap:(){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 5,vertical: 2),
-                                decoration:  BoxDecoration(
-                                  color:  Colors.grey.withOpacity(0.5),
-                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "Musicophille Name",
-                                  style: TextStyle(
-                                      fontFamily: "Olimpos_light",
-                                      color:Colors.white,
-                                      fontSize:
-                                          SizeConfig.blockSizeVertical! * 2),
-                                ),
-                              ))
-                            ],
-                          )),
-
-
-                      ListView.builder(
-                          physics: const ScrollPhysics(),
-                          itemCount: 6,
-                          shrinkWrap: true,
-                          itemBuilder: (buildContext, index) {
-                            return ContainerVerticalWidgets(
-                                itemData: imgList[index],index:index);
-                          }),
-                    ]))),
-                    
-                     floatingActionButton: showBackToTopButton == false
+                          ListView.builder(
+                              physics: const ScrollPhysics(),
+                              itemCount: 6,
+                              shrinkWrap: true,
+                              itemBuilder: (buildContext, index) {
+                                return ContainerVerticalWidgets(
+                                    itemData: imgList[index], index: index);
+                              }),
+                        ]))),
+            floatingActionButton: showBackToTopButton == false
                 ? null
                 : Padding(
                     padding: EdgeInsets.symmetric(
@@ -235,7 +239,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                       },
                       child: const Icon(Icons.arrow_upward_rounded),
                     )),
-                    ));
-  });
+          ));
+    });
   }
 }

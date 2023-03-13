@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/applib/applib.dart';
+import 'package:music_mate/screens/registration/registration_screen.dart';
 
 class LoginScreenWidget extends StatefulWidget {
   const LoginScreenWidget({super.key});
@@ -16,7 +17,12 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   TextEditingController password = TextEditingController();
 
   Future<bool> onBackButtonPressed() async {
-    Navigator.pushNamed(context, 'register');
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const RegisterScreen(),
+      ),
+    );
     return false;
   }
 
@@ -227,7 +233,14 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                                 if (!_form.currentState!.validate()) {
                                   return;
                                 } else {
-                                  Navigator.pushNamed(context, "dashboard");
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Dashboard(
+                                        naviIndex: 0,
+                                      ),
+                                    ),
+                                  );
                                 }
                               });
                             },
@@ -255,7 +268,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                             children: [
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, "register");
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const RegisterScreen(),
+                                      ),
+                                    );
                                   },
                                   child: Text(
                                     'Sign Up!',
@@ -267,8 +286,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                                   )),
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, "forgot_password");
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ForgetScreen(),
+                                      ),
+                                    );
                                   },
                                   child: Text(
                                     'Forget Password?',

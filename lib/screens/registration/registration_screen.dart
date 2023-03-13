@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music_mate/globalaccess/applib/applib.dart';
+import 'package:music_mate/screens/login/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -383,8 +384,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 if (!_form.currentState!.validate()) {
                                   return;
                                 } else {
-                                  Navigator.pushNamed(
-                                      context, "profile_image_screen");
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ProfileImageUpdate(),
+                                    ),
+                                  );
                                 }
                               });
                             },
@@ -413,8 +419,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   )),
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, "login_screen");
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginScreenWidget(),
+                                      ),
+                                    );
                                   },
                                   child: Text(
                                     'Sign In',

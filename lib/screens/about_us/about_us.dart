@@ -9,12 +9,17 @@ class Aboutus extends StatefulWidget {
 }
 
 class _AboutusState extends State<Aboutus> {
-
   Future<bool> onBackButtonPressed() async {
-    Navigator.pushNamed(context, 'dashboard');
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const Dashboard(
+          naviIndex: 0,
+        ),
+      ),
+    );
     return false;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -23,190 +28,192 @@ class _AboutusState extends State<Aboutus> {
         builder: (BuildContext context, BoxConstraints constraints) {
       return WillPopScope(
           onWillPop: onBackButtonPressed,
-          child:Scaffold(
-          appBar: AppBar(
-            toolbarHeight: SizeConfig.blockSizeVertical! * 12,
-            shape: const RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(20))),
-            centerTitle: true,
-            backgroundColor: const Color(0xFF635985),
-            title: Text(
-              'About Us',
-              style: TextStyle(
-                fontFamily: 'Olimpos_light',
-                fontSize: SizeConfig.blockSizeVertical! * 3.5,
-                color: Colors.white,
-              ),
-            ),
-            leading: InkWell(
-              onTap: (() {
-                LocalStorage().removeOneData(
-                  "dashboard_index",
-                );
-                Navigator.pushNamed(
-                  context,
-                  "dashboard",
-                );
-              }),
-              child: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: SizeConfig.blockSizeVertical! * 3,
-              ),
-            ),
-          ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: SizeConfig.blockSizeVertical! * 1,
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      SizeConfig.blockSizeHorizontal! * 5,
-                      0,
-                      SizeConfig.blockSizeHorizontal! * 5,
-                      0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 1,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                                image: Image.asset('assets/images/Vector_2.png')
-                                    .image,
-                                fit: BoxFit.cover)),
-                        height: SizeConfig.blockSizeVertical! * 15,
-                        width: SizeConfig.blockSizeHorizontal! * 30,
-                      ),
-                      Text(
-                        'Music Mate',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: SizeConfig.blockSizeVertical! * 3,
-                            fontFamily: 'Olimpos_italic_light'),
-                      ),
-                      Text(
-                          "It's hard to know which came first Music or Musician.\n",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                             fontWeight: FontWeight.w600,
-                        fontSize: SizeConfig.blockSizeVertical!*2.3,
-                        fontFamily: 'Olimpos_light',
-                            color: Colors.red,
-                          )),
-                      Text(
-                          "     There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                                 fontWeight: FontWeight.w600,
-                        fontSize: SizeConfig.blockSizeVertical!*2.3,
-                        fontFamily: 'Olimpos_light',
-                            color: Colors.black,
-                          )),
-                      Text(
-                          "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                                 fontWeight: FontWeight.w600,
-                        fontSize: SizeConfig.blockSizeVertical!*2.3,
-                        fontFamily: 'Olimpos_light',
-                            color: Colors.blue[900],
-                          )),
-                      // RichText(
-                      //     text: TextSpan(
-                      //         style: TextStyle(
-                      //           fontSize: SizeConfig.blockSizeVertical! * 2,
-                      //           fontFamily: 'Olimpos_italic_light',
-                      //           color: Colors.black,
-                      //         ),
-                      //         children: [
-                      //       TextSpan(
-                      //           text:
-                      //               "It's hard to know which came first Music or Musician.\n",
-                      //           style: TextStyle(
-                      //             color: Colors.red,
-                      //           )),
-                      //       TextSpan(
-                      //         text:
-                      //             "There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
-                      //       ),
-                      //       TextSpan(
-                      //           text:
-                      //               "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
-                      //           style: TextStyle(
-                      //             color: Colors.blue[900],
-                      //           ))
-                      //     ])
-                      //     ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 2,
-                      ),
-                      Text(
-                        'Namba_Pasanga',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Olimpos_italic_light',
-                          fontSize: SizeConfig.blockSizeVertical! * 3,
-                        ),
-                      )
-                    ],
+          child: Scaffold(
+              appBar: AppBar(
+                toolbarHeight: SizeConfig.blockSizeVertical! * 12,
+                shape: const RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.vertical(bottom: Radius.circular(20))),
+                centerTitle: true,
+                backgroundColor: const Color(0xFF635985),
+                title: Text(
+                  'About Us',
+                  style: TextStyle(
+                    fontFamily: 'Olimpos_light',
+                    fontSize: SizeConfig.blockSizeVertical! * 3.5,
+                    color: Colors.white,
                   ),
                 ),
-                contentArea(
-                  'assets/images/arr_wp.jpg',
-                  'Name:Karthiga.S ',
-                  'Email: papu@gmail.com',
-                  'Phone No: 9876543210',
-                  'Company: Macincode',
-                  'Degree: Bsc(Cs)',
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                leading: InkWell(
+                  onTap: (() {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Dashboard(
+                          naviIndex: 0,
+                        ),
+                      ),
+                    );
+                  }),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: SizeConfig.blockSizeVertical! * 3,
+                  ),
                 ),
-                contentArea(
-                  'assets/images/arr_wp.jpg',
-                  'Name: Jadeeswran',
-                  'Email: papu@gmail.com',
-                  'Phone No: 9876543210',
-                  'Company: Macincode',
-                  'Degree: Bsc(Cs)',
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+              ),
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: SizeConfig.blockSizeVertical! * 1,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          SizeConfig.blockSizeHorizontal! * 5,
+                          0,
+                          SizeConfig.blockSizeHorizontal! * 5,
+                          0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical! * 1,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: Image.asset(
+                                            'assets/images/Vector_2.png')
+                                        .image,
+                                    fit: BoxFit.cover)),
+                            height: SizeConfig.blockSizeVertical! * 15,
+                            width: SizeConfig.blockSizeHorizontal! * 30,
+                          ),
+                          Text(
+                            'Music Mate',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: SizeConfig.blockSizeVertical! * 3,
+                                fontFamily: 'Olimpos_italic_light'),
+                          ),
+                          Text(
+                              "It's hard to know which came first Music or Musician.\n",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                                fontFamily: 'Olimpos_light',
+                                color: Colors.red,
+                              )),
+                          Text(
+                              "     There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                                fontFamily: 'Olimpos_light',
+                                color: Colors.black,
+                              )),
+                          Text(
+                              "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: SizeConfig.blockSizeVertical! * 2.3,
+                                fontFamily: 'Olimpos_light',
+                                color: Colors.blue[900],
+                              )),
+                          // RichText(
+                          //     text: TextSpan(
+                          //         style: TextStyle(
+                          //           fontSize: SizeConfig.blockSizeVertical! * 2,
+                          //           fontFamily: 'Olimpos_italic_light',
+                          //           color: Colors.black,
+                          //         ),
+                          //         children: [
+                          //       TextSpan(
+                          //           text:
+                          //               "It's hard to know which came first Music or Musician.\n",
+                          //           style: TextStyle(
+                          //             color: Colors.red,
+                          //           )),
+                          //       TextSpan(
+                          //         text:
+                          //             "There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
+                          //       ),
+                          //       TextSpan(
+                          //           text:
+                          //               "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
+                          //           style: TextStyle(
+                          //             color: Colors.blue[900],
+                          //           ))
+                          //     ])
+                          //     ),
+                          SizedBox(
+                            height: SizeConfig.blockSizeVertical! * 2,
+                          ),
+                          Text(
+                            'Namba_Pasanga',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Olimpos_italic_light',
+                              fontSize: SizeConfig.blockSizeVertical! * 3,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    contentArea(
+                      'assets/images/arr_wp.jpg',
+                      'Name:Karthiga.S ',
+                      'Email: papu@gmail.com',
+                      'Phone No: 9876543210',
+                      'Company: Macincode',
+                      'Degree: Bsc(Cs)',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    ),
+                    contentArea(
+                      'assets/images/arr_wp.jpg',
+                      'Name: Jadeeswran',
+                      'Email: papu@gmail.com',
+                      'Phone No: 9876543210',
+                      'Company: Macincode',
+                      'Degree: Bsc(Cs)',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    ),
+                    contentArea(
+                      'assets/images/arr_wp.jpg',
+                      'Name: Ilaya Barathi',
+                      'Email: papu@gmail.com',
+                      'Phone No: 9876543210',
+                      'Company: Macincode',
+                      'Degree: Bsc(Cs)',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    ),
+                    contentArea(
+                      'assets/images/arr_wp.jpg',
+                      'Name: Grija kumari',
+                      'Email: papu@gmail.com',
+                      'Phone No: 9876543210',
+                      'Company: Macincode',
+                      'Degree: Bsc(Cs)',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    ),
+                    contentArea(
+                      'assets/images/arr_wp.jpg',
+                      'Name: vignesh.R ',
+                      'Email: papu@gmail.com',
+                      'Phone No: 9876543210',
+                      'Company: Macincode',
+                      'Degree: Bsc(Cs)',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                    ),
+                  ],
                 ),
-                contentArea(
-                  'assets/images/arr_wp.jpg',
-                  'Name: Ilaya Barathi',
-                  'Email: papu@gmail.com',
-                  'Phone No: 9876543210',
-                  'Company: Macincode',
-                  'Degree: Bsc(Cs)',
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                ),
-                contentArea(
-                  'assets/images/arr_wp.jpg',
-                  'Name: Grija kumari',
-                  'Email: papu@gmail.com',
-                  'Phone No: 9876543210',
-                  'Company: Macincode',
-                  'Degree: Bsc(Cs)',
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                ),
-                contentArea(
-                  'assets/images/arr_wp.jpg',
-                  'Name: vignesh.R ',
-                  'Email: papu@gmail.com',
-                  'Phone No: 9876543210',
-                  'Company: Macincode',
-                  'Degree: Bsc(Cs)',
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                ),
-              ],
-            ),
-          )));
+              )));
     });
   }
 

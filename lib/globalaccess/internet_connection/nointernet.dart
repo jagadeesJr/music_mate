@@ -49,14 +49,13 @@ class _NoInternetState extends State<NoInternet> {
   }
 }
 
-checkInterNetConnection(context) async{
+checkInterNetConnection(context) async {
   Timer(const Duration(seconds: 5), () async {
-  final connectivityResult = await(Connectivity().checkConnectivity());
-  if (connectivityResult == ConnectivityResult.none) {
-    checkInterNetConnection(context);
-  }else{
-    Navigator.pop(context);
-  }
-  
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      checkInterNetConnection(context);
+    } else {
+      Navigator.pop(context);
+    }
   });
 }

@@ -7,9 +7,8 @@ import 'package:music_mate/globalaccess/popup_message/signout.dart';
 import '../../globalaccess/applib/applib.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({
-    super.key,
-  });
+  final int naviIndex;
+  const Dashboard({super.key, required this.naviIndex});
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -31,15 +30,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   getParsingIndex() async {
-    String indexString =
-        await LocalStorage().getData("string", "dashboard_index") ?? "0";
-    selectedIndex = int.parse(indexString);
-    if (mounted) {
-      setState(() {});
-    }
-    LocalStorage().removeOneData(
-      "dashboard_index",
-    );
+    selectedIndex = widget.naviIndex;
   }
 
   DateTime preBackPress = DateTime.now();
@@ -93,62 +84,68 @@ class _DashboardState extends State<Dashboard> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
-                                 SizedBox(
+                                SizedBox(
                                   height: SizeConfig.blockSizeVertical! * 5,
                                 ),
-
-                                  Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/Vector_2.png',
-                                    height: SizeConfig.blockSizeVertical! * 10,
-                                    width: SizeConfig.blockSizeHorizontal! * 15,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: SizeConfig.blockSizeHorizontal! * 2,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Music Mate',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            SizeConfig.blockSizeHorizontal! *
-                                                7.5,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text( "Version 1.0.7", //'Find your music mate',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize:
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/Vector_2.png',
+                                          height:
+                                              SizeConfig.blockSizeVertical! *
+                                                  10,
+                                          width:
                                               SizeConfig.blockSizeHorizontal! *
-                                                  5)),
-                                ],
-                              )
-                            ],
-                          ),
-
+                                                  15,
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width:
+                                          SizeConfig.blockSizeHorizontal! * 2,
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Music Mate',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: SizeConfig
+                                                      .blockSizeHorizontal! *
+                                                  7.5,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                            "Version 1.0.7", //'Find your music mate',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: SizeConfig
+                                                        .blockSizeHorizontal! *
+                                                    5)),
+                                      ],
+                                    )
+                                  ],
+                                ),
                                 SizedBox(
                                   height: SizeConfig.blockSizeVertical! * 5,
                                 ),
                                 InkWell(
                                     onTap: () {
-                                      LocalStorage().removeOneData(
-                                        "dashboard_index",
-                                      );
-                                      Navigator.pushNamed(
+                                      Navigator.pushReplacement(
                                         context,
-                                        "dashboard",
+                                        MaterialPageRoute(
+                                          builder: (context) => const Dashboard(
+                                            naviIndex: 0,
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: Row(
@@ -182,11 +179,13 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 InkWell(
                                     onTap: () {
-                                      LocalStorage().storeData(
-                                          "string", "dashboard_index", "1");
-                                      Navigator.pushNamed(
+                                      Navigator.pushReplacement(
                                         context,
-                                        "dashboard",
+                                        MaterialPageRoute(
+                                          builder: (context) => const Dashboard(
+                                            naviIndex: 1,
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: Row(
@@ -219,11 +218,13 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 InkWell(
                                     onTap: () {
-                                      LocalStorage().storeData(
-                                          "string", "dashboard_index", "2");
-                                      Navigator.pushNamed(
+                                      Navigator.pushReplacement(
                                         context,
-                                        "dashboard",
+                                        MaterialPageRoute(
+                                          builder: (context) => const Dashboard(
+                                            naviIndex: 2,
+                                          ),
+                                        ),
                                       );
                                     },
                                     child: Row(
@@ -257,12 +258,11 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 InkWell(
                                   onTap: (() {
-                                    LocalStorage().removeOneData(
-                                      "dashboard_index",
-                                    );
-                                    Navigator.pushNamed(
+                                    Navigator.pushReplacement(
                                       context,
-                                      "about_us",
+                                      MaterialPageRoute(
+                                        builder: (context) => const Aboutus(),
+                                      ),
                                     );
                                   }),
                                   child: Row(
@@ -301,8 +301,11 @@ class _DashboardState extends State<Dashboard> {
                                           barrierDismissible: true,
                                           builder: (BuildContext context) {
                                             return const Center(
-                                              child: Signoutpopup(title:"Sign Out",content:"Do you want to sign out really..?",
-                                              icon:"logout"),
+                                              child: Signoutpopup(
+                                                  title: "Sign Out",
+                                                  content:
+                                                      "Do you want to sign out really..?",
+                                                  icon: "logout"),
                                             );
                                           });
                                     },
@@ -331,21 +334,23 @@ class _DashboardState extends State<Dashboard> {
                                         ),
                                       ],
                                     )),
-                                   SizedBox(
+                                SizedBox(
                                   height: SizeConfig.blockSizeVertical! * 1.9,
                                 ),
                                 InkWell(
                                     onTap: () async {
                                       Navigator.pop(context);
                                       showDialog(
-                                        barrierColor:Colors.black38,
+                                          barrierColor: Colors.black38,
                                           context: context,
                                           barrierDismissible: true,
                                           builder: (BuildContext context) {
                                             return const Center(
-                                              child: Signoutpopup(title:"Delete Account",
-                                              content:"Do you want to delete your account permanently...?",
-                                              icon:"delete"),
+                                              child: Signoutpopup(
+                                                  title: "Delete Account",
+                                                  content:
+                                                      "Do you want to delete your account permanently...?",
+                                                  icon: "delete"),
                                             );
                                           });
                                     },
@@ -417,12 +422,14 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(
+                        Navigator.pushReplacement(
                           context,
-                          "favorites",
+                          MaterialPageRoute(
+                            builder: (context) => const MyFavorites(),
+                          ),
                         );
                       },
-                      child: Icon(Icons.favorite)),
+                      child: const Icon(Icons.favorite)),
                 )
               ],
             ),
@@ -455,9 +462,6 @@ class _DashboardState extends State<Dashboard> {
                 onItemSelected: (value) {
                   setState(() {
                     selectedIndex = value;
-                    LocalStorage().removeOneData(
-                      "dashboard_index",
-                    );
                   });
                 },
                 items: [

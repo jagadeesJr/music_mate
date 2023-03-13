@@ -38,11 +38,14 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       alignment: Alignment.bottomRight,
                       child: InkWell(
                         onTap: () {
-                          LocalStorage().removeOneData(
-                            "dashboard_index",
-                          );
                           LocalStorage().storeData('string', 'profile', "true");
-                          Navigator.pushNamed(context, "profile_image_screen");
+
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProfileImageUpdate(),
+                            ),
+                          );
                         },
                         child: SizedBox(
                           width: SizeConfig.blockSizeHorizontal! * 8,
@@ -211,13 +214,15 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                                           SizeConfig.blockSizeVertical! * 2),
                                   child: InkWell(
                                       onTap: () {
-                                        LocalStorage().removeOneData(
-                              "dashboard_index",
-                            );
-                            LocalStorage()
-                                .storeData('string', 'profileEdit', "true");
-                                        Navigator.pushNamed(
-                                            context, 'profile_edit');
+                                        LocalStorage().storeData(
+                                            'string', 'profileEdit', "true");
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const ProfileEdit(),
+                                          ),
+                                        );
                                       },
                                       child: Icon(Icons.mode_edit_rounded,
                                           size: SizeConfig.blockSizeVertical! *
@@ -244,12 +249,14 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       ),
                       InkWell(
                           onTap: () {
-                            LocalStorage().removeOneData(
-                              "dashboard_index",
-                            );
                             LocalStorage()
                                 .storeData('string', 'interestback', "true");
-                            Navigator.pushNamed(context, "interest_screen");
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const InterestScreen(),
+                              ),
+                            );
                           },
                           child: Icon(Icons.mode_edit_rounded,
                               size: SizeConfig.blockSizeVertical! * 2.2)),

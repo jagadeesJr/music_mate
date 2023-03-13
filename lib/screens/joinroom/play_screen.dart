@@ -15,15 +15,33 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
   int _selectedTabbar = 0;
 
   Future<bool> onBackButtonPressed() async {
-    LocalStorage().storeData("string", "dashboard_index", "1");
     if (mounted) {
-      Navigator.pushNamed(
+      Navigator.pushReplacement(
         context,
-        "dashboard",
+        MaterialPageRoute(
+          builder: (context) => const Dashboard(
+            naviIndex: 1,
+          ),
+        ),
       );
     }
-
     return false;
+  }
+
+  shareApp(String songname) async {
+    String textOne =
+        "Hey everyone! I'm excited to share $songname, with you all. It's been a labor of love and I'm so proud of how it turned out.";
+    String textTwo =
+        "I've poured my heart and soul into this song, and I hope it resonates with you. Whether you're looking for a song to add to your workout playlist or just something to sing along to in the car, I think you'll love it.";
+    String textThree =
+        "So what are you waiting for? Download MusicMate today and take your music listening experience to the next level.";
+    String textFour = "Douwnload Here : https:\\musicmate.admin.in";
+    String content = "$textOne \n $textTwo \n $textThree \n $textFour";
+
+    await Share.share(
+      content,
+      subject: "MusicMate",
+    );
   }
 
   @override
@@ -67,11 +85,13 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                           ),
                           child: IconButton(
                               onPressed: () {
-                                LocalStorage().storeData(
-                                    "string", "dashboard_index", "1");
-                                Navigator.pushNamed(
+                                Navigator.pushReplacement(
                                   context,
-                                  "dashboard",
+                                  MaterialPageRoute(
+                                    builder: (context) => const Dashboard(
+                                      naviIndex: 1,
+                                    ),
+                                  ),
                                 );
                               },
                               icon: Icon(
@@ -107,23 +127,33 @@ class _PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                               ),
                               PopupMenuItem(
                                 value: 2,
+                                child: Text('Share Room'),
+                              ),
+                              PopupMenuItem(
+                                value: 3,
                                 child: Text('Leave Room'),
                               )
                             ],
                             onSelected: (value) {
                               if (value == 1) {
-                                LocalStorage().storeData(
-                                    "string", "dashboard_index", "1");
-                                Navigator.pushNamed(
+                                Navigator.pushReplacement(
                                   context,
-                                  "dashboard",
+                                  MaterialPageRoute(
+                                    builder: (context) => const Dashboard(
+                                      naviIndex: 1,
+                                    ),
+                                  ),
                                 );
                               } else if (value == 2) {
-                                LocalStorage().storeData(
-                                    "string", "dashboard_index", "1");
-                                Navigator.pushNamed(
+                                shareApp("Poo Avizhum");
+                              } else if (value == 3) {
+                                Navigator.pushReplacement(
                                   context,
-                                  "dashboard",
+                                  MaterialPageRoute(
+                                    builder: (context) => const Dashboard(
+                                      naviIndex: 1,
+                                    ),
+                                  ),
                                 );
                               }
                             },

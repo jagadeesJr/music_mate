@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:music_mate/screens/registration/registration_screen.dart';
 import 'pageview.dart';
 import '../../globalaccess/applib/applib.dart';
 
@@ -14,7 +15,6 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
   dynamic currentIndexPage = 0.0;
   dynamic pageLength = 4;
   PageController pageController = PageController();
-
   DateTime preBackPress = DateTime.now();
 
   Future<bool> onBackButtonPressed() async {
@@ -116,7 +116,14 @@ class GoWidget extends StatelessWidget {
             ),
             child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "register");
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterScreen(),
+                    ),
+                  );
+                  LocalStorage()
+                      .storeData("string", "walk_through", "completed");
                   //     ScaffoldMessenger.of(context)
                   // ..hideCurrentSnackBar()
                   // ..showSnackBar(toasterMessage("Going to Start Page.","assets/images/go_image.gif"));

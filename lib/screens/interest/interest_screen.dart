@@ -14,20 +14,20 @@ class _InterestScreenState extends State<InterestScreen> {
   List selectSinger = [];
 
   Future<bool> onBackButtonPressed() async {
-    // Navigator.pushNamed(context, "dashboard");
     String screenType =
         await LocalStorage().getData('string', 'interestback') ?? "";
 
     if (screenType.isEmpty) {
     } else {
-      LocalStorage().storeData("string", "dashboard_index", "2");
-      if(mounted){
-            Navigator.pushNamed(
+      if (mounted) {}
+      Navigator.pushReplacement(
         context,
-        "dashboard",
+        MaterialPageRoute(
+          builder: (context) => const Dashboard(
+            naviIndex: 2,
+          ),
+        ),
       );
-      }
-  
     }
     return false;
   }

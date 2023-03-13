@@ -7,17 +7,26 @@ Future<String> validateSelection(searchBar, selectSinger, context) async {
     ..hideCurrentSnackBar()
     ..showSnackBar(toasterMessage(
         "Select any three favorite's.", "assets/icons/warning.png"));
-  // Navigator.pushNamed(context, "dashboard");
   String screenType =
       await LocalStorage().getData('string', 'interestback') ?? "";
 
   if (screenType.isEmpty) {
-    Navigator.pushNamed(context, "dashboard");
-  } else {
-    LocalStorage().storeData("string", "dashboard_index", "2");
-    Navigator.pushNamed(
+    Navigator.pushReplacement(
       context,
-      "dashboard",
+      MaterialPageRoute(
+        builder: (context) => const Dashboard(
+          naviIndex: 0,
+        ),
+      ),
+    );
+  } else {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const Dashboard(
+          naviIndex: 2,
+        ),
+      ),
     );
   }
 

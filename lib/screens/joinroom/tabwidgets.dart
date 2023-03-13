@@ -35,10 +35,12 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   ),
                   InkWell(
                       onTap: () async {
-                        LocalStorage().removeOneData(
-                          "dashboard_index",
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlayScreen(),
+                          ),
                         );
-                        Navigator.pushNamed(context, "play_screen");
                       },
                       child: const Icon(Icons.visibility, color: Colors.white)),
                   SizedBox(
@@ -46,10 +48,14 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                   ),
                   InkWell(
                       onTap: () async {
-                        LocalStorage().removeOneData(
-                          "dashboard_index",
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Dashboard(
+                              naviIndex: 0,
+                            ),
+                          ),
                         );
-                        Navigator.pushNamed(context, "dashboard");
                       },
                       child: const Icon(Icons.edit, color: Colors.white)),
                   SizedBox(
@@ -66,7 +72,15 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                               );
                             });
                       },
-                      child: const Icon(Icons.delete, color: Colors.white))
+                      child: const Icon(Icons.delete, color: Colors.white)),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical! * 2,
+                  ),
+                  InkWell(
+                      onTap: () async {
+                        shareApp("Mazhaik Kuruvi");
+                      },
+                      child: const Icon(Icons.share, color: Colors.white)),
                 ],
               )),
         ),
@@ -186,7 +200,8 @@ class _CarouselWidgetState extends State<CarouselWidget> {
 class ContainerVerticalWidgets extends StatelessWidget {
   final String itemData;
   final int index;
-  const ContainerVerticalWidgets({super.key, required this.itemData,required this.index});
+  const ContainerVerticalWidgets(
+      {super.key, required this.itemData, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -223,16 +238,17 @@ class ContainerVerticalWidgets extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-
+                  InkWell(
+                      onTap: () {
+                        shareApp("Jalabula Jung uh");
+                      },
+                      child: const Icon(Icons.share, color: Colors.white)),
+                  SizedBox(
+                    width: SizeConfig.blockSizeHorizontal! * 2,
+                  ),
                   InkWell(
                       onTap: () {},
-                      child: const Icon(Icons.my_library_music_rounded,
-                          color: Colors.white)),
-                      SizedBox(width: SizeConfig.blockSizeHorizontal! * 2,),
-                          InkWell(
-                      onTap: () {
-                      },
-                      child: Icon(Icons.favorite,color: Colors.white))
+                      child: const Icon(Icons.favorite, color: Colors.white))
                 ],
               ),
               Text("Yuvean Shankar raja hits Yuvean Shankar raja hits",
@@ -300,72 +316,84 @@ class ContainerVerticalWidgets extends StatelessWidget {
                                 fontSize: SizeConfig.blockSizeVertical! * 2.3)),
                       ],
                     ),
-                    index==1?ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          elevation: 6,
-                          backgroundColor: Colors.red.withOpacity(0.5),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(4)))),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                SizeConfig.blockSizeHorizontal! * 0, 0, 8, 0),
-                            child: Icon(
-                              Icons.headset_off_outlined,
-                              color: Colors.red,
-                              size: SizeConfig.blockSizeVertical! * 2.3,
+                    index == 1
+                        ? ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                elevation: 6,
+                                backgroundColor: Colors.red.withOpacity(0.5),
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)))),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      SizeConfig.blockSizeHorizontal! * 0,
+                                      0,
+                                      8,
+                                      0),
+                                  child: Icon(
+                                    Icons.headset_off_outlined,
+                                    color: Colors.red,
+                                    size: SizeConfig.blockSizeVertical! * 2.3,
+                                  ),
+                                ),
+                                Text(
+                                  'Full',
+                                  style: TextStyle(
+                                    color: Colors.red.withOpacity(0.9),
+                                    fontFamily: "Olimpos_bold",
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.3,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                elevation: 6,
+                                backgroundColor: Colors.green.withOpacity(0.5),
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)))),
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PlayScreen(),
+                                ),
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      SizeConfig.blockSizeHorizontal! * 0,
+                                      0,
+                                      8,
+                                      0),
+                                  child: Icon(
+                                    Icons.music_note_outlined,
+                                    color: Colors.green,
+                                    size: SizeConfig.blockSizeVertical! * 2.3,
+                                  ),
+                                ),
+                                Text(
+                                  'Join now',
+                                  style: TextStyle(
+                                    color: Colors.green.withOpacity(0.8),
+                                    fontSize:
+                                        SizeConfig.blockSizeVertical! * 2.3,
+                                    fontFamily: "Olimpos_bold",
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            'Full',
-                            style: TextStyle(
-                              color: Colors.red.withOpacity(0.9),
-                              fontFamily: "Olimpos_bold",
-                              fontSize: SizeConfig.blockSizeVertical! * 2.3,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ):  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          elevation: 6,
-                          backgroundColor:Colors.green.withOpacity(0.5),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(4)))),
-                      onPressed: () {
-                        LocalStorage().removeOneData(
-                          "dashboard_index",
-                        );
-                        Navigator.pushNamed(context, "play_screen");
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                SizeConfig.blockSizeHorizontal! * 0, 0, 8, 0),
-                            child: Icon(
-                              Icons.music_note_outlined,
-                              color:Colors.green,
-                              size: SizeConfig.blockSizeVertical! * 2.3,
-                            ),
-                          ),
-                          Text(
-                            'Join now',
-                            style: TextStyle(
-                              color: Colors.green.withOpacity(0.8),
-                              fontSize: SizeConfig.blockSizeVertical! * 2.3,
-                              fontFamily: "Olimpos_bold",
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -373,4 +401,20 @@ class ContainerVerticalWidgets extends StatelessWidget {
           ));
     });
   }
+}
+
+shareApp(String songname) async {
+  String textOne =
+      "Hey everyone! I'm excited to share $songname, with you all. It's been a labor of love and I'm so proud of how it turned out.";
+  String textTwo =
+      "I've poured my heart and soul into this song, and I hope it resonates with you. Whether you're looking for a song to add to your workout playlist or just something to sing along to in the car, I think you'll love it.";
+  String textThree =
+      "So what are you waiting for? Download MusicMate today and take your music listening experience to the next level.";
+  String textFour = "Douwnload Here : https:\\musicmate.admin.in";
+  String content = "$textOne \n $textTwo \n $textThree \n $textFour";
+
+  await Share.share(
+    content,
+    subject: "MusicMate",
+  );
 }

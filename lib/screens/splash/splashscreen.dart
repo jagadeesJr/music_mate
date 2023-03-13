@@ -14,7 +14,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, 'walk_through');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WalkthroughScreen(),
+        ),
+      );
     });
     checkTimer(context);
   }
@@ -29,10 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
             builder: (context) => const NoInternet(),
           ),
         );
-      }else{
+      } else {
         checkTimer(context);
       }
-      
     });
   }
 
