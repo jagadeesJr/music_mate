@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         fontFamily: "Olimpos_light",
         primarySwatch: Colors.indigo,
       ),
-      home: const SplashScreen(),
+      home: const Aboutus(),
     );
   }
 }

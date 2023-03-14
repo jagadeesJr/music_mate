@@ -157,7 +157,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                   InkWell(
                                       onTap: () {},
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             horizontal: 5, vertical: 2),
                                         decoration: const BoxDecoration(
                                           color: Color(0xFF635985),
@@ -174,15 +174,15 @@ class _MyFavoritesState extends State<MyFavorites> {
                                                   2),
                                         ),
                                       )),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   InkWell(
                                       onTap: () {},
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             horizontal: 5, vertical: 2),
                                         decoration: BoxDecoration(
                                           color: Colors.grey.withOpacity(0.5),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius:const BorderRadius.all(
                                               Radius.circular(5)),
                                         ),
                                         child: Text(
@@ -195,7 +195,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                                   2),
                                         ),
                                       )),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                   InkWell(
                                       onTap: () {},
                                       child: Container(

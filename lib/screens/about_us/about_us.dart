@@ -29,6 +29,7 @@ class _AboutusState extends State<Aboutus> {
       return WillPopScope(
           onWillPop: onBackButtonPressed,
           child: Scaffold(
+              backgroundColor: Colors.indigo[50],
               appBar: AppBar(
                 toolbarHeight: SizeConfig.blockSizeVertical! * 12,
                 shape: const RoundedRectangleBorder(
@@ -68,6 +69,35 @@ class _AboutusState extends State<Aboutus> {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical! * 1,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                            onTap: () {},
+                            child: const Icon(Icons.thumb_up_alt,
+                            color:Colors.grey)),
+                        SizedBox(
+                          width: SizeConfig.blockSizeHorizontal! * 1,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              showDialog(
+                                  barrierColor: Colors.black38,
+                                  context: context,
+                                  barrierDismissible: true,
+                                  builder: (BuildContext context) {
+                                    return const Center(
+                                      child: RatingWidget(),
+                                    );
+                                  });
+                            },
+                            child: const Icon(Icons.star,
+                            color:Colors.grey)),
+                        SizedBox(
+                          width: SizeConfig.blockSizeHorizontal! * 3,
+                        ),
+                      ],
+                    ),
                     Padding(
                       padding: EdgeInsets.fromLTRB(
                           SizeConfig.blockSizeHorizontal! * 5,
@@ -97,7 +127,7 @@ class _AboutusState extends State<Aboutus> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: SizeConfig.blockSizeVertical! * 3,
-                                fontFamily: 'Olimpos_italic_light'),
+                                fontFamily: 'Olimpos_bold'),
                           ),
                           Text(
                               "It's hard to know which came first Music or Musician.\n",
@@ -126,32 +156,6 @@ class _AboutusState extends State<Aboutus> {
                                 fontFamily: 'Olimpos_light',
                                 color: Colors.blue[900],
                               )),
-                          // RichText(
-                          //     text: TextSpan(
-                          //         style: TextStyle(
-                          //           fontSize: SizeConfig.blockSizeVertical! * 2,
-                          //           fontFamily: 'Olimpos_italic_light',
-                          //           color: Colors.black,
-                          //         ),
-                          //         children: [
-                          //       TextSpan(
-                          //           text:
-                          //               "It's hard to know which came first Music or Musician.\n",
-                          //           style: TextStyle(
-                          //             color: Colors.red,
-                          //           )),
-                          //       TextSpan(
-                          //         text:
-                          //             "There are too much dated music out there which talks about the inner emotion of oneself. Many of them simply share the endless emotion of self-being. Today I wanted to go a step further and bring you in on some hard-hitting strategies that will gain you more addiction as well as relief and that work now. Join your beloved ones. \n",
-                          //       ),
-                          //       TextSpan(
-                          //           text:
-                          //               "Shout out with the low maintenance friends, the one who don’t talk to for months because you both are busy in life but when you meet up, there’s nothing but music... ",
-                          //           style: TextStyle(
-                          //             color: Colors.blue[900],
-                          //           ))
-                          //     ])
-                          //     ),
                           SizedBox(
                             height: SizeConfig.blockSizeVertical! * 2,
                           ),
@@ -322,21 +326,13 @@ class _AboutusState extends State<Aboutus> {
     );
   }
 
-
-
-
-
-
-    _launchURL(url) async {
+  _launchURL(url) async {
     const url = 'https://bit.ly/3BvLFo4';
-   if (!await launchUrl(
+    if (!await launchUrl(
       Uri.parse(url),
       mode: LaunchMode.externalApplication,
     )) {
       throw Exception('Could not launch $url');
     }
   }
-
-
-
 }
